@@ -11,12 +11,53 @@
     <ol>
             <li>The internet is millions of computers connect by thousands of networks while the world wide web is billions of pages that can be accessed through the internet. A collection of related web pages.</li>
             <li>HTML lets you create the structure of a website. CSS lets you make the website look nice. JavaScript lets you change HTML and CSS</li>
-            <li>An HTML element is defined by a start tag, some content, and an end tag: <!-- <tagname>Content goes here...</tagname> --> </li>
-        <ul>
-            <li>The <!-- <head> --> element is a container for metadata (data about data) and is placed between the <!-- <html> tag and the <body> --> tag. HTML metadata is data about the HTML document. Metadata is not displayed.</li>
+            <li>An HTML element is defined by a start tag, some content, and an end tag: tagname Content goes here.../tagname</li>
+        <li><ul>
+            <li>The head element is a container for metadata (data about data) and is placed between the html tag and the body tag. HTML metadata is data about the HTML document. Metadata is not displayed.</li>
             <li>The <html> tag represents the root of an HTML document. The <html> tag is the container for all other HTML elements (except for the <!DOCTYPE> tag).</li>
-            <li>The <body> tag defines the document's body. The <body> element contains all the contents of an HTML document, such as headings, paragraphs, images, hyperlinks, tables, lists, etc. Note: There can only be one <body> element in an HTML document.</li>    
+            <li>The <body> tag defines the document's body. The <body> element contains all the contents of an HTML document, such as headings, paragraphs, images, hyperlinks, tables, lists, etc. Note: There can only be one <body> element in an HTML document.</li>
+        </ul></li>
+            <li>All HTML elements can have attributes. Examples are: 
+                <ul>
+                    <li>The href attribute of a specifies the URL of the page the link goes to.</li>
+                    <li>The src attribute of img specifies the path to the image to be displayed.</li>
+                    <li>The width and height attributes of img provide size information for images.</li>    
+                </ul>
+            </li>
+            <li>Together, HTML, CSS, and JavaScript make up the essential building blocks of websites, with CSS controlling a page's appearance, and JavaScript programming its functionality. You can think of HTML as providing the bones of a web page, while CSS provides the skin, and JavaScript provides the brains. Technically this code will work but since there are no additional tags and elements used its a very basic (not pleasing to the eye) site.</li>
+            <li>A block-level element always starts on a new line and takes up the full width available. An inline element does not start on a new line and it only takes up as much width as necessary.Block items respect width and height Inline items don't</li>
+            <li>HTML tags should be “nested” in a proper order, meaning that the tag opened most recently is always the next tag to close. examples are in my lists i have an Unordered List nested in my Ordered List</li>
+            <li>Hence Semantics defines the meaning of words and phrases, i.e. Semantic elements= elements with a meaning. Semantic elements have a simple and clear meaning for both, the browser and the developer. The benefit of writing semantic HTML stems from what should be the driving goal of any web page: the desire to communicate. By adding semantic tags to your document, you provide additional information about that document, which aids in communication.</li>
+            <li>
+                <ul>
+                    <li>The header element represents a container for introductory content or a set of navigational links. A header element typically contains: one or more heading elements (h1-h6)</li>
+                    <li>In general, a footer is an area at the bottom of a document page containing data common to other pages. The information in footers may include page numbers, creation dates, copyrights, or references that appears on a single page, or on all pages. 2.</li>
+                    <li>The main tag specifies the main content of a document. The content inside the main element should be unique to the document. It should not contain any content that is repeated across documents such as sidebars, navigation links, copyright information, site logos, and search forms.</li>
+                    <li>The nav tag is used for declaring the navigational section in HTML documents. Websites typically have sections dedicated to navigational links, which enables users to navigate the site. These links can be placed inside a nav tag.</li>
+                    <li>section is a new HTML 5 element that defines an important section of a document. It can be used within articles, in the header or footer, or to define navigation. If a part of the content deserves its own heading, and that heading would be listed in a theoretical or actual table of contents, it should be placed in a section.</li>
+                    <li>The aside element is used to identify content that is related to the primary content of the webpage, but does not constitute the primary content of the page. Author information, related links, related content, and advertisements are exampes of content that may be found in an aside element.</li>
+                    <li>The article element identifies a self-contained piece of content which could theoretically be distributed to other websites and platforms as a stand-alone unit. The article element is a good choice to contain entire blog posts, news articles, and similar content.</li>
+                </ul>
+            </li>
 
+            <h3>headings</h3>
+            <li>Importance of Headings. HTML headings provide valuable information by highlighting important topics and the structure of the document, so optimize them carefully to improve user engagement. Don't use headings to make your text look BIG or bold. The headers are essential for search engines since they are used to identify keywords that have a leading role in the content and format of the website. Headers usually summarize the content, and therefore it is recommended to use relevant keywords.</li>
+            <li><h1>Headings Opdrachten</h1><h1>Heading 1</h1><h2>Heading 2</h2><h3>Heading 3</h3><h4>Heading 4</h4><h5>Heading 5</h5><h6>Heading 6</h6></li>
+            <h2>Paragraphs</h2>
+            <li>The PARAGRAPH tag p, is used to write paragraphs in HTML. It gives a break in the content and starts a new paragraph. It gives a space of two line spaces between two paragraphs.</li><p>This is an example of a paragraph</p>               
+            <li>If u use multiple paragraphs for your text, you can have sentances start on a new line(as paragraphs are block items) It also allows you to select different styles for different paragraphs.</li>
+            <li><h1>Mijn eerste website</h1><h2>Mijn eerste subkop</h2><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam veritatis doloribus suscipit labore eveniet, facilis pariatur? Amet ducimus blanditiis asperiores, nobis temporibus nulla eos porro facere molestias rem, expedita totam?</p>
+            <h2>Mijn tweede subkop</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sunt debitis dolore vitae, ab corrupti quibusdam. Autem, cum velit, voluptatibus quisquam esse vitae culpa error exercitationem eaque molestiae illo cupiditate.</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt provident totam ad! Dicta fugit nostrum suscipit laboriosam eaque. Inventore ullam aperiam debitis ut? Asperiores ipsam officia, placeat illo minima est?</p></li>
+            <li><h1>Mijn eerste website</h1><h2>Mijn eerste subkop</h2><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam veritatis doloribus suscipit labore eveniet, facilis pariatur? Amet ducimus blanditiis asperiores, nobis temporibus nulla eos porro facere molestias rem, expedita totam?</p>
+            <h2>Mijn tweede subkop</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sunt debitis dolore vitae, ab corrupti quibusdam. Autem, cum velit, voluptatibus quisquam esse vitae culpa error exercitationem eaque molestiae illo cupiditate.</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt provident totam ad! Dicta fugit nostrum suscipit laboriosam eaque. Inventore ullam aperiam debitis ut? Asperiores ipsam officia, placeat illo minima est?</p>
+            <hr>
+            <h3>Footer</h3><p>deze website is gebouwd vanuit de Techgrounds Academy</p></li>
+            <h3>Footer</h3><p>deze website is gebouwd vanuit de <a href="https://techgrounds.nl/" target="blank">Techgrounds Academy</a></p>
+            <li>I found 9 possible attributes for links online, they are:<ul>
+                <li>download</li>
+                </ul></li>    
     </ol>
     
 </body>
