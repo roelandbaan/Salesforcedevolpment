@@ -36,7 +36,7 @@
                 <br>
             <li>HTML tags should be “nested” in a proper order, meaning that the tag opened most recently is always the next tag to close. examples are in my lists i have an Unordered List nested in my Ordered List</li>
                 <br>
-            <li>Hence Semantics defines the meaning of words and phrases, i.e. Semantic elements= elements with a meaning. Semantic elements have a simple and clear meaning for both, the browser and the developer. The benefit of writing semantic HTML stems from what should be the driving goal of any web page: the desire to communicate. By adding semantic tags to your document, you provide additional information about that document, which aids in communication.</li>
+            <li>Semantics defines the meaning of words and phrases, i.e. Semantic elements= elements with a meaning. Semantic elements have a simple and clear meaning for both, the browser and the developer. The benefit of writing semantic HTML stems from what should be the driving goal of any web page: the desire to communicate. By adding semantic tags to your document, you provide additional information about that document, which aids in communication.</li>
             <br>
             <li>
                 <ul>
@@ -107,9 +107,20 @@
         <li>See the images on the <a href="AntwoordenHTML.html#Top">top</a> and <a href="AntwoordenHTML.html#Bottom">bottom</a> of the page</li>
         <br>
         <li>The required alt attribute specifies an alternate text for an image, if the image cannot be displayed. The alt attribute provides alternative information for an image if a user for some reason cannot view it (because of slow connection, an error in the src attribute, or if the user uses a screen reader).</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
+        <li><audio controls src="salamisound-8469902-loud-firecrackers-shot-or.mp3">
+                Your browser does not support the<code>audio</code> element.</audio><audio src="salamisound-8469902-loud-firecrackers-shot-or.mp3"></audio></li>
+        <li><p>An advantage of using the source tag is that u can add multiple source tags and each element can link to a different audio file. The browser you are using will use the first recognized format.</p>
+            <audio controls>
+                <source src="https://www.mediacollege.com/downloads/sound-effects/animals/bird/canary/canary.mp3" type="audio/mpeg">
+                <p>Your browser does not support the <code>audio</code> element. Here is a <a href="https://www.mediacollege.com/downloads/sound-effects/animals/bird/canary/canary.mp3">link</a> to the audio file.</p>
+            </audio>  
+        </li>
+            <br>
+        <li><video width="320" height="240" controls>
+            <source src="Video Of Funny Cat.mp4" type="video/mp4">
+        </video>
+        <p>An advantage of using the source tag is that u can add multiple source tags and each element can link to a different video file. The browser you are using will use the first recognized format.</p>
+    </li>
         <h2>Lijsten</h2>
         <li><ol>
             <li>item 1</li>
@@ -216,8 +227,8 @@
             <li>
                 <form>
                     <label for="Email"></label>
-                    <input type="email" id="Email" name="Email" placeholder="Enter your email adress">
-                    <input type="submit" id="Eamil" name="Email" value="Send">
+                    <input type="email" placeholder="Enter your email adress">
+                    <input type="submit" value="Send">
                 </form>
                 <p>Als je geen geldig email adres invoert en je drukt op send dan krijg je de pop-up: Voer een E-mailadres in</p>
             </li>
@@ -233,7 +244,7 @@
                 <input type="text" placeholder="voornaam">
                 <br>
                 <br>
-                <label for="GeboorteD">Geboortedatum</label>
+                <label>Geboortedatum</label>
                 <input type="date">
                 <br>
                 <br>
@@ -256,9 +267,212 @@
                 <input type="reset" value="reset">
                 </form> 
             </li>
+                <br>
             <li><label>welke smaak</label>
-            <input select=
+            <select>
+                <option>Vanille</option>
+                <option>Chocolate</option>
+                <option>Pistache</option>
+            </select>
         </li>
+            <br>
+        <li>
+            <ul>
+                <li>Dropdown Lists can be used when u have a low number of variables to choose from, i chose ice-cream flavor in my example but it could be to select the a color of an item, size for shirts:large, medium, small etc. Only the selected variable will be displayed</li>
+                <li>Radio Buttons perform the same function as a dropdown list in my opinion, its usually used on forms to specify what is relevant to you from a relative small number of choices. All choices are permenantly displayed</li>
+                <li>Checkboxes are most commenly used as a prerequisite before u can continue. For instance agreeing to an liscense agreement, It is basically a Boolean statement(true/false).</li>
+            </ul>
+        </li>
+        <br>
+        <li>
+            <form>
+                <fieldset>
+                    <legend>Reserveringen voor Tennisclub 't Shutteltje</legend>
+                        <br>
+                    <label>Achternaam:</label>
+                    <input type="text" placeholder="achternaam">
+                        <br>
+                        <br>
+                    <label>Voornaam:</label>
+                    <input type="text" placeholder="voornaam">
+                        <br>
+                        <br>
+                    <p>Heeft u een lidmaatschap?</p>
+                    <label> Ja </label> 
+                    <input type="radio">
+                    <label> Nee </label>
+                    <input type="radio">
+                        <br>
+                        <br>
+                    <label>Uw Emailadres</label>
+                    <input type="email" placeholder="emailadres">
+                        <br>
+                        <br>
+                    <label>Waarvoor wilt u reserveren? </label>    
+                    <select>
+                        <option>Tafeltennis</option>
+                        <option>Badminton</option>
+                        <option>Squash</option>
+                    </select>
+                    <br>
+                    <br>
+                    <label> Datum </label>
+                    <input type="date">
+                    <label> en tijdstip waarvoor u wilt reserveren </label>
+                    <input type="time">
+                    <br>
+                    <br>
+                    <label>Als u deze box aanvinkt gaat u akkoord met onze reserverings voorwaardes (verplicht)</label>
+                    <input type="checkbox">    
+                </fieldset>
+                <label></label>
+                <input type="submit" value="Verzend">
+            </form>
+        </li>
+            <br>
+        <li>
+            <form>
+                <fieldset>
+                    <legend>Boek reserveren</legend>
+                    <label>Voornaam:</label>
+                    <input type="text" placeholder="voornaam">
+                        <br>
+                        <br>
+                    <label>Achternaam:</label> 
+                    <input type="text" placeholder="achternaam">
+                        <br>
+                        <br>
+                    <label>Telefoon</label>
+                    <input type="tel" placeholder="telefoonnummer">
+                        <br>
+                        <br>
+                    <label>Email</label>
+                    <input type="email" placeholder="email">
+                        <br>
+                        <br>
+                    <label>Titel(s) van het(de) boek(en)</label>  
+                    <br><input type="text" placeholder="titel"><br><input type="text" placeholder="titel"><br><input type="text" placeholder="titel"><br><input type="text" placeholder="titel"><br><input type="text" placeholder="titel">
+                        <br>
+                        <br>
+                    <label>Aantal boeken te reserveren</label>
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>      
+                </fieldset>
+                <label></label>
+                <input type="submit" value="Verzend">
+            </form>
+        </li>
+            <br>
+            <br>
+        <li><form>
+            <fieldset>
+            <legend>Registreer uw schaakteam</legend>
+                <br>
+            <label>Teamnaam:</label>
+            <input type="text" value="teamnaam">
+                <br>
+                <br>
+            <label>Aantal schakers im het team(min 4 max 6)</label>
+            <select>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+            </select>
+                <br>
+            <p>Wilt u zich opgeven voor de ochtend of middag sessie?</p>
+            <label>Ochtend</label>
+            <input type="radio">
+            <label>Middag</label>
+            <input type="radio"> 
+                <br>
+            <p>Wij wensen u alvast veel schaakplezier!</p>       
+            </fieldset>
+            <label></label>
+            <input type="submit" value="Verzend">
+        </form></li>
+            <br>
+        <li>The following elements are used to make tables in HTML:
+            <ul>
+                <li>The /table/ tag defines an HTML table. An HTML table consists of one /table/ element and one or more /tr/, /th/, and /td/ elements.</li>
+                <li>The /thead/ tag is used to group header content in an HTML table. The /thead/ element is used in conjunction with the /tbody/ and /tfoot/ elements to specify each part of a table (header, body, footer). Browsers can use these elements to enable scrolling of the table body independently of the header and footer.</li>
+                <li>The Table Body element( /tbody/ ) encapsulates a set of table rows (/tr/ elements), indicating that they comprise the body of the /table/.</li>
+                <li>The /tfoot/ tag is used to group footer content in an HTML table. The /tfoot/ element is used in conjunction with the /thead/ and /tbody/ elements to specify each part of a table (footer, header, body).</li>
+                <li>The /th/ tag defines a header cell in an HTML table.</li>
+                <li>The /tr/ tag defines a row in an HTML table. A /tr/ element contains one or more /th> or /td/ elements.</li>
+                <li>The /td/ tag defines a standard data cell in an HTML table.</li>
+            </ul>
+        </li>
+        <br>
+        <li>
+            <table>
+                <tr>
+                    <th>Voornaam</th>
+                    <th>Achternaam</th>
+                    <th>Leeftijd</th>
+                    <th>Telefoonnr</th>
+                </tr>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>41</td>
+                    <td>+31 12345678</td>
+                </tr>
+                <tr>
+                    <td>Steven</td>
+                    <td>Smith</td>
+                    <td>32</td>
+                    <td>+31 12345678</td>
+                </tr>
+                <tr>
+                    <td>Alexander</td>
+                    <td>Beave</td>
+                    <td>16</td>
+                    <td>+31 12345678</td>
+                </tr>
+            </table>
+        </li> 
+            <br>
+        <li>
+            <table>
+                <tr>
+                    <th>MA</th>
+                    <th>DI</th>
+                    <th>WO</th>
+                    <th>DO</th>
+                    <th>VR</th>
+                </tr>
+                <tr>
+                    <td>Afspraak met tandarts</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Sporten</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Huiswerk maken</td>
+                    <td>werken</td>
+                    <td>werken</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Afspraak met tandarts</td>
+                    <td></td>
+                    <td></td>
+                    <td>Werken</td>
+                    <td>Bij vrienden</td>
+                </tr>
+            </table>
+        </li>
+            <br>
+        <li>
+            
+        </li>               
         </ol>
 
         <img id="Bottom" src="techgroundsIMG.png" alt="this is a relative path"> 
