@@ -1,0 +1,51 @@
+.box1 {
+    width: 66em;
+    height: 18em;
+    background-color: lightgray;
+    text-align: center;
+    margin-bottom: 3em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.center {
+    text-align: center;
+}
+
+.button {
+    border-radius: 4px;
+    background-color: blue;
+    border: none;
+    color:white; 
+}
+
+.buttonklein {
+    padding: 4px 7px;
+}
+
+.boxflex {
+    display: inline-flex;
+    flex-direction: row;
+    width: 66em;
+    height: 21em;
+    background-color: lightgray;
+    text-align: center;
+    padding: 1.5em 1em;
+}
+
+.smallbox {
+    width: 15em;
+    height: 20em;
+    background-color: white;
+}
+
+.img {
+    width: 100%;
+}
+
+.h1 {
+    padding-top: 1.5em;
+}
+.button2 {
+        
+}
