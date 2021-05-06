@@ -1,0 +1,76 @@
+
+.background {
+    background-color: lightgray;
+    height: 46em;
+    width: 67em;
+    padding-left: 6em;
+    margin: 5%;
+}
+
+.inline {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.img {
+    float: left;
+    height: 80%;
+    width: 12em;
+    margin: 1.5em;
+}
+
+.pizzaboxtop {
+    background-color: white;
+    width: 29em;
+    height: 16em;
+    margin-right: 1.5em;
+    margin-top: 1.5em;
+    float: left;
+ }
+
+ 
+ /* DE PIZZABOXBOTTOM CLASS WAS NIET NODIG ACHTERAF GEZIEN */
+ 
+ .pizzaboxbottom {
+    background-color: white;
+    width: 29em;
+    height: 16em;
+    margin-right: 1.5em;
+    float: right;
+    margin-top: 1.5em;
+    margin-right: 6em;
+ }
+
+.centeralign {
+    text-align: center;
+    margin-right: 4em;
+    margin-bottom: 3em;
+}
+
+p {
+    font-style: italic;
+}
+
+h1 {
+    color: red;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 1.75em;
+}
+
+h3 {
+    color: red;
+}
+
+button {
+    border-radius: 2px;
+    background-color: lightgray;
+    height: 2.5em;
+    width: 10em;
+    border: none;
+    cursor: pointer;
+}
+
+
