@@ -1,0 +1,112 @@
+h1,div {
+    text-align: center;
+}
+
+.dot{
+    border-radius: 50%;
+    height: 7px;
+    width: 7px; 
+    background-color: lightgray;
+    display: inline-block;
+    padding: 2px 2px   
+}
+
+.Iphonevorm{
+    width: 16em;
+    height: 33em;
+    border: 1px solid black;
+    border-radius: 25px;
+    display: inline-block;
+    margin: 0.5em;
+}
+
+.dotvorm{
+    border-radius: 25px;
+    border: 1px solid black;
+    width: 5em;
+    margin-top: 8px;
+    margin-left: 33%;
+}
+
+.img2{
+    height: 50%;
+    width: 95%;
+}
+
+.roundbutton{
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    background-color: black;
+    border: none;
+    margin-top: 13px;
+}
+
+p{
+    font-weight: bold; 
+    background-color: rgb(233, 91, 91);
+    margin: 8px 5px;
+    text-transform: uppercase;
+    margin:10px;
+    text-align: center;
+}
+
+.dwarsvorm{
+    width: 30.5em;
+    height: 14em;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 11px;
+    display:flex;
+    flex-direction: row;
+
+}
+
+.dotvorm2{
+    border-radius: 25px;
+    border: 1px solid black;
+    height: 6em;
+    width: 1.5em;
+    padding-top: 20px;
+    padding-left: 5px;
+    margin-top: 3em;
+}
+
+.dot2{
+    border-radius: 50%;
+    height: 6px;
+    width: 6px; 
+    background-color: lightgray;
+    padding: 2px 2px;
+    margin: 6px;
+}
+
+
+.img1{
+    width:6.5em;
+}
+
+.column{
+    display:inline-flex;
+    flex-direction: column;
+    overflow: scroll;
+    margin-left: 7.2em;
+}
+
+.roundbutton2{
+    border-radius: 50%;
+    width: 28px;
+    height: 25px;
+    background-color: black;
+    border: none;
+    margin-top: 7em;
+    margin-left: 7em;
+}
+
+.flex-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100em;
+}
+
+
