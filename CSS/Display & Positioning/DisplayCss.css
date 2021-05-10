@@ -1,14 +1,17 @@
 .sticky {
-    position: -webkit-sticky;
     margin-top: 50px;
-    margin-right: 50px;
+    margin-bottom: 50px;
+    position: sticky;
+    top:0;
 }
 
-.sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
+.stickinthebox {
+    position: fixed;
     margin-top: 50px;
-    padding: 5px;
-    background-color: #db1313;
-  }
+    margin-right: 50px;
+    background-color: red;
+}
+
+.sticky1 {
+    position: fixed;
+}
