@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="opdracht8.css">
+</head>
+<style>
+   
+</style>
+<body>
+    <p>Met Cascade wordt aangegeven dat er trapsgewijs gewerkt wordt,
+       dit komt er op neer dat bij de gelijke prioriteit (specificity) de laatste input de andere styles zal overrulen.
+       De hoogste specifity gaat altijd voor.</p>
+    <p>je hebt daarin 4 klasses gerangshikt van hoog naar laag zijn deze:
+        <br>
+        <div>
+            <ol>
+                <li>inline selectors</li>
+                <li>id selectors</li>
+                <li>class selectors& attribute selectors</li>
+                <li>element selectors</li>
+            </ol> 
+        </div>    
+    In de "opdracht.css" file kun je zien dat er 2 selectors proberen de kleur te beinvloeden, maar omdat de specificity gelijk is (het zijn beide element selectors) zal de laatste input (rood) de anderen overrulen. </p>
+    <p>Met inheritence wordt aangegeven dat child elementen dezelfde style selectors hebben als hun parent element.Sommige elements zoals A voor links hebben standaard inheritence. bijvoorbeeld <a href="http://google.nl" target="blank">deze link naar google.nl</a> zal standaard blauw zijn.</p>
+    <p>Naast de ingebouwde inheritence van bepaalde elementen kun je ook zelf inheritence properties aanmaken voor bepaalde attributen van elementen. dat kan met de volgende commands:
+        <br>
+        <ul>
+            <li>inherit: Sets the property value applied to a selected element to be the same as that of its parent element. Effectively, this "turns on inheritance"</li>
+            <li>initial: Sets the property value applied to a selected element to the initial value(default value)of that property.</li>
+            <li>unset: Resets the property to its natural value, which means that if the property is naturally inherited it acts like inherit, otherwise it acts like initial.</li>
+        </ul>
+    </p>
+    <ul class="oblique-green">
+        <li>deze <a href="opdracht8.css" target="blank">link</a> zal blauw zijn omdat het zijn eigen inheritence properties heeft voor color/onderstreept.</li>
+        <li>deze <a class="unset" href="opdracht8.css" target="blank">link</a> zal groen zijn omdat de unset command wordt toegepast op de kleur van de link en deze nu de color stijl inherit van zijn parent element.</li>
+        <li>deze <a class="initial" href="opdracht8.css" target="blank">link</a> zal zwart zijn omdat het color attribute van de link de waarde initial heeft, hierdoor selecteert hij de default waarde voor het color attribute in dit geval zwart.</li>
+        <li>deze <a class="inherit" href="opdracht8.css" target="blank">link</a> zal groen zijn omdat de het color attribute de value inherit heeft, hierdoor inherit het de stijl van zijn parent element.</li>
+    </ul>
+    <p></p>
+</body>
+</html>

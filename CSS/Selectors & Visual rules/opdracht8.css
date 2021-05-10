@@ -1,0 +1,24 @@
+
+.oblique-green {
+    color:green;
+    font-style: oblique;
+}
+.unset {
+    color: unset;
+}
+
+.initial {
+    color:initial;
+}
+
+.inherit {
+    color:inherit;
+}
+
+div {
+    color:green;
+}
+
+ol {
+    color:red;
+}

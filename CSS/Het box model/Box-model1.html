@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Box-modelCSS.css">
+</head>
+<body>
+    <h1>Box-model explained</h1>
+    
+        <h2>Opdracht 1</h2>
+            <p>The properties of block-boxes are</p>
+                <ul>
+                    <li>The box will break onto a new line.</li>
+                    <li>The box will extend in the inline direction to fill the space available in its container. In most cases this means that the box will become as wide as its container, filling up 100% of the space available.</li>
+                    <li>The width and height properties are respected</li>
+                    <li>Padding, margin and border will cause other elements to be pushed away from the box</li>
+                </ul>
+            <p>The properties of inline boxes are</p>
+                <ul>
+                    <li>The box will not break onto a new line.</li>
+                    <li>The width and height properties will not apply</li>
+                    <li>Vertical padding, margins, and borders will apply but will not cause other inline boxes to move away from the box.</li>
+                    <li>Horizontal padding, margins, and borders will apply and will cause other inline boxes to move away from the box.</li>
+                </ul>
+
+        <h2>Opdracht 2</h2>
+            <p class="bckgrnd">Dit is een block box en neemt de hele breedte in waardoor de volgende box op de volgende regel zit</p>
+            <p class="bckgrnd">In dit block zit <span>inline tekst</span> wat dus niet op de volgende regelkomt te <span>staan</span>.</p>
+
+        <h2>Opdracht 3</h2>
+            <p>One of the properties of the inline elements is that the height and width attributes do not apply. Therefor it will not affect the span tag(unless we change the boxmodel of the span tag from inline to box).</p>
+
+        <h2>Opdracht 4</h2>
+                <ul>
+                    <li>Content box: The area where your content is displayed, which can be sized using properties like width and height.</li>
+                    <li>Padding box: The padding sits around the content as white space; its size can be controlled using padding and related properties.</li>
+                    <li>Border box: The border box wraps the content and any padding. Its size and style can be controlled using border and related properties.</li>
+                    <li>The margin is the outermost layer, wrapping the content, padding and border as whitespace between this box and other elements. Its size can be controlled using margin and related properties.</li>
+                </ul>
+        <div class="container">        
+            <div class="box">    <img src="Screenshot_2021-04-19 The box model - Learn web development MDN.png" alt="Error: Could not load the image"></div>   
+        </div>      
+
+        <h2>Opdracht 5</h2>
+            <p>To make space between the content and the border u use padding as shown in the example above (and in the .box class)</p>
+
+        <h2>Opdracht 6</h2>    
+            <p>To make space between the border and outside of the box you use the margin property. See the examle above.</p>    
+
+        <h2>Opdracht 7</h2>
+            <p class="inlineblock">Dit is de content</p>
+                <ol>
+                    <li> The width of the box is: block-width + margin x2 + padding x2 + Border-width x2 = 100 + 10 + 10 + 10 = 130</li>
+                    <li> The height of the box is: block-height + margin x2 + padding x2 + Border-width x2 = 100 + 10 + 10 + 10 = 130</li>
+                    <li> The width and height refer to the block size and not the box as a whole</li>
+                </ol>
+               
+        <h2>Opdracht 8</h2>
+        <p>If u use the border box, the values of width and height will be the total size of the box and not just the block (to which padding and margin must be added later for the whole box size)</p>                
+
+        <h2>Opdracht 9</h2>
+            <p>Click the<a href="AllePhones.html" target="_blank">link</a>for box-play</p>    
+
+</body>
+</html>

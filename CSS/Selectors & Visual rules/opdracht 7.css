@@ -1,0 +1,32 @@
+/* element selector */
+h1 {
+    color:red;
+}
+
+/* class selector */
+
+.class {
+    color: green;
+}
+
+/* Descendant selector */
+
+div p {
+    color: yellow;
+}
+
+/* child selector */
+
+p:nth-child(3) {
+    color:tomato;
+}
+
+/* adjacent selectors */
+h2 + p {
+    color:teal;
+}
+
+/* general sibling selector */
+h2 ~ p {
+    background-color: wheat;
+}

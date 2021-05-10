@@ -1,0 +1,12 @@
+p:nth-child(1) {
+    color:red;
+}
+ 
+
+div + p {
+    color:green;
+}
+
+div ~ p {
+    font-family:'Courier New', Courier, monospace;
+}
