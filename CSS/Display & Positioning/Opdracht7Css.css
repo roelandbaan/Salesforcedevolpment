@@ -1,0 +1,22 @@
+h1 {
+    position:absolute;
+    top: 20%;
+    right: 15%;
+
+}
+
+span {
+    color: white;
+}
+
+p {
+    color: yellow;
+    position: absolute;
+    top: 27%;
+    right: 20%;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
