@@ -1,0 +1,57 @@
+
+/* .layer1 {
+    position:relative;
+    z-index: 1;
+}
+
+.layer2 {
+    position:absolute;
+    z-index: 2;
+}
+
+ .layer3 {
+    position:absolute;
+    z-index: -1;
+}  */
+
+.redbox1 {
+    position: relative;
+    height:250px;
+    width: 250px;
+    background-color: red;
+    transform: rotate(45deg);
+}
+
+ .redbox2 {
+     position: fixed;
+    height:250px;
+    width: 250px;
+    background-color: red;
+    transform: rotate(85deg);
+    top: 8px;
+    left: 52px;
+} 
+
+
+div {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.redbox1::after {
+    content: "";
+    position: absolute;
+    height:250px;
+    width: 250px;
+    background-color: red;
+    transform: rotate(67.5deg);
+}
+
+.redbox1::before {
+    content: "";
+    position: absolute;
+    height:250px;
+    width: 250px;
+    background-color: red;
+    transform: rotate(90deg);
+}

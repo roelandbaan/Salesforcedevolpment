@@ -2,6 +2,8 @@
     position: relative;
     height: 100px;
     width: 100px;
+    content: "1";
+    color: white;
     background-color: black;
     border-radius: 50%;
     display: inline-block;
@@ -85,4 +87,20 @@ span {
   border-radius: 50%;
   display: inline-block;
   margin-left: 50px;
+}
+
+p {
+  position: relative;
+  color: white;
+}
+
+p::after {
+  content: "";
+  position: absolute;
+  height: 100px;
+    width: 100px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 50px;
 }
