@@ -1,0 +1,24 @@
+
+
+/* .ja {
+    background-image: url(https://dierspecialist.nl/media/Adviesformulier-kat-1000x500.jpg);
+    background-size: cover;
+    text-align: center;
+    padding: 20vh 0;
+    color: white;
+} */
+
+
+.ja::before {
+    position:relative
+}    
+
+.ja{
+    content: "";
+    background-image: url(https://dierspecialist.nl/media/Adviesformulier-kat-1000x500.jpg);
+    background-size: cover;
+    position:absolute;
+    height:500px;
+    width: 500px;
+}
+

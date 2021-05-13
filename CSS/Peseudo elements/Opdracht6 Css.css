@@ -1,0 +1,88 @@
+.circle {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.container {
+    margin-top: 30px;
+  }
+
+  .smallcircle {
+    position: absolute;
+    top: 29px;
+    right: -18px;
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: black;
+  }
+
+ .smallcircle2 {
+    position: absolute;
+    top: 29px;
+    left: -18px;
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: black;
+  }
+
+  h1 {
+      display: inline-block;
+  }
+
+  .smallcircle3 {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    width: 3.5px;
+    height: 3.5px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: white;
+  }
+
+  .smallcircle4 {
+    position: absolute;
+    top: 27px;
+    left: 15px;
+    width: 3.5px;
+    height: 3.5px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: white;
+  }
+
+  .center {
+    width:100%;
+    text-align:center;
+}
+
+span {
+    color: white;
+}
+
+.div1 {
+  position: absolute;
+}
+
+.div1::before {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 50px;
+}

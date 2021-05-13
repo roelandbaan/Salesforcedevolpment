@@ -1,0 +1,33 @@
+button {
+    position: relative;
+    font-size: large;
+    background-color: teal;
+    color: white;
+    width: 400px;
+    height: 40px;
+    border: 10px;
+    border-right-style: solid;
+    border-right-color: rgb(255, 81, 0);
+    border-left-style: solid;
+    border-left-color: rgb(255, 81, 0);
+}
+
+button:after {
+    content: "";
+    background: rgb(255, 81, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 10%;
+  }
+
+  button::before {
+    content: "";
+    background: rgb(255, 81, 0);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 10%;
+  }
