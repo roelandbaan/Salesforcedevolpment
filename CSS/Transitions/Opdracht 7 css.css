@@ -1,0 +1,31 @@
+.tear {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(236, 90, 115);
+    border-radius: 50%;
+    border-top-right-radius: 0;
+    transform: rotate(-45deg);
+    margin-top: 50px;
+    margin-left: 50px;
+    animation-name: traan;
+  animation-duration: 4s;
+  }
+
+  @keyframes traan {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+     
+  }
+  .container {
+      width: 700px;
+      height: 300px;
+      background-color: black;
+      text-align: center;
+
+  }
+
+  body {
+      background-color: black;
+  }
