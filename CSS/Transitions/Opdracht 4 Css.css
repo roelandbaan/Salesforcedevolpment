@@ -1,0 +1,32 @@
+.transitionbox {
+    position: absolute;
+    width: 600px;
+    height:450px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    transition: width 6s, height 6s;
+    align-items: center;
+    display: flex;
+}
+
+.transitionbox:hover {
+    width: 50px;
+    height:50px;
+}
+
+body {
+    background-color: gray;
+}
+
+p {
+    position: relative;
+    margin: 50%;
+}
+
+p::after {
+    content: 2;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}

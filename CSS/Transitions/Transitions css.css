@@ -1,0 +1,12 @@
+.transcolor {
+    transition-property: color ;
+    transition-duration: 8s;
+}
+
+p:hover {
+    color:red;
+}
+
+p {
+    color: green;
+}

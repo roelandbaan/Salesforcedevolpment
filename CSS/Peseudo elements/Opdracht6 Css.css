@@ -71,9 +71,10 @@
     text-align:center;
 }
 
-span {
+/* p {
     color: white;
-}
+    position: absolute;
+} */
 
 .div1 {
   position: absolute;
