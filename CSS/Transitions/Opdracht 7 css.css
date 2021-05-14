@@ -6,7 +6,7 @@
     border-top-right-radius: 0;
     transform: rotate(-45deg);
     margin-top: 50px;
-    margin-left: 50px;
+    margin-left: 250px;
     animation-name: traan;
   animation-duration: 4s;
   }
@@ -26,6 +26,3 @@
 
   }
 
-  body {
-      background-color: black;
-  }

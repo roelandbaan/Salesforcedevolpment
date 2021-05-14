@@ -1,0 +1,209 @@
+html,
+body {
+ max-width: 1200px;
+ margin: auto;
+ font-family: "Space Mono", sans-serif;
+ font-size: 18px;
+ line-height: 1.4em;
+ color: GhostWhite;
+}
+body {
+ background-image: url(https://scx2.b-cdn.net/gfx/news/hires/2019/4-space.jpg);
+ height: 100%;
+ background-attachment: fixed;
+ background-size: cover
+;
+}
+.clearfix
+{
+ clear: both
+;
+}
+/* Title and Description */
+.page-title
+{
+ text-align: center
+;
+ margin: auto
+;
+ line-height: 2em
+;
+}
+.logo
+{
+ height: 80px
+;
+ width: 80px
+;
+ background-image: url(https://i1.sndcdn.com/artworks-j8xjG7zc1wmTeO7b-O6l83w-t500x500.jpg);
+ background-size: contain
+;
+ background-repeat: no-repeat
+;
+ display: inline-block
+;
+ position: relative
+;
+ top: 1em
+;
+}
+.page-title h1
+{
+ display: inline-block
+;
+}
+.main
+{
+ text-align: center
+;
+}
+.page-description
+{
+ font-size: 0.8rem
+;
+ padding: 30px
+;
+}
+.learn-more
+{
+ color: DarkOrange
+;
+ text-decoration: none
+;
+ display: block
+;
+ margin: 25px 0 0 0
+;
+ font-weight: bold
+;
+}
+/* Gallery */
+.gallery
+{
+ display: flex
+;
+ flex-wrap: wrap
+;
+ justify-content: center
+;
+ margin-top: 20px
+;
+}
+.gallery-item
+{
+ margin: 20px
+;
+}
+.gallery-item .thumbnail
+{
+ width: 240px
+;
+ border: 2px solid GhostWhite
+;
+ border-radius: 4px
+;
+}
+/* Footer Navigation */
+nav
+{
+ margin-top: 30px
+;
+}
+nav ul
+{
+ display: block
+;
+}
+nav li
+{
+ display: inline
+;
+ margin: 
+0 20px
+0
+0
+;
+ color: GhostWhite
+;
+}
+nav a
+{
+ line-height: 60px
+;
+ border: 1px solid GhostWhite
+;
+ padding: 7px
+;
+ border-radius: 4px
+;
+ color: DarkOrange
+;
+ text-decoration: none
+;
+}
+.contact-btn
+{
+ cursor: pointer
+;
+ margin: 20px 30px
+;
+ text-align: center
+;
+}
+.contact-btn a:active
+{
+ position: relative
+;
+ bottom: 2px;
+}
+
+@media only screen and (max-width: 480px) {
+    .page-title {
+        width: 270px;
+    } 
+  }
+
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (min-device-height: 480px)
+   {
+    .gallery-item .thumbnail {
+        width: 95%;
+    }
+    h1, h5, .logo {
+        transform: rotate(90deg);
+    }
+   h5, h1 {
+       padding-right: 30px;
+   }
+   h5 {
+    padding-top: 65px;
+}
+  }
+
+  @media (min-resolution: 144dpi) {
+      .logo {
+        background-image: url(https://mymodernmet.com/wp/wp-content/uploads/2019/06/nasa-free-photos-online-5.jpg);
+      }
+  }
+
+  @media only screen and (max-device-width: 480px) and (max-resolution: 140dpi){
+      .page-description {
+          font-size: 20px;
+      }
+  }
+
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (max-device-height: 768px) {
+    h1 {
+      position: fixed;
+      left: 0;
+      top: 300px;
+    } 
+    .gallery {
+        margin-left: 280px;
+    }
+    h5{
+        position: fixed;
+        left: 0;
+        top: 350px;
+  
+    }
+  }
