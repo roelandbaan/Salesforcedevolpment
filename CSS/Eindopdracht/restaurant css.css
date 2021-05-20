@@ -1,0 +1,123 @@
+
+body {
+    background-color: rgb(80, 77, 71);
+}
+
+.header {
+    font-size: 20px;
+    text-align: right;
+    padding-right: 20px;
+    font-style: italic;
+    font-family: 'Brush Script Std', cursive;
+}
+
+.top {
+    position: relative;
+    height: 270px;
+    width: 100%;
+}
+
+.img1 {
+    width:100%;
+    height: 100%;
+    filter: brightness(35%);
+}
+
+.top1 {
+    position: absolute;
+    top: 7%;
+    right: 24.8%;
+    color: cornflowerblue;
+    font-size: 35px;
+    font-family:serif;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.p1 {
+    position: absolute;
+    top: 26%;
+    right: 6%;
+    color: cornflowerblue;
+}
+
+.button1 {
+    position: absolute;
+    background: none;
+    color: cornflowerblue;
+    border-color: rgba(170, 238, 69, 0.589);
+    border-radius: 4px;
+    width:140px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    top:50%;
+    right: 23.4%;
+    box-shadow: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: italic;
+}
+
+.button2 {
+    position: absolute;
+    background: none;
+    color: rgba(170, 238, 69, 0.589);
+    border-color: rgba(170, 238, 69, 0.589);
+    border-radius: 4px;
+    width:140px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    top: 50%;
+    right:12%;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: italic;
+}
+
+.middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.meals {
+    width:250px;
+    height: 500px;
+}
+
+.img2 {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+}
+
+.price {
+    margin-left: 157px;
+}
+
+p {
+    font-style: italic;
+}
+
+b {
+    font-style: italic;
+    font-size: 22px;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;
+    font-style: italic;
+}
+
+.center {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 50px;
+}
+
+a {
+    margin-left: 15px;
+}
+
+.bottom {
+    float: left;
+}
