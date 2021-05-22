@@ -5,6 +5,11 @@ body {
   height: 100%;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
 body {
     background-color: rgb(235, 230, 230);
 }
@@ -262,5 +267,180 @@ flex-direction: row;
 }
 
 .letterbox {
-    
+    position: relative;
+    margin:0;
+    padding:0;
+}
+
+.turquoise1 {
+    color: turquoise;
+    margin-left: 40px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.lightgreen {
+    color:yellowgreen;
+    margin-top:0;
+    padding:0;
+    position: absolute;
+    top:-9px;
+    left:70px;
+}
+
+.lightgreen1 {
+    color:yellowgreen;
+    margin:0;
+    padding:0;
+    padding-top: 10px;
+    position: absolute;
+    top:18px;
+    left:120px;
+    font-size: 300%;
+}
+
+.lightgreen2 {
+    color:yellowgreen;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:0px;
+    left:210px;
+}
+
+.red1 {
+    color:red;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:13px;
+    left:240px;
+    font-size: 150%;
+}
+
+.purple {
+    color:rgb(55, 0, 128);
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:-20px;
+    left:270px;
+    font-size: 280%;
+}
+
+.red2 {
+    color:red;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:30px;
+    left:45px;
+}
+
+.turquoise2 {
+    color: turquoise;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:51px;
+    left:285px;
+}
+
+.turquoise3 {
+    color: turquoise;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:71px;
+    left:92px;
+    font-size: 200%;
+}
+
+.red3 {
+    color: red;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:69px;
+    left:170px;
+    font-size: 180%;
+}
+
+.turquoise4 {
+    color: turquoise;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:67px;
+    left:280px;
+}
+
+.lightgreen3 {
+    color:yellowgreen;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:107px;
+    left:110px;
+    font-size: 130%;
+}
+
+.purple1 {
+    color:rgb(55, 0, 128);
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:88px;
+    left:165px;
+    font-size: 250%;
+}
+
+.lightgreen4 {
+    color:yellowgreen;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:123px;
+    left:40px;
+    font-size: 240%;
+}
+
+.lightgreen5 {
+    color:yellowgreen;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:122px;
+    left:165px;
+    font-size: 200%;
+}
+
+.lightgreen6 {
+    color:yellowgreen;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:107px;
+    left:250px;
+    font-size: 200%;
+}
+
+.purple2 {
+    color:rgb(55, 0, 128);
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:155px;
+    left:55px;
+    font-size: 210%;
+}
+
+.purple3 {
+    color:rgb(55, 0, 128);
+    margin:0;
+    padding:0;
+    position: absolute;
+    top:152px;
+    left:225px;
+    font-size: 110%;
 }
