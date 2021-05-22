@@ -1,0 +1,222 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    background-color: rgb(235, 230, 230);
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.center {
+    text-align: center;
+}
+
+.hr1 {
+    color: #C5DEEA;
+    margin-bottom: 20px;
+}
+
+.left {
+    box-sizing: border-box;
+    background-color:#4B86CB;
+    width:16.7%;
+    color: white;
+}
+
+.middle {
+    margin-left: 15px;
+    width: 70em;
+    margin-right: 15px;
+}
+
+.img1 {
+    height:20px;
+    margin-right: 7px;
+    margin-left: 40px;
+}
+
+.color {
+    color: #4B86CB;
+    text-align: center;
+}
+
+.hr2 {
+    color: #C5DEEA;
+}
+
+h1 {
+    font-size: 250%;
+    margin-bottom: 10px;
+}
+
+.table1 {
+    background-color: #6395aa;
+    width: 420px;
+}
+
+.table2 {
+    background-color: #6395aa;
+    width: 200px
+}
+
+table {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #6395aa;
+    margin-left: 20px;
+}
+
+th {
+    text-align: left;
+}
+
+form {
+    margin-left: 230px;
+}
+
+input {
+    margin-top: 3px;
+    margin-bottom: 10px;
+
+}
+
+.input1 {
+    border-radius: 4px;
+    width: 360px;
+    height: 25px;
+    background-color: #C5DEEA;
+    border: none;
+    margin-right: 10px;
+}
+
+.input2 {
+    border-radius: 4px;
+    width: 175px;
+    height: 25px;
+    background-color: #C5DEEA;
+    border: none;
+    margin-right: 10px;
+
+}
+
+.input3 {
+    border-radius: 4px;
+    width: 90px;
+    height: 25px;
+    background-color: #C5DEEA;
+    border: none;
+    margin-right: 10px;
+
+}
+
+.input4 {
+    border-radius: 4px;
+    width: 260px;
+    height: 25px;
+    background-color: #C5DEEA;
+    border: none;
+    margin-right: 10px;
+
+}
+
+.input5 {
+    border-radius: 4px;
+    width: 170px;
+    height: 25px;
+    background-color: #C5DEEA;
+    border: none;
+    margin-right: 10px;
+
+}
+
+.input6 {
+    border-radius: 4px;
+    width: 220px;
+    height: 25px;
+    background-color: #C5DEEA;
+    border: none;
+    margin-right: 10px;
+
+}
+
+.input7 {
+    border-radius: 4px;
+    width: 674px;
+    height: 25px;
+    background-color: #C5DEEA;
+    border: none;
+    margin-right: 10px;
+
+}
+
+.input8 {
+    border-radius: 4px;
+    width: 220px;
+    height: 25px;
+    background-color: #C5DEEA;
+    border: none;
+    margin-right: 10px;
+
+}
+
+.input9 {
+    border-radius: 4px;
+    width: 220px;
+    height: 25px;
+    background-color: #C5DEEA;
+    border: none;
+    margin-right: 10px;
+
+}
+
+.input10 {
+    border-radius: 4px;
+    width: 210px;
+    height: 25px;
+    background-color: #C5DEEA;
+    border: none;
+    margin-right: 10px;
+
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+.marg {
+    margin-left: 288px;
+}
+
+.marg1 {
+    margin-left: 120px;
+}
+
+.marg2 {
+    margin-left: 198px;
+}
+
+.marg3 {
+    margin-left: 106px;
+}
+
+.marg4 {
+    margin-left: 196px;
+}
+
+.marg5 {
+    margin-left: 170px;
+}
