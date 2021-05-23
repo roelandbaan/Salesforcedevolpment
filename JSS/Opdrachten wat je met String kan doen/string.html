@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Opdracht 12</h2>
+    <p>When working with strings the + signal displays all the values in the order they are summed, with numbers u just get a sum total</p>
+    <h2>Opdracht 13</h2>
+    <p>The # 33 appears on the sreen with 1 of the 3's being a string and the other a number type.</p>
+    <h2>Opdracht 14</h2>
+    <p>It is faster is u use single quotes for php and double quotes for HTML because double quotes go through a parser. In .json files u can only use double quotes</p>
+    <h2>Opdracht 15</h2>
+    <p>In the console textanother text is displayed. Another way to achieve this would be:
+        <br>
+        ​let​ ​text​ = ​"text"​
+        <br>
+        ​console​.​log​(​text+ "another text"​)
+    </p>
+    <h2>Opdracht 16</h2>
+    <ul>
+        <li>the charAt function is used to return a new string consisting of the single UTF-16 code unit located at the specified offset into the string.It is specified by giving a numeric value to index.</li>
+        <li>The concat() function concatenates the string arguments to the calling string and returns a new string. Changes to the original string or the returned string don't affect the other.            If the arguments are not of the type string, they are converted to string values before concatenating.</li>
+        <li>The slice() method extracts a section of a string and returns it as a new string, without modifying the original string.</li>
+        <li></li>
+    </ul>
+</body>
+    <script>
+
+        let voorn = "Voornaam"
+        let achtern = "Achternaam"
+
+ console.log(voorn + achtern);
+
+        let string = "3"
+        let number = 3
+        let  combinedText = (string + number)
+        console.log(combinedText)
+
+        let s1 = '2 + 2'              // creates a string primitive
+        let s2 = new String('2 + 2')  // creates a String object
+        console.log(eval(s1))         // returns the number 4
+        console.log(eval(s2))           // returns the string "2 + 2"
+
+        var myString = "Welcome to \'Techgrounds\' tutorials";
+
+        alert(myString);
+
+        let text = "text";
+        text += "another text";
+        console.log(text);
+
+        const lorem = 'Glory to he who has mastered Lorem ipsum';
+
+        const index = 9;
+
+        console.log(`The charcter at index ${index} is ${lorem.charAt(index)}`);
+
+        const str1 = 'Hello';
+        const str2 = 'World';
+
+        console.log(str1.concat(' ', str2));
+
+        const bla = 'Lets do some more Java script!';
+        console.log(bla.slice(17)); //returns Java script!
+        console.log(bla.slice(5,18))  //returns do some more
+        console.log(bla.slice(-12))   //returns Java script!
+        console.log(bla.slice(-20,-7))  //returns me more java
+
+    </script>
+</html>
