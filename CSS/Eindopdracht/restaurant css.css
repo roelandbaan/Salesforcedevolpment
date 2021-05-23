@@ -5,7 +5,10 @@ body {
     font-family: 'Lobster', cursive;
 }
 
-a
+a {
+    text-decoration: none;
+
+}
 .tright {
     text-align: right;
 }
