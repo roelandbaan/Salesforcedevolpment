@@ -12,10 +12,15 @@
     <div>
         <span id="label"></span>
     </div>
+    <h2>Opdracht 5</h2>
+    <p>one means less then and the other means less then or equal</p>
+    <h2>Opdracht 6</h2>
+    <p>The logical NOT (!) operator (logical complement, negation) takes truth to falsity and vice versa. It is typically used with Boolean (logical) values. When used with non-Boolean values, it returns false if its single operand can be converted to true; otherwise, returns true.</p>
 </body>
     <script>
         function checkNumber() {
             let numb = Number(number.value)
+            let cont = (!(numb < 4 || numb > 4))    ///yaaaay ik heb content null gebruikt ipv 4 op null te zetten :D
             if (numb < 3) {
                 label.textContent = "Het ingevoerde getal is kleiner dan 3";}   
             if (numb == 3) {
@@ -24,7 +29,15 @@
             document.getElementById("label").innerHTML = "Het ingevoerde getal is gelijk aan 11 of groter dan 11";}    
                 else if (numb > 4) {
                 label.textContent = "Het ingevoerde getal is groter dan 4";}
+                if (cont == true) {
+                label.textContent = null}    
+                
             }
-        
+    
+    let a = 3;
+    let b = -2;
+    
+    console.log(!(a > 0 || b > 0));  // reslult will be  false   (because 1 entry is true, a actually is greater then 0)
+    console.log(!(a < 0 || b > 0));     // result will be true  (because both entries are false)
     </script>
 </html>
