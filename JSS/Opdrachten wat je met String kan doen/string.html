@@ -10,7 +10,7 @@
     <h2>Opdracht 12</h2>
     <p>When working with strings the + signal displays all the values in the order they are summed, with numbers u just get a sum total</p>
     <h2>Opdracht 13</h2>
-    <p>The # 33 appears on the sreen with 1 of the 3's being a string and the other a number type.</p>
+    <p>The # 33 appears on the sreen with 1 of the 3's being a string and the other a number datatype.</p>
     <h2>Opdracht 14</h2>
     <p>It is faster is u use single quotes for php and double quotes for HTML because double quotes go through a parser. In .json files u can only use double quotes</p>
     <h2>Opdracht 15</h2>
@@ -25,7 +25,8 @@
         <li>the charAt function is used to return a new string consisting of the single UTF-16 code unit located at the specified offset into the string.It is specified by giving a numeric value to index.</li>
         <li>The concat() function concatenates the string arguments to the calling string and returns a new string. Changes to the original string or the returned string don't affect the other.            If the arguments are not of the type string, they are converted to string values before concatenating.</li>
         <li>The slice() method extracts a section of a string and returns it as a new string, without modifying the original string.</li>
-        <li></li>
+        <li>The split() method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.  The division is done by searching for a pattern; where the pattern is provided as the first parameter in the method's call.</li>
+        <li>The substr() method returns a portion of the string, starting at the specified index and extending for a given number of characters afterwards.</li>
     </ul>
 </body>
     <script>
@@ -33,7 +34,7 @@
         let voorn = "Voornaam"
         let achtern = "Achternaam"
 
- console.log(voorn + achtern);
+        console.log(voorn + achtern);
 
         let string = "3"
         let number = 3
@@ -69,6 +70,16 @@
         console.log(bla.slice(5,18))  //returns do some more
         console.log(bla.slice(-12))   //returns Java script!
         console.log(bla.slice(-20,-7))  //returns me more java
+
+        const bla1 = 'Lets do some more Java script!';
+        const words = bla1.split(' ');
+        const letters = bla1.split('');
+        console.log(words[5]);  //returns script!
+        console.log(letters[5]) //returns  d
+
+        const sub = 'Let us subract this!';
+        console.log(sub.substr(3,11));   //returns  us subtract
+        console.log(sub.substr(14))     //returns this!
 
     </script>
 </html>
