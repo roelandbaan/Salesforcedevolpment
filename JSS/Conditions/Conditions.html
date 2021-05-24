@@ -16,11 +16,13 @@
     <p>one means less then and the other means less then or equal</p>
     <h2>Opdracht 6</h2>
     <p>The logical NOT (!) operator (logical complement, negation) takes truth to falsity and vice versa. It is typically used with Boolean (logical) values. When used with non-Boolean values, it returns false if its single operand can be converted to true; otherwise, returns true.</p>
+    <h2>Opdracht 8</h2>
+    <p>Strict equality comparisons does not match the data types and performs a strict equality comparison</p>
 </body>
     <script>
         function checkNumber() {
             let numb = Number(number.value)
-            let cont = (!(numb < 4 || numb > 4))    ///yaaaay ik heb content null gebruikt ipv 4 op null te zetten :D
+            let cont = (!(numb < 4 || numb > 4))    ///yaaaay ik heb ! comparison gebruikt ipv 4 op null te zetten :D
             if (numb < 3) {
                 label.textContent = "Het ingevoerde getal is kleiner dan 3";}   
             if (numb == 3) {

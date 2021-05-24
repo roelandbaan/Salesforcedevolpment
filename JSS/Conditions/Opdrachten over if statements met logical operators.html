@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input type="number" name="number" id="number">
+   <button id="btn" onclick="checkNumber()">Button</button>
+<div>
+    ​<span id="label"></span>
+</div>
+</body>
+    <script>
+        function checkNumber() {
+            // Deze code werkt alleen voor getallen onder en boven de 5 niet voor onder de 10 (en nu reageert ie opeens bij alles vreemd)
+            // let numb = Number(number.value);
+            // let gk = (!( numb < 10 || numb > 5));
+            
+            // if (gk == false){
+            //     label.textContent = "Het ingevoerde getal is tussen 5 en 10";}
+            // if (gk == true) {
+            //     label.textContent = null   
+            // }
+            
+            
+            // werkt niet
+            // let numb = Number(number.value);
+            // let six = 6;
+            // let seven = 7;
+            // let eight = 8;
+            // let nine = 9;
+            // let range = ['six', 'seven', 'eight', 'nine'];
+
+            // if (numb == range) {
+            //     label.textContent = "Het ingevoerde getal is tussen 5 en 10"
+            // }
+
+            //         werkt niet goed
+            // let numb = Number(number.value);
+            // for (numb = 6 ; numb < 10 ; numb++) if (true)
+            // { label.textContent = "Het ingevoerde getal is tussen 5 en 10" }
+
+
+            // Hij werkt maar ik vraag me af of ik iets met de strict equality comparison moest doen? (daar ging de vorige opdracht over) 
+            let numb = Number(number.value);
+            if (numb < 6 ) {
+                label.textContent = null;}
+            else if (numb < 10 ) {
+                label.textContent = "Het ingevoerde getal is tussen 5 en 10"}
+            else if (numb < 13)  {
+                    label.textContent = null;}  
+            else if (numb < 21) {
+                    label.textContent = "Het ingevoerde getal is gelijk aan 13 of groter dan 13 en is gelijk aan 20 of kleiner dan 20"}
+            else if (numb == 21) {
+                label.textContent = "Het ingevoerde getal is gelijk aan 21 of is gelijk aan 23."}
+            else if (numb == 23) {
+                    label.textContent = "Het ingevoerde getal is gelijk aan 21 of is gelijk aan 23." }
+            else if (numb < 31) {
+                label.textContent = null;}
+            else if (numb < 35) {
+               label.textContent = "Het ingevoerde getal is tussen 30 en 35 of het getal is tussen 40 en 45."} 
+               else if (numb < 41) {
+                label.textContent = null;}
+            else if (numb < 45) {
+               label.textContent = "Het ingevoerde getal is tussen 30 en 35 of het getal is tussen 40 en 45."}  
+            else if (numb > 20)  {
+                    label.textContent = null;}  
+        }
+
+    </script>
+</html>
