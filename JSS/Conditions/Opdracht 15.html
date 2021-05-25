@@ -72,14 +72,22 @@
  const words = ["Together", "Teamwork", "Scrum", "Individual", "Moments", "Like", "Dislike","Money", "Important"];
  const guessingWord = words[Math.round(Math.random() * 8)];
 
+var cnt = 0;
  function guess(obj) {
 
-    //  var guesscount = Number(count.value);
-    // let correctguess = (!(guessingWord));
-        if (Number(count.value) < 3){
-            count.textContent = 1 + guesscount;
-        
-    }
+    cnt=parseInt(cnt)+parseInt(1);
+     var divData=document.getElementById("count");
+     divData.innerHTML= "("+cnt +")";
+
+
+//     let countNum = document.getElementsByClassName('count');
+// countNum.innerHTML++;
+
+        //  var guesscount = Number(count.value);
+        // let correctguess = (!(guessingWord));
+        // if (Number(count.value) < 3){
+        //     count.textContent = 1 + guesscount;}
+    
     //  if (guesscount === 3) {
     //      label.textContent = "Game Over. The correct word is" + guessingWord;
     //  }
