@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+ <h1>Translate months</h1>
+ <input type="number" name="number" id="number">
+ <button onclick="translateMonth()">translate</button>
+ <div id="translatedMonth"></div>
+ <script>
+ function translateMonth() {
+    let nummer = Number(number.value);
+    switch (nummer) {
+        case 1:
+        translatedMonth.textContent = "January";
+        break; 
+        case 2:
+        translatedMonth.textContent = "February";
+        break;    
+        case 3:
+        translatedMonth.textContent = "March";
+        break;    
+        case 4:
+        translatedMonth.textContent = "April";
+        break;    
+        case 5:
+        translatedMonth.textContent = "May";
+        break;    
+        case 6:
+        translatedMonth.textContent = "June";
+        break;    
+        case 7:
+        translatedMonth.textContent = "July";
+        break;    
+        case 8:
+        translatedMonth.textContent = "August";
+        break;    
+        case 9:
+        translatedMonth.textContent = "September";
+        break;    
+        case 10:
+        translatedMonth.textContent = "Oktober";
+        break;    
+        case 11:
+        translatedMonth.textContent = "November";
+        break;    
+        case 12:
+        translatedMonth.textContent = "December";
+        break;    
+       } if (nummer > 12) {
+        translatedMonth.textContent = "There are only 12 months in a year";
+        } if  (nummer === 0) {
+            translatedMonth.textContent = "There is no month 0";
+        } if  (nummer < 0 ) {
+            translatedMonth.textContent = "error"  
+        } 
+        
+       
+}
+ </script>
+</body>
+</html>

@@ -1,41 +1,48 @@
-<!​DOCTYPE​ ​html​>
-<​html​ ​lang​=​"en"​>
-<​head​>
- ​<​meta​ ​charset​=​"UTF-8"​>
- ​<​meta​ ​name​=​"viewport"​ ​content​=​"width=device-width, initial-scale=1.0"​>
- ​<​title​>​Document​</​title​>
- ​<​style​>
- ​.words​ ​button​ {
- ​position​: ​relative​;
- ​border​: ​1px​ ​solid​ ​black​;
- ​border-radius​: ​.5em​;
- ​background-color​: ​white​;
- ​padding​: ​.5em​;
- ​cursor​: ​pointer​;
- ​transition​: background-color ​.3s​ ​ease-in-out​;
- ​z-index​: ​1​;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+ <h1>Translate months</h1>
+ <input type="number" name="number" id="number">
+ <button onclick="translateMonth()">translate</button>
+ <div id="translatedMonth"></div>
+ <script>
+ function translateMonth() {
+
+let nummer = Number(number.value);
+if (nummer == 1) {
+    translatedMonth.textContent = "January";
+}  if (nummer == 2) {
+    translatedMonth.textContent = "February";
+}  if (nummer == 3) {
+    translatedMonth.textContent = "March";
+ } 
+ if (nummer == 4) {
+    translatedMonth.textContent = "April";
+ }  if (nummer == 5) {
+    translatedMonth.textContent = "May";
+ }  if (nummer == 6) {
+    translatedMonth.textContent = "June";
+ }  if (nummer == 7) {
+    translatedMonth.textContent = "Juli";
+ }  if (nummer == 8) {
+    translatedMonth.textContent = "August";
+ }  if (nummer == 9) {
+    translatedMonth.textContent = "September";
+ }  if (nummer == 10) {
+    translatedMonth.textContent = "Oktober";
+ }  if (nummer == 11) {
+    translatedMonth.textContent = "November";
+ }  if (nummer == 12) {
+    translatedMonth.textContent = "December";
+ } else if ( nummer > 12 ) {
+    translatedMonth.textContent = null;
  }
- ​.words​ ​button:focus​ {
- ​outline​: ​none​;
- ​background-color​: ​grey​;
- }
- ​.words​ ​.fg​ {
- ​position​: ​absolute​;
- ​content​: ​''​;
- ​display​:​flex​;
- ​justify-content​: ​center​;
- ​align-items​: ​center​;
- ​top​: ​0​;
- ​left​: ​0​;
- ​width​: ​100%​;
- ​height​: ​100%​;
- ​border-radius​: ​inherit​;
- ​background-color​: ​white​;
- ​z-index​: ​2​;
- ​transition​: width ​.3s​ ​ease-out​;
- ​overflow​: ​hidden​;
- }
- ​.words​ ​button:hover​ ​.fg​ {
- ​width​: ​0​;
- ​z-index​: ​1​;
- }
+}
+ </script>
+</body>
+</html>
