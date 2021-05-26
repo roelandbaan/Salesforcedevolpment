@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width,
+ initial-scale=1.0">
+  <title>Functions</title>
+ </head>
+ <style>
+     input {
+         margin-bottom: 15px;
+     }
+ </style>
+ <body>
+     <form>
+         <label id="1st" for="1">1st number</label>
+         <br>
+         <input type="number" id="1">
+         <br>
+         <label id="2nd" for="2">2nd number</label>
+         <br>
+         <input type="number" id="2">
+
+     </form>
+  <p id="answer"></p>
+  <button onclick="multiplier()">click</button>
+  <script>
+
+    function multiplier () {
+        let a = Object.querySelector('1');
+        let b = document.getElementById('2');
+        console.log(a + b)
+    }
+
+</script>
+ </body>
+ </html>
+  

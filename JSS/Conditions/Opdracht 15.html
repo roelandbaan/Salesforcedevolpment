@@ -72,25 +72,56 @@
  const words = ["Together", "Teamwork", "Scrum", "Individual", "Moments", "Like", "Dislike","Money", "Important"];
  const guessingWord = words[Math.round(Math.random() * 8)];
 
-var cnt = 0;
- function guess(obj) {
+        let guesses = 0;
+        let playing = true;
 
-    cnt=parseInt(cnt)+parseInt(1);
-     var divData=document.getElementById("count");
-     divData.innerHTML= "("+cnt +")";
+      //   Dit is Jelle zijn code  
+      //   function guess(obj) {
+      //       if (playing) {
+      //           guesses++;
+
+      //           if (guesses < 3) {
+      //               if(words[obj] === guessingWord) {
+      //                   document.getElementById("label").innerHTML = "You have guessed the correct word! " + guessingWord;
+      //                   playing = false;
+
+      //               } else {
+      //                   document.getElementById("count").innerHTML = guesses;
+      //               }
+      //           } else {
+      //               playing = false;
+      //               document.getElementById("count").innerHTML = guesses;
+      //               document.getElementById("label").innerHTML = "Game over. The correct word is " + guessingWord;
+      //           }
+      //       }
+      //   }
 
 
-//     let countNum = document.getElementsByClassName('count');
-// countNum.innerHTML++;
 
-        //  var guesscount = Number(count.value);
-        // let correctguess = (!(guessingWord));
-        // if (Number(count.value) < 3){
-        //     count.textContent = 1 + guesscount;}
-    
-    //  if (guesscount === 3) {
-    //      label.textContent = "Game Over. The correct word is" + guessingWord;
-    //  }
+    //    Dit werkt voor +1 on click
+   //  guesses=parseInt(guesses)+parseInt(1);
+   //   var divData=document.getElementById("count");
+   //   divData.innerHTML= ""+guesses+"";
+
+   function guess(object) {
+      let deze = object.querySelector("span").innerHTML
+
+   guesses++;
+   console.log(guesses) 
+   count.textContent = guesses;
+   console.log(deze)
+   if (guesses < 3) {
+      if (deze === guessingWord) {
+         label.textContent = "You have guessed the correct word! " + guessingWord;
+      }else {
+         label.textContent = null;
+      }       
+            console.log(guess)
+   }
+  console.log(guessingWord)  
+     if (guesses === 3) {
+         label.textContent = "Game Over. The correct word is " + guessingWord;
+     }
  }
  </script>
 </body>
