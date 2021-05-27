@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="answer"></p>
+    <button onclick="naam()">click</button>
+ 
+    <script>    
+        
+
+            function naam () {
+                const namen = ['John', 'Olly', 'Mo', 'Hendrik', 'Tonya', 'Tony', 'Irus', 'Jan', 'Peter']
+           const randomNaam = namen[Math.round(Math.random() * 7)]
+                console.log(randomNaam)
+    
+            const bekendenamen = ['John', 'Olly', 'Mo', 'Hendrik', 'Tonya'];
+            answer.textContent = randomNaam;
+
+            let p = document.querySelector('p').innerHTML;
+
+            console.log(p);
+            if (randomNaam === "Olly"){
+                answer.textContent= p + " Dit is een bekende van ons";
+            }
+            else  if (randomNaam === 'Tonya'){
+                answer.textContent= p + " Dit is een bekende van ons";
+            }
+         else if (randomNaam === 'John'){
+                answer.textContent= p + " Dit is een bekende van ons";
+            }
+        else if (randomNaam === 'Mo'){
+                answer.textContent= p + " Dit is een bekende van ons";
+            }
+         else if (randomNaam === 'Hendrik'){
+                answer.textContent= p + " Dit is een bekende van ons";
+            }
+ 
+
+            else if (randomNaam !== 'John'){
+                answer.textContent= p + " Onbekend in ons Systeem";
+            }
+           else  if (randomNaam !== 'Olly'){
+                answer.textContent= p + " Onbekend in ons Systeem";
+            }
+          else  if (randomNaam !== 'Mo'){
+                answer.textContent= p + " Onbekend in ons Systeem";
+            }
+         else   if (randomNaam !== 'Hendrik'){
+                answer.textContent= p + " Onbekend in ons Systeem";
+            }
+         else   if (randomNaam !== 'Tonya'){
+                answer.textContent= p + " Onbekend in ons Systeem";
+            }
+
+
+            // if (p === 'John'){
+            //     answer.textContent= p + " Dit is een bekende van ons";
+            // }
+            // if (p === 'Mo'){
+            //     answer.textContent= p + " Dit is een bekende van ons";
+            // }
+            // if (p === 'Hendrik'){
+            //     answer.textContent= p + " Dit is een bekende van ons";
+            // }
+            // if (p === 'Tonya'){
+            //     answer.textContent= p + " Dit is een bekende van ons";
+            // }
+
+
+
+        }
+    </script>
+
+</body>
+</html>

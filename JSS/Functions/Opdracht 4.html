@@ -12,24 +12,24 @@
      }
  </style>
  <body>
-     <form>
-         <label id="1st" for="1">1st number</label>
-         <br>
-         <input type="number" id="1">
-         <br>
-         <label id="2nd" for="2">2nd number</label>
-         <br>
-         <input type="number" id="2">
+    <p class="1stnumber">3</p>
+    <br>
+    <h3 class="2ndnumber">4</h3>
 
-     </form>
   <p id="answer"></p>
   <button onclick="multiplier()">click</button>
   <script>
-
+    let c = document.getElementById('2ndnumber'); 
+    console.log(c)
+    let a = document.querySelector('p').innerHTML;
+    console.log(a);      
+    let b = document.querySelector('h3').innerHTML;
+    console.log(b)
     function multiplier () {
-        let a = Object.querySelector('1');
-        let b = document.getElementById('2');
-        console.log(a + b)
+        
+        let axb = (a*b) ;
+        console.log(axb);
+        answer.textContent = (a * b);
     }
 
 </script>

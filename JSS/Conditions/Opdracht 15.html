@@ -69,11 +69,6 @@
  </div>
  <script>
 
- const words = ["Together", "Teamwork", "Scrum", "Individual", "Moments", "Like", "Dislike","Money", "Important"];
- const guessingWord = words[Math.round(Math.random() * 8)];
-
-        let guesses = 0;
-        let playing = true;
 
       //   Dit is Jelle zijn code  
       //   function guess(obj) {
@@ -102,6 +97,13 @@
    //  guesses=parseInt(guesses)+parseInt(1);
    //   var divData=document.getElementById("count");
    //   divData.innerHTML= ""+guesses+"";
+
+   const words = ["Together", "Teamwork", "Scrum", "Individual", "Moments", "Like", "Dislike","Money", "Important"];
+ const guessingWord = words[Math.round(Math.random() * 8)];
+
+        let guesses = 0;
+        let playing = true;
+
 
    function guess(object) {
       let deze = object.querySelector("span").innerHTML

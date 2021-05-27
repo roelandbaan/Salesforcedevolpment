@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Parameters and Arguments</h1>
+    <ul>
+        <li>Function parameters are the names listed in the function definition.</li>
+        <li>Function arguments are the real values passed to (and received by) the function.</li>
+    </ul>
+    <h3>Parameter Rules:</h3>
+    <ul>
+        <li>JavaScript function definitions do not specify data types for parameters.</li>
+        <li>JavaScript functions do not perform type checking on the passed arguments.</li>
+        <li>JavaScript functions do not check the number of arguments received.</li>
+    </ul>
+    <h3>Default Parameters</h3>
+    <p>If a function is called with missing arguments (less than declared), the missing values are set to undefined.         Sometimes this is acceptable, but sometimes it is better to assign a default value to the parameter:</p>    
+    <h3>Arguments are Passed by value</h3>
+    <p>The parameters, in a function call, are the function's arguments. JavaScript arguments are passed by value: The function only gets to know the values, not the argument's locations. If a function changes an argument's value, it does not change the parameter's original value. Changes to arguments are not visible (reflected) outside the function.</p> 
+    <h3>Objects are Passed by Reference</h3>
+    <p>In JavaScript, object references are values. Because of this, objects will behave like they are passed by reference: If a function changes an object property, it changes the original value. Changes to object properties are visible (reflected) outside the function.</p>
+
+    <p id="parameters"></p>
+    <p id="2e"></p>
+    
+<p>RThe rest parameter syntax allows a function to accept an indefinite number of arguments as an array</p>
+<p>The main differences between rest parameters and the arguments bjects are:</p>
+<ul>
+    <li>The arguments object is not a real array, while rest parameters are Array instances, meaning methods like sort, map, forEach or pop can be applied on it directly</li>
+    <li>The arguments object has additional functionality specific to itself (like the callee property).</li>
+    <li>The ...restParam bundles all the extra parameters into a single array, therefore it does not contain any named argument defined before the ...restParam. Whereas the arguments object contains all of the parameters -- including all of the stuff in the ...restParam -- unbundled.</li>
+
+</ul>
+
+<script>
+    function Parameterx2 (a, b) {
+        if (b === undefined) {
+            b = 2;
+        }
+        return a * b;
+    }
+document.getElementById("parameters").innerHTML = Parameterx2(8);
+console.log(parameters.innerHTML)
+
+function oefen (x = 4, y) {
+    if (y === undefined) {
+        y = 3
+    }
+     return y * x;
+}
+document.getElementById("2e").innerHTML = oefen()
+
+  function rest (theBoss, ...minions) {
+      console.log(theBoss)
+      console.log(minions)
+  }
+  rest("King Kong", "drone1" , "drone 2", "drone 3")
+</script>
+
+</body>
+</html>
