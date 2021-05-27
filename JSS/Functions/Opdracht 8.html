@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="opdracht 8 css.css">
+</head>
+<body>
+    <div class="container">
+        <div >
+            <h1>Wiskunde</h1>
+        <div class="container1">    
+            <div>
+                <p class="lBlock">Naam</p>
+                <p class="lBlock">Jan</p>
+                <p class="lBlock">Kim</p>
+                <p class="lBlock">Sandra</p>
+                <p class="lBlock">Joyce</p>
+                <p class="lBlock">Gareth</p>
+                <p class="lBlock">Willem</p>
+            </div>
+            <div>
+                <p class="marginTop">Cijfer</p>
+                <input type="number" id="input1" class="input">
+                <input type="number" id="input2" class="input">
+                <input type="number" id="input3" class="input">
+                <input type="number" id="input4" class="input">
+                <input type="number" id="input5" class="input">
+                <input type="number" id="input6" class="input">
+            </div>
+        </div>
+        </div>
+        <div >
+            <h1>Natuurkunde</h1>
+        <div class="container1">    
+            <div>
+                <p class="lBlock">Naam</p>
+                <p class="lBlock">Jan</p>
+                <p class="lBlock">Kim</p>
+                <p class="lBlock">Sandra</p>
+                <p class="lBlock">Joyce</p>
+                <p class="lBlock">Gareth</p>
+                <p class="lBlock">Willem</p>
+            </div>
+            <div>
+                <p class="marginTop">Cijfer</p>
+                <input type="number" id="input7" class="input">
+                <input type="number" id="input8" class="input">
+                <input type="number" id="input9" class="input">
+                <input type="number" id="input10" class="input">
+                <input type="number" id="input11" class="input">
+                <input type="number" id="input12" class="input">
+            </div>
+        </div>
+        </div>
+        <div >
+            <h1>Nederlands</h1>
+        <div class="container1">    
+            <div>
+                <p class="lBlock">Naam</p>
+                <p class="lBlock">Jan</p>
+                <p class="lBlock">Kim</p>
+                <p class="lBlock">Sandra</p>
+                <p class="lBlock">Joyce</p>
+                <p class="lBlock">Gareth</p>
+                <p class="lBlock">Willem</p>
+            </div>
+            <div>
+                <p class="marginTop">Cijfer</p>
+                <input type="number" id="input13" class="input">
+                <input type="number" id="input14" class="input">
+                <input type="number" id="input15" class="input">
+                <input type="number" id="input16" class="input">
+                <input type="number" id="input17" class="input">
+                <input type="number" id="input18" class="input">
+            </div>
+        </div>
+        </div>
+        <div>
+            <h1>Engels</h1>
+        <div class="container1">    
+            <div>
+                <p class="lBlock">Naam</p>
+                <p class="lBlock">Jan</p>
+                <p class="lBlock">Kim</p>
+                <p class="lBlock">Sandra</p>
+                <p class="lBlock">Joyce</p>
+                <p class="lBlock">Gareth</p>
+                <p class="lBlock">Willem</p>
+            </div>
+            <div>
+                <p class="marginTop">Cijfer</p>
+                <input type="number" id="input19" class="input">
+                <input type="number" id="input20" class="input">
+                <input type="number" id="input21" class="input">
+                <input type="number" id="input22" class="input">
+                <input type="number" id="input23" class="input">
+                <input type="number" id="input24" class="input">
+            </div>
+        </div>
+        </div>
+    </div>
+    <div>
+        <h1>Resultaat gemiddeld</h1>
+    <div class="container1">    
+        <div>
+            <p class="lBlock">Naam</p>
+            <p class="lBlock">Jan</p>
+            <p class="lBlock">Kim</p>
+            <p class="lBlock">Sandra</p>
+            <p class="lBlock">Joyce</p>
+            <p class="lBlock">Gareth</p>
+            <p class="lBlock">Willem</p>
+        </div>
+        <div>
+            <p class="marginTop">Talen</p>
+            <input type="number" id="input25" class="input">
+            <input type="number" id="input26" class="input">
+            <input type="number" id="input27" class="input">
+            <input type="number" id="input28" class="input">
+            <input type="number" id="input29" class="input">
+            <input type="number" id="input30" class="input">
+        </div>
+        <div>
+            <p class="marginTop">Beta vakken</p>
+            <input type="number" id="input31" class="input">
+            <input type="number" id="input32" class="input">
+            <input type="number" id="input33" class="input">
+            <input type="number" id="input34" class="input">
+            <input type="number" id="input35" class="input">
+            <input type="number" id="input36" class="input">
+        </div>
+        <div>
+            <p class="marginTop">Volgende klas?</p>
+            <input type="number" id="input37" class="input">
+            <input type="number" id="input38" class="input">
+            <input type="number" id="input39" class="input">
+            <input type="number" id="input40" class="input">
+            <input type="number" id="input41" class="input">
+            <input type="number" id="input42" class="input">
+    </div>
+
+    </div>
+    </div>
+    <script>
+     setInterval(function colors () {
+            let grade = document.getElementById('input1').value;
+            if (grade < 5.5) {
+                document.getElementById("input1").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input1").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input1").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+
+setInterval(function colors1 () {
+            let grade = document.getElementById('input2').value;
+            if (grade < 5.5) {
+                document.getElementById("input2").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input2").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input2").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors2 () {
+            let grade = document.getElementById('input3').value;
+            if (grade < 5.5) {
+                document.getElementById("input3").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input3").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input3").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors3 () {
+            let grade = document.getElementById('input4').value;
+            if (grade < 5.5) {
+                document.getElementById("input4").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input4").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input4").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors4 () {
+            let grade = document.getElementById('input5').value;
+            if (grade < 5.5) {
+                document.getElementById("input5").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input5").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input5").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors5 () {
+            let grade = document.getElementById('input6').value;
+            if (grade < 5.5) {
+                document.getElementById("input6").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input6").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input6").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors6 () {
+            let grade = document.getElementById('input7').value;
+            if (grade < 5.5) {
+                document.getElementById("input7").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input7").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input7").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+
+setInterval(function colors7 () {
+            let grade = document.getElementById('input8').value;
+            if (grade < 5.5) {
+                document.getElementById("input8").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input8").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input8").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors8 () {
+            let grade = document.getElementById('input9').value;
+            if (grade < 5.5) {
+                document.getElementById("input9").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input9").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input9").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors9 () {
+            let grade = document.getElementById('input10').value;
+            if (grade < 5.5) {
+                document.getElementById("input10").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input10").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input10").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors10 () {
+            let grade = document.getElementById('input11').value;
+            if (grade < 5.5) {
+                document.getElementById("input11").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input11").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input11").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors11 () {
+            let grade = document.getElementById('input12').value;
+            if (grade < 5.5) {
+                document.getElementById("input12").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input12").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input12").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+
+setInterval(function colors12 () {
+            let grade = document.getElementById('input13').value;
+            if (grade < 5.5) {
+                document.getElementById("input13").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input13").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input13").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+
+setInterval(function colors13 () {
+            let grade = document.getElementById('input14').value;
+            if (grade < 5.5) {
+                document.getElementById("input14").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input14").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input14").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors14 () {
+            let grade = document.getElementById('input15').value;
+            if (grade < 5.5) {
+                document.getElementById("input15").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input15").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input15").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors15 () {
+            let grade = document.getElementById('input16').value;
+            if (grade < 5.5) {
+                document.getElementById("input16").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input16").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input16").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors16 () {
+            let grade = document.getElementById('input17').value;
+            if (grade < 5.5) {
+                document.getElementById("input17").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input17").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input17").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors17 () {
+            let grade = document.getElementById('input18').value;
+            if (grade < 5.5) {
+                document.getElementById("input18").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input18").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input18").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+
+setInterval(function colors18 () {
+            let grade = document.getElementById('input19').value;
+            if (grade < 5.5) {
+                document.getElementById("input19").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input19").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input19").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+
+setInterval(function colors19 () {
+            let grade = document.getElementById('input20').value;
+            if (grade < 5.5) {
+                document.getElementById("input20").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input20").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input20").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors19 () {
+            let grade = document.getElementById('input21').value;
+            if (grade < 5.5) {
+                document.getElementById("input21").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input21").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input21").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors19 () {
+            let grade = document.getElementById('input22').value;
+            if (grade < 5.5) {
+                document.getElementById("input22").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input22").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input22").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors19 () {
+            let grade = document.getElementById('input23').value;
+            if (grade < 5.5) {
+                document.getElementById("input23").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input23").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input23").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors19 () {
+            let grade = document.getElementById('input24').value;
+            if (grade < 5.5) {
+                document.getElementById("input24").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input24").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input24").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors19 () {
+            let grade = document.getElementById('input25').value;
+            if (grade < 5.5) {
+                document.getElementById("input25").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input25").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input25").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors19 () {
+            let grade = document.getElementById('input26').value;
+            if (grade < 5.5) {
+                document.getElementById("input26").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input26").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input26").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors19 () {
+            let grade = document.getElementById('input27').value;
+            if (grade < 5.5) {
+                document.getElementById("input27").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input27").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input27").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors19 () {
+            let grade = document.getElementById('input28').value;
+            if (grade < 5.5) {
+                document.getElementById("input28").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input28").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input28").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors19 () {
+            let grade = document.getElementById('input29').value;
+            if (grade < 5.5) {
+                document.getElementById("input29").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input29").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input29").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors19 () {
+            let grade = document.getElementById('input30').value;
+            if (grade < 5.5) {
+                document.getElementById("input30").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input30").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input30").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+
+setInterval(function colors20 () {
+            let grade = document.getElementById('input31').value;
+            if (grade < 5.5) {
+                document.getElementById("input31").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input31").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input31").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors21 () {
+            let grade = document.getElementById('input32').value;
+            if (grade < 5.5) {
+                document.getElementById("input32").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input32").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input32").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors22 () {
+            let grade = document.getElementById('input33').value;
+            if (grade < 5.5) {
+                document.getElementById("input33").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input33").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input33").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors23 () {
+            let grade = document.getElementById('input34').value;
+            if (grade < 5.5) {
+                document.getElementById("input34").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input34").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input34").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+
+setInterval(function colors20 () {
+            let grade = document.getElementById('input35').value;
+            if (grade < 5.5) {
+                document.getElementById("input35").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input35").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input35").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors21 () {
+            let grade = document.getElementById('input36').value;
+            if (grade < 5.5) {
+                document.getElementById("input36").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input36").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input36").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors22 () {
+            let grade = document.getElementById('input37').value;
+            if (grade < 5.5) {
+                document.getElementById("input37").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input37").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input37").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors23 () {
+            let grade = document.getElementById('input38').value;
+            if (grade < 5.5) {
+                document.getElementById("input38").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input38").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input38").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+
+setInterval(function colors20 () {
+            let grade = document.getElementById('input39').value;
+            if (grade < 5.5) {
+                document.getElementById("input39").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input39").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input39").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors21 () {
+            let grade = document.getElementById('input40').value;
+            if (grade < 5.5) {
+                document.getElementById("input40").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input40").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input40").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors22 () {
+            let grade = document.getElementById('input41').value;
+            if (grade < 5.5) {
+                document.getElementById("input41").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input41").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input41").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+setInterval(function colors23 () {
+            let grade = document.getElementById('input42').value;
+            if (grade < 5.5) {
+                document.getElementById("input42").style.backgroundColor= "red";
+            } else if (grade < 7.5) {
+                document.getElementById("input42").style.backgroundColor= "green";
+              } else if (grade >= 7.5) {
+                document.getElementById("input42").style.backgroundColor= "darkgreen";  
+              }
+}, 1000)
+
+    </script>
+</body>
+</html>
