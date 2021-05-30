@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Scopes</h2>
+    <ul>
+        <li>Opdracht 1:carBrand is undefined, Because the variable was declared inside of a function it is of block scope and cant be referenced outside of the function(unless the function is run first)</li>
+        <li>Opdracht 2:Even though Carbrand is a global variable (because it was created without let var or const) the function has to run first to create the global variable carBrand.</li>
+        <li>Opdracht 3:Volvo will get logged in the console because the The variable was declared without using let var or const, making it a global variable, which became accessible after the function printCar ran.</li>
+        <li>Opdracht 4: Volvo V40 will get logged in the console because running the printCar function creates a global variable carBrand="Volvo" and it returns the output of a functions that creates an array called type and a consolelog command that logs (carBrand(Volvo) +"space"+ type(V40)</li>
+    </ul>
+
+    <script>
+
+        // Opdracht 1
+//         function printCar() {
+//  const carBrand = "Volvo";
+//  }
+//  console.log(carBrand);
+
+
+//         Opdracht 2
+//         let carName;
+//  function printCar() {
+//  carBrand = "Volvo";
+//  }
+//  console.log(carBrand);
+
+            // Opdracht 3
+            function printCar() {
+  carBrand = "Volvo";
+ }
+ printCar();
+ console.log(carBrand);
+
+        // Opdracht 4
+//         function printCar() {
+//  carBrand = "Volvo";
+//  return function(type) {
+//  console.log(carBrand +" "+ type);
+//  }
+//  }
+//  const car = printCar();
+//  car("v40");
+
+  
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+        let myNumbers = [2, 4, 1, 0, 3, 5, 6, 7 , 8, 9], a = 0, b = 4;
+
+        let fruit = ['Banana', 'Orange', 'Pineapple', 'Apple', 'Strawberry']
+
+        let randomNumber = myNumbers[Math.round(Math.random() *9)]
+        Number(randomNumber);
+        let Modulo = randomNumber % 4;
+        console.log(fruit[Modulo]);
+        // Push Voegt een nieuwe waarde toe aan het eind van een array
+        let newLenght = fruit.push("Kiwi");
+        //Pop verwijderd de laatste waarde van een array
+        let last = fruit.pop();
+        //Shift verwijdered de eerste waarde uit een array
+        // let first = fruit.shift();
+        
+        let pos = fruit.indexOf('Orange');
+        //Splice haalt alle waarden weg  die je specificeert  
+        // let removedItem = fruit.splice(2, 3)
+        //Slice laat je waardes van array verbergen uit de weergave wat een kopie is vnan de originele array, maar past de originele array zelf niet aan
+        let snijd = fruit.slice(2);
+        // sort zal de array sorteren op alfabet of oplopende numerieke waarde en daarbij alleen ofgaan op de eerste input
+        // fruit.sort();
+        //De lenght property geeft het aantal waardes in de array weer
+        
+        // console.log(fruit.length)
+        //Zo verander je een waarde in een array
+        // fruit[0] = "Chicken"
+        //zo wissel je 2 waardes om
+        fruit[a] = fruit.splice(b,4, fruit[a])[0];
+        [fruit[1], fruit[3] ] = [fruit[3], fruit[1] ]
+                console.log(fruit);
+
+    </script>
+</body>
+</html>
