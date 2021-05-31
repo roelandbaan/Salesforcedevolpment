@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="answer"></div>
+<script>
+
+
+// let randomSport = sports[Math.round(Math.random() *6)]
+// console.log(randomSport)
+
+const sports
+ = ["voetbal", "basketbal", "volleybal", "hockey", "honkbal",
+"zwemmen", "korfbal"]
+
+const evenNumbers = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+
+
+var arrayLength = sports.length;
+for (let i = 0; i < arrayLength; i++){
+console.log(sports[i]);
+document.getElementById("answer").innerHTML= sports[i];
+}
+
+var c = 0
+while (c <arrayLength){
+console.log(sports[c]);    
+c++;
+}
+
+//  Opdracht 7 Ik vind m mooi :D
+var d = 0
+while (d < 3){
+    console.log(sports[d]);
+    d++;
+   if (!(d != 1)) {
+    for (let e = 1; e < 11; e++){
+        console.log(evenNumbers[e]/2)}    
+    }else if (!(d != 2)) {
+    for (let e = 1; e < 11; e++){
+        console.log(evenNumbers[e])}    
+    }else if (!(d != 3)){
+        var x = 1;
+while (x < 31) {
+  if (x % 3 == 0)
+    console.log(x);
+  x++;}
+}
+}
+
+
+
+//  For in
+for(const ForIn in sports){
+    console.log(`${sports[ForIn]}`);
+}
+
+//  For of
+for (const ForOf of sports) {
+  console.log(ForOf);
+}
+
+// This loops the array 1 by 1 beginning to end
+const array = ["one", "two", "three", "four", "five"];
+array.forEach(function (item) {
+  console.log(item);
+});
+
+
+
+arrLength = evenNumbers.length;
+for(let i = 0; i < 7; i++ ){
+    console.log(evenNumbers[i]/2)
+console.log(sports[evenNumbers[i]/2]);
+document.getElementById("answer").innerHTML= sports[i];
+}
+
+
+//     Also prints 0 - 20 in even numbers
+// var x = 0;
+// while (x < 21) {
+//   if (x % 2 == 0)
+//     console.log(x);
+//   x++;
+// }
+
+
+</script>
+
+</body>
+</html>
