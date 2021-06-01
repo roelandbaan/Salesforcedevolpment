@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        const Fibonacci = [];
+       //  Dit werkt maar er is een elegantere oplossing denk ik
+       //  const Fibonacci = [0, 1, 2] 
+       // console.log(Fibonacci[0])
+       // console.log(Fibonacci[1])
+       // console.log(Fibonacci[2])
+      //  for( i =0; i <150; i++ ) {
+      //      const lastItem = Fibonacci[Fibonacci.length - 1];
+       //     const beforeLastItem = Fibonacci[Fibonacci.length - 2];
+       //     const addToSequence = Fibonacci.push(lastItem + beforeLastItem);
+       //     console.log(Fibonacci[Fibonacci.length - 1])
+       // }
+
+        for( i =0; i <40; i++ ) {
+
+            if (!(i != 1)){
+            const addToSequenceA = Fibonacci.push(0);
+            console.log(Fibonacci[Fibonacci.length - 1])
+
+            const addToSequenceB = Fibonacci.push(0);
+            console.log(Fibonacci[Fibonacci.length - 1])
+
+            parseInt(Fibonacci);   
+            const addToSequenceC = Fibonacci.push(1);}
+            else if (!(i < 1)){  
+                const lastItem = Fibonacci[Fibonacci.length - 1];
+                const beforeLastItem = Fibonacci[Fibonacci.length - 2];
+      
+            const addToSequence = Fibonacci.push(lastItem + beforeLastItem);
+            console.log(Fibonacci[Fibonacci.length - 1])}
+        }
+        
+    </script>
+</body>
+</html>
