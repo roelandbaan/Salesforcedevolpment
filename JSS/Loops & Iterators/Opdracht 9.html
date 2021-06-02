@@ -7,6 +7,40 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+
+      let randomNumbers = [2,7,5,10,4,9,3,1,8,6];
+        console.log(randomNumbers)
+
+        
+  
+
+      function swap(randomNumbers) {
+        let temp = randomNumbers[i];
+        randomNumbers[i] = randomNumbers[i+1];
+        randomNumbers[i+1] = temp;
+        console.log(checked)
+        console.log(randomNumbers)
+
+        if (checked == false){
+        bubbbleSort(randomNumbers);}
+
+  }  
+
+
+  function bubbbleSort(randomNumbers) {
+      checked = false;
+      for (i = 0; i < 10; i++){
+          if (randomNumbers[i] > randomNumbers[i+1]) {
+            swap(randomNumbers);
+            console.log(checked)
+            checked = true;
+          }
+      
+      }
+
+  }
+bubbbleSort(randomNumbers);
+    </script>
 </body>
 </html>

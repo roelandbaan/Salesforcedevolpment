@@ -11,7 +11,6 @@
 
     <script>
 
-        const Fibonacci = [];
        //  Dit werkt maar er is een elegantere oplossing denk ik
        //  const Fibonacci = [0, 1, 2] 
        // console.log(Fibonacci[0])
@@ -24,18 +23,16 @@
        //     console.log(Fibonacci[Fibonacci.length - 1])
        // }
 
-        for( i =0; i <40; i++ ) {
+       const Fibonacci = [];
 
-            if (!(i != 1)){
+        for( i =0; i <60; i++ ) {
+            if (!(i != 0)){
             const addToSequenceA = Fibonacci.push(0);
             console.log(Fibonacci[Fibonacci.length - 1])
-
             const addToSequenceB = Fibonacci.push(0);
             console.log(Fibonacci[Fibonacci.length - 1])
-
-            parseInt(Fibonacci);   
             const addToSequenceC = Fibonacci.push(1);}
-            else if (!(i < 1)){  
+            else if (!(i < 0)){  
                 const lastItem = Fibonacci[Fibonacci.length - 1];
                 const beforeLastItem = Fibonacci[Fibonacci.length - 2];
       
