@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="clubs" class="clubs"></div>
+    
+    <script>
+    function clubInformation(Club, Sport, Members){
+        this.Club = Club;
+        this.Sport = Sport;
+        this.Members = Members;
+    }
+    
+    //maakt 2 objecten met lege arrays
+    var clubInformation2 = {Clubs: [], Sport: [], Members: []};
+    var contactInfo = {Adress: [], Tel: [], Contact: []};
+    //voegt source object(contactInfo) toe aan het target object (clubInformation2)
+    Object.assign(clubInformation2, contactInfo);
+    //Maakt nieuwe values aan voor de Clubs property
+    let newClubs = ['Ajax', 'PSV', 'Feyenoord', 'AZ'];
+    //een functie om de values aan de Clubs property in het (clubInformation2) object toe te wijzen
+    newClubs.forEach(function(Club){
+    clubInformation2.Clubs.push(Club);    
+    });
+    //veranderd de input 
+    clubInformation2.Clubs[0] = "Mokum"
+    document.getElementById("clubs").innerHTML = clubInformation2.Clubs;
+
+    const Person = function(name, age) {
+        this.name = name;
+        this.age = age;
+        }
+        const persons = [
+        new Person("Jan", 24),
+        new Person("Klaas", 15),
+        new Person("Yanis", 42),
+        new Person("Rupel", 55),
+        new Person("Hendrik", 32),
+        new Person("Mono", 28),
+        new Person("West", 23),
+        ]
+
+        console.log(Person)
+        persons.sort((a, b) => {
+            if (a.persons > b.persons) {
+                return 1
+            } else {
+                return -1
+            }
+
+        })
+        console.log(persons)
+    </script>
+</body>
+</html>
