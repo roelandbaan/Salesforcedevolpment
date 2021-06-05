@@ -20,17 +20,26 @@
     //maakt 2 objecten met lege arrays
     var clubInformation2 = {Clubs: [], Sport: [], Members: []};
     var contactInfo = {Adress: [], Tel: [], Contact: []};
+
     //voegt source object(contactInfo) toe aan het target object (clubInformation2)
     Object.assign(clubInformation2, contactInfo);
+
     //Maakt nieuwe values aan voor de Clubs property
     let newClubs = ['Ajax', 'PSV', 'Feyenoord', 'AZ'];
+
     //een functie om de values aan de Clubs property in het (clubInformation2) object toe te wijzen
-    newClubs.forEach(function(Club){
-    clubInformation2.Clubs.push(Club);    
+    newClubs.forEach(function(dezeRef){
+    clubInformation2.Clubs.push(dezeRef);    
     });
+
     //veranderd de input 
     clubInformation2.Clubs[0] = "Mokum"
     document.getElementById("clubs").innerHTML = clubInformation2.Clubs;
+
+    const Building = function(size, builddate) {
+        this.size = size;
+        this.builddate = builddate;
+    }
 
     const Person = function(name, age) {
         this.name = name;
@@ -44,18 +53,46 @@
         new Person("Hendrik", 32),
         new Person("Mono", 28),
         new Person("West", 23),
+        //new Building('3402m', '1990')
         ]
 
-        console.log(Person)
-        persons.sort((a, b) => {
-            if (a.persons > b.persons) {
-                return 1
-            } else {
-                return -1
-            }
+      //  persons.forEach(function(yo) {
+      //      Person.name.push(yo)
+     //   });
+       // persons.sort((a, b) => {
+       //     if (a.persons > b.persons) {
+       //         return 1
+       //     } else {
+       //         return -1
+       //     }
+       // })
+       persons.forEach(Person => {
+           console.log(Person.age);
+      });
+       const objects = Object.values(persons);
 
-        })
-        console.log(persons)
+
+        function swap(persons) {
+            let temp = persons[i].age;
+            persons[i].age = persons[i+1].age;
+            persons[i+1].age = temp;
+            //console.log(persons);
+            if (checked == false){
+            bubbbleSort(persons);}
+      }  
+    
+    
+      function bubbbleSort(persons) {
+          checked = false;
+          for (i = 0; i < 6; i++){
+              if (persons[i].age > persons[i+1].age) {
+                swap(persons);
+              }
+          }
+      }
+    bubbbleSort(persons);
+    console.log(persons)
+
     </script>
 </body>
 </html>
