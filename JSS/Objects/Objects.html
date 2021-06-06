@@ -41,6 +41,7 @@
         this.builddate = builddate;
     }
 
+    //This is an Object constructor
     const Person = function(name, age) {
         this.name = name;
         this.age = age;
@@ -56,16 +57,6 @@
         //new Building('3402m', '1990')
         ]
 
-      //  persons.forEach(function(yo) {
-      //      Person.name.push(yo)
-     //   });
-       // persons.sort((a, b) => {
-       //     if (a.persons > b.persons) {
-       //         return 1
-       //     } else {
-       //         return -1
-       //     }
-       // })
        persons.forEach(Person => {
            console.log(Person.age);
       });
@@ -92,6 +83,19 @@
       }
     bubbbleSort(persons);
     console.log(persons)
+
+    //Object Initializer
+    const Persons = {name: ['Jan', 'Klaas', 'Yanis', 'Rupel', 'Hendrik', 'Mono', 'west'], age: [24, 15, 42, 55, 32, 28, 23]}
+    console.log(Persons)
+      // An object initializer is code that runs on an object after a constructor and can be used to succinctly set any number of fields on the object to specified values. 
+      //This means u will create an object with the properties and values u specified.
+
+      //An Object constructor is a defined method on a type which takes a specified number of parameters and is used to create and initialize an object.
+      //This means that u define the properties with your Object Constructor and can create objects using the method u created.
+
+//A constructor is a defined method on a type which takes a specified number of parameters and is used to create and initialize an object.
+//An object initializer is code that runs on an object after a constructor and can be used to succinctly set any number of fields on the object to specified values. The setting of these fields occurs after the constructor is called.
+//You would use a constructor without the help of an object initializer if the constructor sufficiently set the initial state of the object. An object initializer however must be used in conjunction with a constructor. The syntax requires the explicit or implicit use (VB.Net and C#) of a constructor to create the initial object. You would use an object initializer when the constructor does not sufficiently initialize the object to your use and a few simple field and/or property sets would.
 
     </script>
 </body>
