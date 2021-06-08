@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="rock paper scissors css.css">
+</head>
+
+<body>
+    <div>
+        <h1>Rock Paper Scissors</h1>
+        <div class="container">
+            <div class="lBox">
+                <h2 class="l1">Player 1</h2>
+                <form>
+                    <label>Choose your weapon:</label>
+                    <select id="player1" class="leftButton">
+                        <option>Rock</option>
+                        <option>Paper</option>
+                        <option>Scissors</option>
+                    </select>
+                </form>
+            </div>
+            <button onclick="rockPaperScissors()">FIGHT!</button>
+            <div class="rBox">
+                <h2 class="l2">Player 2</h2>
+                <form>
+                    <label>Choose your weapon:</label>
+                    <select id="player2" class="rightButton">
+                        <option>Rock</option>
+                        <option>Paper</option>
+                        <option>Scissors</option>
+                    </select>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <p id="result" class="result"></p>
+
+    <script>
+        let input1 = document.getElementById("player1").value;
+        let input2 = document.getElementById("player2").value;
+        console.log(input1, input2,);
+
+        function rockPaperScissors() {
+            if (input1 === input2) {
+                document.getElementById("result").innerHTML = "It is a draw!";
+            } else if (input1 === "Rock" && input2 === "Scissors") {
+                document.getElementById("result").innerHTML = "Player 1 Wins";
+            } else if (input1 === "Paper" && input2 === "Rock") {
+                document.getElementById("result").innerHTML = "Player 1 Wins";
+            } else if (input1 === "Scissors" && input2 === "Paper") {
+                document.getElementById("result").innerHTML = "Player 1 Wins";
+            } else {
+                document.getElementById("result").innerHTML = "Player 2 Wins";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

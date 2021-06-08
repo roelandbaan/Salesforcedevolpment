@@ -64,9 +64,9 @@
 
 
         function swap(persons) {
-            let temp = persons[i].age;
-            persons[i].age = persons[i+1].age;
-            persons[i+1].age = temp;
+            let temp = persons[i];
+            persons[i] = persons[i+1];
+            persons[i+1] = temp;
             //console.log(persons);
             if (checked == false){
             bubbbleSort(persons);}
@@ -82,11 +82,11 @@
           }
       }
     bubbbleSort(persons);
-    console.log(persons)
+
 
     //Object Initializer
     const Persons = {name: ['Jan', 'Klaas', 'Yanis', 'Rupel', 'Hendrik', 'Mono', 'west'], age: [24, 15, 42, 55, 32, 28, 23]}
-    console.log(Persons)
+    //console.log(Persons)
       // An object initializer is code that runs on an object after a constructor and can be used to succinctly set any number of fields on the object to specified values. 
       //This means u will create an object with the properties and values u specified.
 
@@ -96,6 +96,47 @@
 //A constructor is a defined method on a type which takes a specified number of parameters and is used to create and initialize an object.
 //An object initializer is code that runs on an object after a constructor and can be used to succinctly set any number of fields on the object to specified values. The setting of these fields occurs after the constructor is called.
 //You would use a constructor without the help of an object initializer if the constructor sufficiently set the initial state of the object. An object initializer however must be used in conjunction with a constructor. The syntax requires the explicit or implicit use (VB.Net and C#) of a constructor to create the initial object. You would use an object initializer when the constructor does not sufficiently initialize the object to your use and a few simple field and/or property sets would.
+
+    class Gebruiker {
+        constructor(naam, leeftijd){
+            this.naam = naam;
+            this.leeftijd = leeftijd;
+        }
+    }
+
+    const gebruikers = [    
+     gebruiker1 = new Gebruiker('Jan', 24),
+     gebruiker2 = new Gebruiker('Klaas', 15),
+     gebruiker3 = new Gebruiker('Yanis', 42),
+     gebruiker4 = new Gebruiker('Rupel', 55),
+     gebruiker5 = new Gebruiker('Hendrik', 32),
+     gebruiker6 = new Gebruiker('Mono', 28),
+     gebruiker7 = new Gebruiker('West', 23)]
+
+   // let gebruikers = [gebruiker1, gebruiker2, gebruiker3, gebruiker4, gebruiker5, gebruiker6, gebruiker7];
+    
+   function swap(gebruikers) {
+    let temp = gebruikers[i];
+    gebruikers[i] = gebruikers[i+1];
+    gebruikers[i+1] = temp;
+    //console.log(gebruikers);
+    if (checked == false){
+    bubbbleSort(gebruikers);}
+}  
+
+
+function bubbbleSort(gebruikers) {
+  checked = false;
+  for (i = 0; i < 6; i++){
+      if (gebruikers[i].leeftijd > gebruikers[i+1].leeftijd) {
+        swap(gebruikers);
+      }
+  }
+}
+bubbbleSort(gebruikers);
+
+
+console.log(gebruikers)
 
     </script>
 </body>
