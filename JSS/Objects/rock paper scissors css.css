@@ -1,7 +1,7 @@
 .leftButton {
     background-color: lightblue;
     border:1px solid lightblue;
-    color: white;
+    color: lightblue;
     padding: 10px 24px;
 }
 
@@ -10,9 +10,9 @@
 }
 
 .rightButton {
-    background-color: rgb(223, 77, 77);
-    border:1px solid red;
-    color: white;
+    background-color: rgb(238, 102, 102);
+    border:1px solid rgb(238, 102, 102);
+    color: rgb(238, 102, 102);
     padding: 10px 24px;
 }
 

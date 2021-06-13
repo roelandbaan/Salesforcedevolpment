@@ -29,7 +29,7 @@
                 <h2 class="l2">Player 2</h2>
                 <form>
                     <label>Choose your weapon:</label>
-                    <select id="player2" class="rightButton">
+                    <select id="player2" class="rightButton" value="0">
                         <option>Rock</option>
                         <option>Paper</option>
                         <option>Scissors</option>
@@ -47,16 +47,11 @@
         let input2 = document.getElementById("player2").value;
         console.log(input1, input2);
 
+
         function rockPaperScissors() {
             if (input1 === input2) {
                 document.getElementById("result").innerHTML = "It is a draw!";
-            } else if (input1 === "Rock" && input2 === "Scissors") {
-                document.getElementById("result").innerHTML = "Player 1 Wins";
-                document.getElementById("result").style.color = "blue";
-            } else if (input1 === "Paper" && input2 === "Rock") {
-                document.getElementById("result").innerHTML = "Player 1 Wins";
-                document.getElementById("result").style.color = "blue";
-            } else if (input1 === "Scissors" && input2 === "Paper") {
+            } else if ((input1 === "Rock" && input2 === "Scissors")||(input1 === "Paper" && input2 === "Rock")||(input1 === "Scissors" && input2 === "Paper")) {
                 document.getElementById("result").innerHTML = "Player 1 Wins";
                 document.getElementById("result").style.color = "blue";
             } else {
@@ -64,7 +59,7 @@
                 document.getElementById("result").style.color = "red";
             }
         }
-
+    
     </script>
 
 </body>
