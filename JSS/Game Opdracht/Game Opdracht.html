@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Game Opdracht css.css">
+</head>
+<body>
+    
+      <dialog open>
+          <p>Greetings Adventurer!</p>
+          <button onclick="login()">Login</button><button onclick="register()">Register</button>
+      </dialog>
+
+    <script>
+
+        let player;
+        let password;
+
+      //  let database = new SQL.Database
+
+        function login() {
+            document.querySelector('dialog').removeAttribute('open');
+            player = prompt("Please enter your user name ");
+            password = prompt("Please enter your password");
+        }
+
+        function passwordCharcters() {
+            alert("Passwords must contain at least 8 charcters!");
+            password = prompt("Please enter a password containing at least 8 Charcters");
+            if (password.length < 8) {
+                passwordCharcters();
+            } alert("Welcome " + player)
+        }
+
+        function register() {
+            document.querySelector('dialog').removeAttribute('open');
+            player = prompt("Please enter your new name")
+            password = prompt("Please enter a password containing at least 8 Charcters")
+            if (password.length < 8) {
+            passwordCharcters ();
+            } else if (password.length >= 8)
+            alert("Welcome " + player);
+        }
+
+    </script>
+</body>
+</html>
