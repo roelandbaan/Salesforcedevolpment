@@ -75,7 +75,22 @@ System.debug('final summation: ' + totalSum);
 //Excersize 1
 List<Integer> oddNumbers = new List<Integer>();
 Integer sumEvenNum = 0;
-for(Integer i = 1; i < 20; i++){
+for(Integer i = 1; i <= 20; i++){
+    if(Math.mod(i,2) == 1){
+        oddNumbers.add(i);
+    } else {
+        sumEvenNum = sumEvenNum + i;
+    }
+}
+System.debug('oddNumbers: ' + oddNumbers);
+System.debug('sumEvenNum value: ' + sumEvenNum);
+
+//Excersize 1 with a while loop
+List<Integer> oddNumbers = new List<Integer>();
+Integer sumEvenNum = 0;
+Integer i = 1;
+while(i < 20){
+    i++;
     if(Math.mod(i,2) == 1){
         oddNumbers.add(i);
     } else {

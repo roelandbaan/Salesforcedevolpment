@@ -16,3 +16,48 @@ testList.add('Test '+ i);
 System.debug(testList);
     }  
 }
+
+///defining a simple class and method in Apex
+public class Demo1 {
+
+    public void printOutput(String stringToDisplay){
+        System.debug('Display text: ' + stringToDisplay);
+    }
+}
+
+
+public class Demo2 {
+    
+    public String helloWorldString;						//Instance Member Variables
+    private static final String DEFAULT_STRING;		//Static member Variables
+    
+    static{											//Static Initializer Block
+        DEFAULT_STRING = 'Hello World';
+    }
+    
+    public Demo2(){									// Constructor
+        this(DEFAULT_STRING);
+        }
+
+    public Demo2(String stringToDisplay){		  	//Overloaded contstructor
+        this.helloWorldString = stringToDisplay;
+    }
+    
+    public void printOutput(){								//Method
+        System.debug('Display text: ' + helloWorldString);
+   } 
+
+       public static void printOutput1(){					//Static Method
+        System.debug('Display from static method');
+   } 
+}
+
+//Invoking instance methods
+Demo2 d2 = new Demo2();
+d2.printOutput();
+
+Demo2 d2 = new Demo2('Hello Roeland');    //Invoking overloaded Constructor
+d2.printOutput();
+
+//Invoking a static method
+Demo2.printOutput1();
