@@ -100,4 +100,3 @@ while(i < 20){
 System.debug('oddNumbers: ' + oddNumbers);
 System.debug('sumEvenNum value: ' + sumEvenNum);
 
-

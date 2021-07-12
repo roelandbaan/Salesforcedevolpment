@@ -61,3 +61,43 @@ d2.printOutput();
 
 //Invoking a static method
 Demo2.printOutput1();
+
+
+//Pass by Reference and Pass by Value
+public class Demo3 {
+
+    public void mainValueMethod(){
+        
+        String websiteUrl = 'www.apexhours.com';
+        
+        System.debug('Before value call: ' + websiteUrl);
+        passByValueCall(websiteUrl);
+        System.debug('After value call: ' + websiteUrl);
+    }
+    
+    private void passByValueCall(String websiteUrlValue){			//Pass by Value Call
+        websiteUrlValue = 'www.salesforce.com';
+    }
+    
+    public void mainReferenceMethod(){
+        
+        Account a = new Account();
+        a.Name = 'Test Account';
+        a.Website = 'www.apexhours.com';
+        
+        System.debug('Before reference call: ' + a);
+        passByRefCall(a);
+        System.debug('After reference call: ' + a);
+    }
+    
+    private void passByRefCall(Account a){						//Pass by Reference Call
+        a.website = 'www.salesforce.com';
+    } 
+    
+}
+
+
+Demo3 d3 = new Demo3();
+d3.mainValueMethod();		//Pass by Value Call
+
+d3.mainReferenceMethod();	//Pass by Reference
