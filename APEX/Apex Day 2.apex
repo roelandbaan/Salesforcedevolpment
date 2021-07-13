@@ -17,7 +17,7 @@ System.debug(testList);
     }  
 }
 
-///defining a simple class and method in Apex
+//defining a simple class and method in Apex
 public class Demo1 {
 
     public void printOutput(String stringToDisplay){
@@ -101,3 +101,74 @@ Demo3 d3 = new Demo3();
 d3.mainValueMethod();		//Pass by Value Call
 
 d3.mainReferenceMethod();	//Pass by Reference
+
+
+//Virtual Classes and methods
+public virtual class Stringwriter {
+    
+    public virtual void printString(){
+        System.debug('This is the default string');
+    }
+
+}
+
+public class HTMLStringwriter extends StringWriter {
+    
+    public override void printString(){
+        System.debug('<p>This is am HTML string <p>');
+    } 
+
+}
+
+//Running the virtual class and the altered virtual class where u call the same method but the behaviour is different
+StringWriter sw1 = new StringWriter();
+sw1.printString();
+
+HTMLStringWriter sw2 = new HTMLStringWriter();
+sw2.printString();
+
+
+
+//Interfaces and interacting with them
+public interface IAreaCalculator {
+    
+    void computeArea();                 //Interface methods are always public otherwise they wouldnt be accessable
+
+}
+
+//making a class that interacts with the interface
+public class SquareAreaCalculator implements IAreaCalculator {
+    
+    public void computeArea(){
+        System.debug('Computes the area of a Square');
+    }
+
+}
+IAreaCalculator sac = new SquareAreaCalculator();
+sac.computeArea();
+
+
+//Excersize day 2
+public class MathCalculator {
+    
+    private static Integer add(Integer a, Integer b){
+        return a+b;
+        }
+
+    private static Integer multiply(Integer a, Integer b){
+        return a*b;
+    }
+    
+    private static void printOutput(Integer a, Integer b){
+        System.debug('Add: ' + add(a,b));
+        System.debug('Multiply: ' + multiply(a,b));
+    }
+    
+    public void doMath(Integer a, Integer b){
+        printOutput(a,b);
+        
+    }
+}
+//Invoking an instance method
+MathCalculator m1 = new Mathcalculator();
+m1.doMath(2,4);
