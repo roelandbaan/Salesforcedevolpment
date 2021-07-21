@@ -1,0 +1,1 @@
+SELECT Id, Name, CloseDate, Amount FROM Opportunity WHERE Amount > 5000 ORDER BY Amount DESC LIMIT 5
