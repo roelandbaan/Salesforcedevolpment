@@ -82,3 +82,5 @@ for(Opportunity opp : acc.Opportunities) {
 
 //Example of a SOSL Query (Syntax)
 List<List<SObjext>> searchList = [FIND 'Joe*' IN ALL FIELDS RETURNING Account(Id, Name), Lead];
+
+
