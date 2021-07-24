@@ -42,3 +42,5 @@ SELECT Amount FROM Opportunity ORDER BY Amount DESC LIMIT 5
 
 Opdracht 16
 SELECT SUM(Amount),MIN(Amount), MAX(Amount), AVG(Amount) FROM Opportunity
+
+End.
