@@ -5,7 +5,7 @@ Opdracht 2
 SELECT Name, Account.name FROM Contact
 
 Opdracht 3
-SELECT Name FROM Contact ORDER BY Name DESC
+SELECT Name FROM Contact ORDER BY Name DESC 
 
 Opdracht 4
 SELECT COUNT(Loan_Amount__c), Name FROM Contact WHERE Loan_Amount__c > 1000 GROUP BY Name
