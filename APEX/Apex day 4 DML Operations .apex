@@ -147,3 +147,47 @@ insert con;
 } catch (Exception ex) {
     Database.rollback(spt);
 }
+
+
+
+//Assignments Day 4
+public class AssignmentDay4 {
+    public void insertAccount() {
+        Account acc = new Account(
+        Name = 'Assignment Day 4');
+        insert acc;
+        system.debug('Account record has been created: '+ acc.Name);
+        list<Contact> listContacts = new List<Contact>();
+        for(Integer i = 1; i <= 5; ++i){
+        Contact contact = new Contact();
+        contact.FirstName = 'Apex';
+        contact.LastName = 'Contact'+ i;
+        contact.AccountId = acc.Id;
+        listContacts.add(contact);
+        System.debug('This record will be created: '+ contact);
+      }
+      insert listContacts;  
+    }
+    
+  public void getNewContacts() {
+  List<Contact> cntList = [SELECT Id, Name FROM Contact WHERE CreatedDate = TODAY];
+      for (Contact contact : cntList) {
+          system.debug('Contact Name: ' + contact.Name);
+    }
+  }
+    
+    public void getContactsWithAccounts() {
+    Contact[] accInfo = [SELECT Id, Name, Account.Name FROM Contact];
+        for(Contact contact : accInfo) {    
+    System.debug('Account Name: ' + contact.Account.Name);
+    System.debug('Contact Name: ' + contact.Name);
+    }  
+  }   
+    
+    public void getAccountsWithContacts() {
+    Account[] conInfo = [SELECT Id, Name, (SELECT Id, Name FROM Contacts)FROM Account];
+        for (Account account : conInfo) {
+            system.debug('Account Name: ' + account.Name);
+         }
+      }
+}    
