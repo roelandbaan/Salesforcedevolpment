@@ -23,6 +23,10 @@ System.debug('Integer: ' + wholeNumber);
 Long longValue = 2789655345L;
 System.debug('Long: ' + longValue);
 
+Blob bBinary = Blob.valueOf('shfjhgfjhdgfjfd');
+system.debug(bBinary);
+system.debug(bBinary.toString());  //returns a string type
+
 Object objValue = o;
 system.debug('Object: '+ objValue);
 
