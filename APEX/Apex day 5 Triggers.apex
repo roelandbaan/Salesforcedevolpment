@@ -140,7 +140,7 @@ trigger MileageTrigger on Mileage__c (before insert, before update) {
             contactListToUpdate.add(con)
         }
     }
-    update contactListToUpdate
+    update contactListToUpdate;
 }
 
 
@@ -163,4 +163,20 @@ trigger TestTrigger on Account (before insert) {
     }
 }
 
- 
+//Assignment day 5
+Trigger LineItemsToInvoice on Invoice_Line_Item__c (after insert, after update) {
+
+
+}
+
+public class InvoiceMath {
+
+   private static Decimal sum {
+       List<Decimal> lstOfLineAmounts= new List<Decimal>();
+        for(Invoice_Line_Item__c amount : Trigger.new) {
+            //sum over all Invoice_Line_Item__c Amount fields
+            
+
+        }update Invoice.Amount;
+    }
+}
