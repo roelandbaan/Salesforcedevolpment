@@ -163,6 +163,16 @@ trigger TestTrigger on Account (before insert) {
     }
 }
 
+
+
+
+//Use this code snippet to change from decimal to integer type
+Decimal decimalValue = 12.0;
+Integer integerValue = decimalValue.intValue();
+
+
+
+
 //Assignment day 5
 Trigger LineItemsToInvoice on Invoice_Line_Item__c (after insert, after update) {
 

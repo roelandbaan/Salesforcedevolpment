@@ -1,0 +1,69 @@
+//Trigger 1 Create a related contact on account creation
+
+trigger CreateConForNewAcc on Account (after insert) {
+    
+    List<Contact> cList = new List<contact>();
+    for(Account acc : Trigger.new) {
+        Contact c = new Contact(LastName = acc.Name + 'con', Phone = acc.Phone,
+        AccountId = acc.Id);
+        clist.add(c);
+    }insert cList;
+
+}
+
+
+//Trigger 2 Update related contact owner id fields with parent account owner id field if it is updated
+
+trigger UpdateOwner on Account (After Update) {
+    
+//Make maps, set and an array to store variables for later reference
+    Contact[] contactUpdates = new Contact[0];
+    Set<Id> accIDs = new Set<Id>();
+    Map<Id, String> newOwnerIds = new Map<Id, String>();
+    Map<Id, String> oldOwnerIds = new Map<Id, String>();
+    
+    //Get the account id and store it if the ownerID is updated
+    for(Account acc : Trigger.new){
+        if(Acc.OwnerId != Trigger.oldMap.get(acc.Id).OwnerId){
+            newOwnerIds.put(acc.Id, acc.OwnerId);
+            oldOwnerIds.put(acc.Id, Trigger.oldMap.get(acc.id).OwnerId);
+            accIDs.add(acc.Id);
+        }
+       //If there are Account Ids stored in my list (meaning its OwnerId is updated)
+       //query for the related contacts of that account 
+       //and make 2 strings for later reference 
+    } if(!accIDs.isEmpty()){
+        for(Account a :[SELECT Id, (SELECT Id, OwnerId FROM Contacts)FROM Account WHERE Id in :accIDs ]){
+            String newOwnerId = newOwnerIds.get(a.Id);
+            String oldOwnerId = oldOwnerIds.get(a.Id);
+     //check for all queried results if their OwnerId is equal to the old account OwnerId
+     //if true set Owner id for contact to new OwnerID add it to the contactUpdates Array and update
+            for(Contact c :a.Contacts) {
+                if(c.OwnerId == oldOwnerId){
+                   Contact updatedContact = new Contact(OwnerId = newOwnerId);
+                    contactUpdates.add(updatedContact);
+                }
+            }
+        }
+    }update contactUpdates;
+        
+}
+
+
+
+Trigger 3 Creates an opportunity if an account is created with or updated to Industry type Agriculture.
+
+trigger CreateOpportunity on Account (after insert, after update) {
+
+    List<Opportunity> oppList = new List<Opportunity>();
+     for(Account acc : Trigger.new){
+        if(Acc.Industry == 'Agriculture'){
+            Opportunity o = new Opportunity(Name = acc.Name + ' opp', StageName = 'Prospecting',
+            Amount = 0, CloseDate =Date.Today().addDays(90), AccountId = acc.Id);
+            oppList.add(o);
+        }
+    } insert oppList;
+}
+
+
+Trigger 4 
