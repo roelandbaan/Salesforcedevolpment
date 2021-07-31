@@ -66,4 +66,86 @@ trigger CreateOpportunity on Account (after insert, after update) {
 }
 
 
-Trigger 4 
+Trigger 4 Prevent an account from being deleted if it has related contacts.
+
+//This code makes a list of all the accounts with contacts and checks if the account you are trying to delete is in that list
+//Not optimal for your system performance if your search returns a lot of accounts
+trigger ValidationOnAccountDelete on Account (before delete) {
+
+Set<Id> accountsWithContacts = new Set<Id>();
+for(Contact c : [SELECT Id, AccountId FROM Contact WHERE AccountId in :trigger.oldMap.keySet()]) {
+    accountsWithContacts.add(c.AccountId);
+}
+for(Id id : accountsWithContacts) {
+    trigger.oldMap.get(id).addError('Account cannot be deleted while there are related contacts');
+}
+}
+
+//This looks better but i dont know how to define the if criteria 
+trigger validation_using_Trigger on Account (before delete) {
+ for(Account acc:trigger.old){
+    if([SELECT (SELECT Id FROM Contacts) FROM Account]!= null){
+       acc.adderror('Account cannot be deleted while there are related contacts');
+    }
+ }
+}
+
+
+Trigger 5
+
+
+//This trigger allows only admins to delete closed opportunities and sends an email to Opp owners if the Stagename is set to closed won
+
+trigger OpportunityManagement on Opportunity (after update, after insert, before delete) {
+
+   if(Trigger.isAfter){
+       if(Trigger.isUpdate || Trigger.isInsert){
+             for(Opportunity o: Trigger.new) {
+                  MailToOpp_AccOwner.oppMailer(Trigger.New, Trigger.OldMap);
+                }
+        }
+    }
+    
+    if(Trigger.isDelete){
+       if([Select Profile.Name FROM User WHERE Id = :UserInfo.getUserId()].Profile.Name != 'System Administrator') {
+          for(Opportunity opp:trigger.old){
+               if(opp.StageName == 'Closed Won' || opp.StageName == 'Closed Lost'){  
+               opp.adderror('Only Admins can delete Closed Opportunities');
+    }
+ }
+}
+}
+}
+
+
+//The Email sending class that is being initiated
+public class MailToOpp_AccOwner {
+    
+    public static void oppMailer(List<Opportunity> triggerNew , Map<Id, Opportunity> oppOldMap) {
+        Map<Id,String> opportunityMap = new Map<Id, String>();
+        
+        for(Opportunity opp : triggerNew) {
+            String ownerEmail = opp.Owner.Email;
+            if(opp.STageName == 'Closed Won' && oppOldmap.get(opp.Id).StageName != 'Closed Won') {
+               opportunityMap.put(opp.Id, ownerEmail); 
+            }
+        }
+        
+        if(opportunityMap.size()>0){
+            List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+                for(Id oppId : opportunitymap.keyset()) {
+                    String email = opportunityMap.get(oppId);
+                
+                    Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+                    mail.setToAddresses(new List<String>{email});
+                    mail.setSubject('Automated Email: Opportunity Status update');
+                    mail.setPlainTextBody('won');
+                    mails.add(mail);
+            }
+            if(mails.size() > 0) {
+                Messaging.sendEmail(mails);
+            } 
+        }
+    }
+
+}
