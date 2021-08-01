@@ -91,7 +91,7 @@ trigger validation_using_Trigger on Account (before delete) {
 }
 
 
-Trigger 5
+Trigger 5 Only Admins can dlete closed opportunities and send an email to account and opportunity owner on Stage converison to Closed Won
 
 
 //This trigger allows only admins to delete closed opportunities and sends an email to Opp owners if the Stagename is set to closed won
@@ -119,33 +119,46 @@ trigger OpportunityManagement on Opportunity (after update, after insert, before
 
 
 //The Email sending class that is being initiated
+//ERROR CANT get the email adress into a variable for later reference can only make it work if i dirctly type in the email adress
+
+To fetch the Email Address of Owner of Opportunity records
+
+SELECT Owner.Email FROM Opportunity WHERE Opportunity.Id in:OppIds
+
+
+To fetch the Email Address of Owner of Account in Opportunity records
+
+SELECT Account.Owner.Email FROM Opportunity WHERE Opportunity.Id in:OppIds
+
+
 public class MailToOpp_AccOwner {
     
-    public static void oppMailer(List<Opportunity> triggerNew , Map<Id, Opportunity> oppOldMap) {
-        Map<Id,String> opportunityMap = new Map<Id, String>();
-        
-        for(Opportunity opp : triggerNew) {
-            String ownerEmail = opp.Owner.Email;
-            if(opp.STageName == 'Closed Won' && oppOldmap.get(opp.Id).StageName != 'Closed Won') {
-               opportunityMap.put(opp.Id, ownerEmail); 
-            }
-        }
-        
-        if(opportunityMap.size()>0){
-            List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
-                for(Id oppId : opportunitymap.keyset()) {
-                    String email = opportunityMap.get(oppId);
-                
-                    Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-                    mail.setToAddresses(new List<String>{email});
-                    mail.setSubject('Automated Email: Opportunity Status update');
-                    mail.setPlainTextBody('won');
-                    mails.add(mail);
-            }
-            if(mails.size() > 0) {
-                Messaging.sendEmail(mails);
-            } 
-        }
-    }
+   public static void  oppMailer(List<Opportunity> triggerNew , Map<Id,Opportunity> oppOldMap){
+          Map<Id,String> opportunityMap = new Map<Id,String>();
 
+               for(Opportunity opp: triggerNew){
+               if(opp.StageName == 'Closed Won'){
+                   
+        List<Messaging.SingleEmailMessage> mailList = new List<Messaging.SingleEmailMessage>();
+                   
+        String[] toAddresses = new String[]{'roelandbaan1982@gmail.com'};
+                   
+        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+        mail.setSubject('Apex mail without template');
+        mail.setPlainTextBody('Enter email text content here');
+        mail.setToAddresses(toAddresses);
+        mailList.add(mail);
+        
+        if(!mailList.isEmpty())
+            Messaging.sendEmail(mailList);
+             }
+          }
+
+
+     }
 }
+
+
+
+
+Trigger 6 
