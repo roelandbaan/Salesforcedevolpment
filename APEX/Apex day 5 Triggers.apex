@@ -171,6 +171,54 @@ Decimal decimalValue = 12.0;
 Integer integerValue = decimalValue.intValue();
 
 
+//This is a trigger and a class to show u can call different methods depending on the different trigger stages
+
+trigger AccTriggerHandler on Account (before insert, after insert, before update, after update) {
+
+    AccountTriggerHandler handler = new AccountTriggerHandler(Trigger.isExecuting, Trigger.size);
+    
+    if(Trigger.isInsert) {
+        if(Trigger.isBefore) {
+            handler.OnbeforeInsert(trigger.new);
+        }
+        Else {
+            handler.OnAfterInsert(trigger.new);
+        }
+    }
+    Else if(Trigger.isUpdate) {
+           if(Trigger.isBefore) {
+             handler.OnBeforeUpdate(trigger.New, trigger.Old, trigger.NewMap, trigger.OldMap);
+        }
+        Else {
+            handler.OnAfterUpdate(trigger.New, trigger.Old, trigger.NewMap, trigger.OldMap);
+        }
+    }
+}
+
+
+trigger AccTriggerHandler on Account (before insert, after insert, before update, after update) {
+
+    AccountTriggerHandler handler = new AccountTriggerHandler(Trigger.isExecuting, Trigger.size);
+    
+    if(Trigger.isInsert) {
+        if(Trigger.isBefore) {
+            handler.OnbeforeInsert(trigger.new);
+        }
+        Else {
+            handler.OnAfterInsert(trigger.new);
+        }
+    }
+    Else if(Trigger.isUpdate) {
+           if(Trigger.isBefore) {
+             handler.OnBeforeUpdate(trigger.New, trigger.Old, trigger.NewMap, trigger.OldMap);
+        }
+        Else {
+            handler.OnAfterUpdate(trigger.New, trigger.Old, trigger.NewMap, trigger.OldMap);
+        }
+    }
+}
+
+
 
 
 //Assignment day 5
