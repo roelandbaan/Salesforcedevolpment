@@ -230,10 +230,16 @@ Trigger LineItemsToInvoice on Invoice_Line_Item__c (after insert, after update) 
 public class InvoiceMath {
 
    private static Decimal sum {
-       List<Decimal> lstOfLineAmounts= new List<Decimal>();
-        for(Invoice_Line_Item__c amount : Trigger.new) {
+       Decimal sumOfLineItems = 0;
+       List<Decimal> listOfLineAmounts= new List<Decimal>();
+        for(Invoice_Line_Item__c LItem : Trigger.new) {
+            //Select all the amounts and put them in a list need ids to know which parent record to update to and which child records to query
+            [SELECT Amount FROM Invoice_Line_Item__c];
+            listOfLineAmounts.add(LItem.get.Amount);
             //sum over all Invoice_Line_Item__c Amount fields
-            
+           for(Integer i = 0; 1 <= listOfLineAmounts.size) {
+               sumOfLineItems =  sumOfLineItems +listOfLineAmounts[i];
+           }
 
         }update Invoice.Amount;
     }
