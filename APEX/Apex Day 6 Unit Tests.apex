@@ -4,7 +4,7 @@
 
 public class MyTestClass {
     
-    @isTest 
+    @isTest  
     static void accountTest() {
         Account acc = new Account(Name = 'TestAcc', Industry = 'Education', Rating = 'Hot', Phone = '999-1112');
         
