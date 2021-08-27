@@ -1,4 +1,4 @@
-//Trigger 1 Create a related contact on account creation.
+//Trigger 1 Create a related contact on account creation
 
 trigger CreateConForNewAcc on Account (after insert) {
     
