@@ -1,4 +1,4 @@
-//Trigger 1 Create a related contact on account creation
+//Trigger 1 Create a related contact on account creation.
 
 trigger CreateConForNewAcc on Account (after insert) {
     
@@ -12,7 +12,7 @@ trigger CreateConForNewAcc on Account (after insert) {
 }
 
 
-//Trigger 2 Update related contact owner id fields with parent account owner id field if it is updated
+//Trigger 2 Update related contact owner id fields with parent account owner id field if it is updated.
 
 trigger UpdateOwner on Account (After Update) {
     
