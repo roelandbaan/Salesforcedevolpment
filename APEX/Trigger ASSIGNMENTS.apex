@@ -120,26 +120,46 @@ trigger OpportunityManagement on Opportunity (after update, after insert, before
 
 
 //The Email sending class that is being initiated
-//ERROR CANT get the email adress into a variable for later reference can only make it work if i dirctly type in the email adress
 
-To fetch the Email Address of Owner of Opportunity records
+public class MailToOpp_AccOwner {
+
+    boolean b = true;
+    private static void oppMailer {
+        if (b == true) {
+         List<Opportunity> opportunities = [Select Id, OwnerId, Name, StageName, Account.OwnerId, Owner.Email, Account.Owner.Email 
+From Opportunity Where Id IN :Trigger.newMap.keySet() AND StageName='Closed Won'];
+
+                if(!opportunities.isEmpty()) {
+                    List <Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+                }
+    }
+}
+
+}
+
+
+
+
+//To fetch the Email Address of Owner of Opportunity records
 
 SELECT Owner.Email FROM Opportunity WHERE Opportunity.Id in:OppIds
 
 
-To fetch the Email Address of Owner of Account in Opportunity records
+//To fetch the Email Address of Owner of Account in Opportunity records
 
 SELECT Account.Owner.Email FROM Opportunity WHERE Opportunity.Id in:OppIds
 
 
-public class MailToOpp_AccOwner {
+public class MailToOpp_AccOwnerr {
     
    public static void  oppMailer(List<Opportunity> triggerNew , Map<Id,Opportunity> oppOldMap){
           Map<Id,String> opportunityMap = new Map<Id,String>();
 
-               String[] toAddresses = new String[];
 
-               for(Opportunity opp: triggerNew){
+
+
+               String[] toAddresses = new String[];
+                             for(Opportunity opp: triggerNew){
                if(opp.StageName == 'Closed Won'){
         List<Messaging.SingleEmailMessage> mailList = new List<Messaging.SingleEmailMessage>();
         List<String> emailad =  [Select Id, OwnerId, Name, StageName, Account.OwnerId, Owner.Email, Account.Owner.Email 
@@ -167,10 +187,8 @@ public class MailToOpp_AccOwner {
 
 
 // Get all the Closed Won opportunities which were updated 
-List<Opportunity> oportunities = [Select Id, OwnerId, Name, StageName, Account.OwnerId, Owner.Email, Account.Owner.Email 
-From Opportunity Where Id IN 
-:Trigger.newMap.keySet() 
-AND StageName='Closed Won'];
+List<Opportunity> opportunities = [Select Id, OwnerId, Name, StageName, Account.OwnerId, Owner.Email, Account.Owner.Email 
+From Opportunity Where Id IN :Trigger.newMap.keySet() AND StageName='Closed Won'];
 
 
 
@@ -201,11 +219,10 @@ From Opportunity Where Id IN
 :Trigger.newMap.keySet() // hiermee selecteer je records die geupdate zijn
 AND StageName='Closed Won']; 
 if(!oportunities.isEmpty()) { 
-	// Create an empty list of mail messages which need to be sent. List<Messaging.SingleEmailMessage> mails = new 
-List<Messaging.SingleEmailMessage>(); 
+	// Create an empty list of mail messages which need to be sent.
+List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>(); 
 for(Opportunity opp : oportunities) { 
-Messaging.SingleEmailMessage emailMessage = new 
-Messaging.SingleEmailMessage(); 
+Messaging.SingleEmailMessage emailMessage = new Messaging.SingleEmailMessage(); 
 // Check if Opportunity owner and account owner are same 
 	// if yes, then set only 1 email address to the 'To Address' so that 2 emails are not sent to the same owner 
 // else add email of both owners 
