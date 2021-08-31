@@ -312,3 +312,66 @@ public class ContactSearch {
     }
     }
 }
+
+
+// SOSL QUERIES!!!
+
+List<List<sObject>> searchList = [FIND 'SFDC' IN ALL FIELDS
+                     RETURNING Account(Name), Contact(LastName, FirstName)];
+
+// Note
+// The search query in the Query Editor and the API must be enclosed within curly brackets ({Wingo}).
+// In contrast, in Apex the search query is enclosed within single quotes ('Wingo').
+
+// This is the syntax of a basic SOSL query:
+
+FIND 'SearchQuery' [IN SearchGroup] [RETURNING ObjectsAndFields]
+
+// SearchGroup can take one of the following values.
+
+ALL FIELDS
+NAME FIELDS
+EMAIL FIELDS
+PHONE FIELDS
+SIDEBAR FIELDS
+
+// ObjectsAndFields is 
+// optional. It is the information to return in the search result—a list of one or more sObjects
+// and, within each sObject, list of one or more fields, with optional values to filter against.
+// If not specified, the search results contain the IDs of all objects found.
+
+
+// Assigning the fetched records Using a SOSL query to an array list
+List<list<sObject>> lst = [FIND 'Wingo OR SFDC' IN ALL FIELDS 
+                 RETURNING Account(Name), Contact(FirstName, LastName, Department)];
+// Making a list with the value of 1 Array from the list of Arrays                 
+Account[] accList = (Account[])lst[0];
+Contact[] conList = (Contact[])lst[1];
+// System debug the name for all fetched accounts
+System.debug('Found the following accounts: ');
+for(Account a : accList) {
+    System.debug(a.Name);
+}
+// System debug the name and Department for all fetched Contacts
+System.debug('Found the following contacts: ');
+for(Contact c : conList) {
+    System.debug(c.FirstName + ', ' + c.LastName +', ' + c.Department);
+}
+
+// Using WHERE, OR and LIMIT in SOSL
+RETURNING Account(Name, Industry WHERE Industry='Apparel');
+
+RETURNING Account(Name, Industry ORDER BY Name);
+
+RETURNING Account(Name, Industry LIMIT 10);
+
+// Assignment SOSL
+public class ContactAndLeadSearch {
+    
+    public static List<List<sObject>> searchContactsAndLeads(String searchCriteria) {
+        List<List<sObject>> lst = [FIND :searchCriteria IN ALL FIELDS
+                   RETURNING Contact(FirstName, LastName), Lead(FirstName, LastName)];
+        return lst;
+    }
+
+}
