@@ -190,4 +190,47 @@ public class AssignmentDay4 {
             system.debug('Account Name: ' + account.Name);
          }
       }
-}    
+}
+
+
+
+public Class Assignment4 {
+
+    public static void insertAccWithCons (String name, String conName) {
+
+        Account acc = new Account(Name = name);
+        insert acc;
+        List<Contact> conList = new List<Contact>();
+        for(Integer i = 0; i < 5; i++) {
+            Contact con = new Contact(LastName = conName + i, AccountId = acc.Id);
+            conList.add(con);
+        } insert conList;
+    }
+
+public static void getNewContacts() {
+List<Contact> conList = new List<Contact>();
+for(Contact c : [SELECT Id, Name FROM Contact WHERE CreatedDate = TODAY]) {
+    System.debug('Contact name: ' + c.Name);
+    conList.add(c);
+}
+    System.debug(conList);
+}
+
+public static void getAccountFromCon() {
+    Contact[] conWithAcc = [SELECT Name, Account.Name FROM Contact];
+    for(Contact c : conWithAcc) {
+        System.debug('Account name: ' + c.Account.Name);
+        System.debug('Contact Nam: ' + c.Name);
+    }
+}
+
+public static void getConFromAcc() {
+    Account[] accWithCon = [SELECT Name, (SELECT LastName, FirstName FROM Contacts) FROM Account];
+    for(Account a : accWithCon) {
+        System.debug('Account name:' + a.Name);
+        for(Contact c : a.Contacts) {
+             System.debug('Contact name: ' + c.FirstName + ', ' + c.LastName);
+        }
+    }
+}
+}

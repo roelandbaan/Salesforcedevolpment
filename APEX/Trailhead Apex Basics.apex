@@ -375,3 +375,27 @@ public class ContactAndLeadSearch {
     }
 
 }
+
+
+//  Assign an sObject list the returning contacts from a SOSL query 
+List<List<sObject>> searchList = [FIND 'Crisis' IN ALL FIELDS RETURNING 
+                                 Contact(FirstName, LastName, Phone, Email, Description)];
+// Put those contacts in a Type Contact array                                
+Contact[] searchContacts = (Contact[])searchList[0];
+	System.debug('Found the following contacts: ' + searchContacts);
+    // Iterate over each contact in the list and system debug first/last name
+for(Contact c : searchContacts){
+	System.debug(c.Lastname +', '+ c.FirstName);
+}
+
+
+// Assignment to system.debug first and last name of SOSL Queried contacts
+// Assign returning Contacts from the SOSL query to a List of sObject Lists
+List<List<sObject>> soslList = [FIND 'Mission Control' IN ALL FIELDS RETURNING
+                               Contact(LastName, FirstName)];
+// set the Contacts from the list of sObject Lists to a Contact List                               
+Contact[] conList = (Contact[])soslList[0];
+// Iterate over the contacts in the list and system.debug first/last name
+for(Contact c : conList) {
+    System.debug(c.LastName +', ' + c.FirstName);
+}
