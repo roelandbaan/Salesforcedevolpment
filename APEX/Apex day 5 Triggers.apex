@@ -229,7 +229,7 @@ Trigger LineItemsToInvoice on Invoice_Line_Item__c (after insert, after update) 
 
 public class InvoiceMath {
 
-   private static Decimal sum {
+   private static Decimal sum () {
        Decimal sumOfLineItems = 0;
        List<Decimal> listOfLineAmounts= new List<Decimal>();
         for(Invoice_Line_Item__c LItem : Trigger.new) {
