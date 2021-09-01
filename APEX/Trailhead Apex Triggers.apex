@@ -73,16 +73,18 @@ trigger contextExampleTrigger on Account (before insert, after insert, after del
 
 trigger AddRelatedRecord on Account (before insert, before update) {
     
+    if(trigger.isBefore){
     if(trigger.isInsert || trigger.isUpdate) {
-        allAccMustHaveAnOpp.OppAdder();
+        allAccMustHaveAnOpp.OppAdder(Trigger.New);
         
     }
-
+  }
 }
+
 
 public class allAccMustHaveAnOpp {
     
-    public static void OppAdder(object[] newTrigger) {
+    public static void OppAdder(List<Account>triggerAccs) {
         
         List<Opportunity> oppList = new List<Opportunity>();
         
@@ -92,14 +94,126 @@ public class allAccMustHaveAnOpp {
         
         // Add an opportunity for each account if it doesn't already have one.
         // Iterate through each account.
-        for(Account a : Trigger.New) {
+        for(Account a : triggerAccs) {
             System.debug(acctsWithOpps.get(a.Id).Opportunities.size());
             // Check if the account already has a related opportunity.
             if(acctsWithOpps.get(a.Id).Opportunities.size() == 0) {
                 
-                
+                oppList.add(new Opportunity(Name = a.Name + ' Opportunity',
+                            StageName = 'Prospecting',
+                    		CloseDate = System.today().addMonths(1),
+                            AccountId = a.Id));
             }
+        } if(oppList.size() > 0) {
+            insert oppList;
         } 
     }
 
+}
+
+
+trigger AccountDeletion on Account (before delete) {
+    
+    // Prevent the deletion of accounts if they have related opportunities.
+    for(Account a : [SELECT Id FROM Account WHERE Id IN
+                    (SELECT AccountId FROM Opportunity) AND Id IN :trigger.Old]){
+                         trigger.oldMap.get(a.Id).addError(
+                         'Cannot delete accounts with related opportunities.');
+                     }
+
+}
+
+public Class CalloutClass {
+
+    @future(callout = true)
+    public static void makeCallout() {
+        HttpRequest request = new HttpRequest();
+        // Set the endpoint URL.
+        String endpoint = 'http://www.apexdevnet.com';
+        request.setEndPoint(endpoint);
+        // Set the HTTP verb to GET.
+        request.setMethod('GET');
+        // Send the HTTP request and get the response.
+        HttpResponse response = new Http().send(request);
+        
+    }
+
+}
+
+
+trigger CallOutTrigger on Account(before insert, before update) {
+    CalloutClass.makeCallout();
+
+}
+
+
+// Assignment
+trigger AccountAddressTrigger on Account (before insert, before update) {
+
+    for(Account a : Trigger.New) {
+    if(a.Match_Billing_Address__c == true && a.BillingPostalCode != null){
+    BillAddressIsShipAddress.setAddresses(Trigger.New);
+    }
+   }
+ }
+
+
+public class BillAddressIsShipAddress {
+    
+    public static void setAddresses(List<Account> triggerNew) {
+        
+       
+        
+        for(Account a : triggerNew){
+            if(a.Match_Billing_Address__c = true && a.BillingPostalCode != null){
+            a.ShippingPostalCode = a.BillingPostalCode ;
+        }
+    }
+    }
+}
+
+
+public class allAccMustHaveAnOpp {
+    
+    public static void OppAdder() {
+        
+       List<Opportunity> oppList = new List<Opportunity>();
+        
+        // Add an opportunity for each account if it doesn't already have one.
+    	// Iterate over accounts that are in this trigger but that don't have opportunities.
+        for(Account a : [SELECT Id, Name FROM Account WHERE Id IN :Trigger.New AND
+                         Id NOT IN(SELECT AccountId FROM Opportunity)]) {
+                         
+                oppList.add(new Opportunity(Name = a.Name + ' Opportunity',
+                            AccountId = a.Id,               
+                            StageName = 'Prospecting',
+                    		CloseDate = System.today().addMonths(1)));
+            } if(oppList.size() > 0){ 
+                insert oppList;
+        }
+           
+   }
+}
+
+
+
+trigger ClosedOpportunityTrigger on Opportunity (after insert, after update) {
+    
+    
+            TaskCreator.createTask();
+}    
+
+
+public class TaskCreator {
+    
+    public static void createTask() {
+        
+        List<Task> taskList = new List<Task>();
+        for(Opportunity op : [SELECT Id FROM Opportunity WHERE Id IN :Trigger.New
+                              AND StageName = 'Closed Won']) {
+               taskList.add(new Task(Subject = 'Follow Up Test Task', WhatId = op.Id));
+                                          
+    } insert taskList;
+
+  }
 }
