@@ -229,11 +229,12 @@ Trigger LineItemsToInvoice on Invoice_Line_Item__c (after insert, after update) 
 
 public class InvoiceMath {
 
-   private static Decimal sum () {
+   public static Decimal sumItems () {
        Decimal sumOfLineItems = 0;
        List<Decimal> listOfLineAmounts= new List<Decimal>();
-        for(Invoice_Line_Item__c LItem : Trigger.new) {
-            //Select all the amounts and put them in a list need ids to know which parent record to update to and which child records to query
+        for(Invoice_Line_Item__c LItem : [SELECT Id, Price FROM Invoice_Line_Item__c WHERE ]) {
+            //Select all the amounts and put them in a list need ids to know which parent record to update
+            // to and which child records to query
             [SELECT Amount FROM Invoice_Line_Item__c];
             listOfLineAmounts.add(LItem.get.Amount);
             //sum over all Invoice_Line_Item__c Amount fields
@@ -243,4 +244,38 @@ public class InvoiceMath {
 
         }update Invoice.Amount;
     }
+}
+
+
+
+
+// 2nd attempt
+trigger UpdateTotalAmount on Invoice_Line_Item__c (after update, after insert) {
+    
+    InvoiceMath.sumLineItems();
+
+}
+
+
+public class InvoiceMath {
+    
+    public static void sumLineItems() {
+        
+        List<Id> lineItems = new List<Id>();
+        for(Invoice_Line_Item__c item : 
+            [SELECT Id, Invocie__r.Id  FROM Invoice_Line_Item__c WHERE Id IN :Trigger.New]) {
+            lineItems.add(item.Invocie__c);
+            System.debug(lineItems);
+        }
+        
+        Map<Id, Decimal> totalPriceMap = new Map<Id, Decimal>();
+        for(Invoice_Line_Item__c item :
+            [SELECT Id, Price__c FROM Invoice_Line_Item__c WHERE Invocie__c IN :lineItems]) {
+                Decimal sumOfLineItems = 0;
+               
+           sumOfLineItems = sumOfLineItems + item.Price__c ; 
+                }
+        }         
+    }
+
 }
