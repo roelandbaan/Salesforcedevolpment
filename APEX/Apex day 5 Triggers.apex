@@ -261,21 +261,39 @@ public class InvoiceMath {
     
     public static void sumLineItems() {
         
-        List<Id> lineItems = new List<Id>();
+        // Make  list that holds unique Invocie__c Ids
+        Set<Id> lineItems = new Set<Id>();
         for(Invoice_Line_Item__c item : 
-            [SELECT Id, Invocie__r.Id  FROM Invoice_Line_Item__c WHERE Id IN :Trigger.New]) {
+            [SELECT Id, Invocie__r.Id FROM Invoice_Line_Item__c WHERE Id IN :Trigger.New]) {
             lineItems.add(item.Invocie__c);
-            System.debug(lineItems);
+            
         }
         
-        Map<Id, Decimal> totalPriceMap = new Map<Id, Decimal>();
-        for(Invoice_Line_Item__c item :
-            [SELECT Id, Price__c FROM Invoice_Line_Item__c WHERE Invocie__c IN :lineItems]) {
-                Decimal sumOfLineItems = 0;
-               
-           sumOfLineItems = sumOfLineItems + item.Price__c ; 
+         // make a set for unique Invocie__c records       
+        List<Invocie__c> updateList = new List<Invocie__c>();
+        
+        // iterate over each Invocie that had a child record fire a trigger
+        for(Invocie__c it : [SELECT Id, TotalAmount__c FROM Invocie__c
+                                       WHERE Id IN :lineItems]) {
+            // Make A variable for the current record ID being iterated over, so we can Grab only the child records of 1 parent at a time
+            Id queryId = it.Id;
+            // Set Parent field to zero so we can reset it for each parent record to start a fresh amount summation.
+            it.TotalAmount__c = 0;
+            // Iterate over each child record from the current parent record being iterated over.                                 
+            for(Invoice_Line_Item__c i :
+            [SELECT Id, Price__c FROM Invoice_Line_Item__c WHERE Invocie__c = :queryId]){
+            // set the Parent TotalAmount__c field to the sum of all child record Price__c fields
+            it.TotalAmount__c = it.TotalAmount__c + i.Price__c ;
+            
+                system.debug(it.TotalAmount__c);
                 }
-        }         
+            // Add Updated parent to updateList to bulk inserted after the for loops ran 
+           updateList.add(it);
+            system.debug(updateList);
+			System.debug(updateList.size());
+			// Bulk Update all Parent records of triggered Invoice_Line_Item__c child records.                                          
+        }   update updateList; 
+        
     }
 
 }

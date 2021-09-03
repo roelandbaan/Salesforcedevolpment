@@ -51,7 +51,7 @@ trigger UpdateOwner on Account (After Update) {
 
 
 
-Trigger 3 Creates an opportunity if an account is created with or updated to Industry type Agriculture.
+// Trigger 3 Creates an opportunity if an account is created with or updated to Industry type Agriculture.
 
 trigger CreateOpportunity on Account (after insert, after update) {
 
@@ -81,14 +81,15 @@ for(Id id : accountsWithContacts) {
 }
 }
 
-//This looks better but i dont know how to define the if criteria 
+//This looks better 
 trigger validation_using_Trigger on Account (before delete) {
- for(Account acc:trigger.old){
-    if([SELECT (SELECT Id FROM Contacts) FROM Account]!= null){
-        String op = get(acc.Id).Contacts;
-       acc.adderror('Account cannot be deleted while there are related contacts');
+    
+    for(Account acc : Trigger.Old) {
+        if(acc.Contacts != null){
+         acc.addError('Account cannot be deleted while there are related contacts');  
+        }
     }
- }
+
 }
 
 
