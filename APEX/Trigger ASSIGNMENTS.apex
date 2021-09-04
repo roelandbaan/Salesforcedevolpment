@@ -66,7 +66,7 @@ trigger CreateOpportunity on Account (after insert, after update) {
 }
 
 
-Trigger 4 Prevent an account from being deleted if it has related contacts.
+// Trigger 4 Prevent an account from being deleted if it has related contacts.
 
 //This code makes a list of all the accounts with contacts and checks if the account you are trying to delete is in that list
 //Not optimal for your system performance if your search returns a lot of accounts
@@ -93,50 +93,67 @@ trigger validation_using_Trigger on Account (before delete) {
 }
 
 
-Trigger 5 Only Admins can delete closed opportunities and send an email to account and opportunity owner on Stage converison to Closed Won
+
+// Trigger 5 Only Admins can delete closed opportunities and send an email to account and opportunity owner on Stage converison to Closed Won
 
 
-//This trigger allows only admins to delete closed opportunities and sends an email to Opp owners if the Stagename is set to closed won
+// This trigger allows only admins to delete closed opportunities and sends an email to Opp owners if the Stagename is set to closed won
 
-trigger OpportunityManagement on Opportunity (after update, after insert, before delete) {
-
-   if(Trigger.isAfter){
-       if(Trigger.isUpdate || Trigger.isInsert){
-             for(Opportunity o: Trigger.new) {
-                  MailToOpp_AccOwner.oppMailer(Trigger.New, Trigger.OldMap);
-                }
-        }
+trigger OpportunityManagement on Opportunity (after insert, after update, before delete) {
+    
+    if(trigger.isDelete) {
+        OppManager.onlyAdminDelete(trigger.old);
     }
     
-    if(Trigger.isDelete){
-       if([Select Profile.Name FROM User WHERE Id = :UserInfo.getUserId()].Profile.Name != 'System Administrator') {
-          for(Opportunity opp:trigger.old){
-               if(opp.StageName == 'Closed Won' || opp.StageName == 'Closed Lost'){  
-               opp.adderror('Only Admins can delete Closed Opportunities');
+    if(trigger.isUpdate||trigger.isInsert){
+          OppManager.opportunityMailer();      
     }
- }
-}
-}
+
 }
 
 
-//The Email sending class that is being initiated
-
-public class MailToOpp_AccOwner {
-
-    boolean b = true;
-    private static void oppMailer {
-        if (b == true) {
-         List<Opportunity> opportunities = [Select Id, OwnerId, Name, StageName, Account.OwnerId, Owner.Email, Account.Owner.Email 
-From Opportunity Where Id IN :Trigger.newMap.keySet() AND StageName='Closed Won'];
-
-                if(!opportunities.isEmpty()) {
-                    List <Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+public class OppManager {
+    
+    public static void onlyAdminDelete(Opportunity[] triggerOld){
+        
+        // Check if the User Doesnt have a System Administratoradmin profile
+        if([Select Profile.Name FROM User WHERE
+            Id = :UserInfo.getUserId()].Profile.Name != 'System Administrator') {
+        // If the user doesnt then For each 'Closed Won/Closed' Lost Opportunity Add an error and prevent deletion   
+                for(Opportunity opp : triggerOld) {
+                    if(opp.STageName == 'Closed Won'|| opp.StageName == 'Closed Lost') {
+                        opp.addError('Only Admins can delete closed Opportunities');
+                    }
                 }
+            }
+       }
+    
+    public static void opportunityMailer() {
+        
+        List<Opportunity> oppMailList = [SELECT Id, OwnerId, Name, StageName, Account.OwnerId, Owner.Email, Account.Owner.Email
+                                        FROM Opportunity WHERE StageName = 'Closed Won' AND Id IN :Trigger.New];
+        
+        List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+        
+        if(!oppMailList.isEmpty()){
+        for(Opportunity opp : oppMailList) {
+           // if(Trigger.oldMap.get(opp.StageName) != Trigger.newMap.get(opp.StageName)) {
+           system.debug(Trigger.oldMap.get(opp.StageName));
+           system.debug(Trigger.newMap.get(opp.StageName))); 
+                Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+                if(opp.OwnerId == opp.Account.Owner.Id) {
+                    mail.setToAddresses(new List<String> {opp.Owner.Email});
+                } Else {
+                    mail.setToAddresses(new List<String> {opp.Owner.Email, opp.Account.Owner.Email});
+                }
+                mail.setSubject('Opportunity Closed won');
+                mail.setPlainTextBody('The following Opportunity with name: ' + opp.Name + 'and Id: ' 
+                                     + opp.Id + 'Is now Closed Won');
+                mails.add(mail);
+            }
+        }    Messaging.sendEmail(mails);
+    }   
     }
-}
-
-}
 
 
 
@@ -187,13 +204,8 @@ public class MailToOpp_AccOwnerr {
      }
 
 
-// Get all the Closed Won opportunities which were updated 
-List<Opportunity> opportunities = [Select Id, OwnerId, Name, StageName, Account.OwnerId, Owner.Email, Account.Owner.Email 
-From Opportunity Where Id IN :Trigger.newMap.keySet() AND StageName='Closed Won'];
 
 
-
-Trigger 6 
 
 
 //MC Fergus Code
