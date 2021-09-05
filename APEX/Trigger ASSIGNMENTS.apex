@@ -112,10 +112,11 @@ trigger OpportunityManagement on Opportunity (after insert, after update, before
 }
 
 
-public class OppManager {
+
+    
+    public class OppManager {
     
     public static void onlyAdminDelete(Opportunity[] triggerOld){
-        
         // Check if the User Doesnt have a System Administratoradmin profile
         if([Select Profile.Name FROM User WHERE
             Id = :UserInfo.getUserId()].Profile.Name != 'System Administrator') {
@@ -130,31 +131,44 @@ public class OppManager {
     
     public static void opportunityMailer() {
         
+        // Make a list of all Opportunities which are inserted/updated and closed won
         List<Opportunity> oppMailList = [SELECT Id, OwnerId, Name, StageName, Account.OwnerId, Owner.Email, Account.Owner.Email
                                         FROM Opportunity WHERE StageName = 'Closed Won' AND Id IN :Trigger.New];
         
+        // Make a list of emails to be sent
         List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
         
+        // If there are new/updated opps Closed won iterate over them
         if(!oppMailList.isEmpty()){
         for(Opportunity opp : oppMailList) {
-           // if(Trigger.oldMap.get(opp.StageName) != Trigger.newMap.get(opp.StageName)) {
-           system.debug(Trigger.oldMap.get(opp.StageName));
-           system.debug(Trigger.newMap.get(opp.StageName))); 
+        // save the old Opportunity record and check if the stage name is different then the new value    
+            Opportunity oldOpp = (Opportunity)trigger.oldMap.get(opp.Id);
+           if(opp.StageName != oldOpp.StageName) {
+           
+         // Make an empty email   
                 Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+         // check if the account and opportunity owner are the same and set 1 or 2 adressess to the email  
+          //  Only do this for Opportunities with accounts to avoid errors       
+                if(opp.AccountId != null) {
                 if(opp.OwnerId == opp.Account.Owner.Id) {
                     mail.setToAddresses(new List<String> {opp.Owner.Email});
                 } Else {
                     mail.setToAddresses(new List<String> {opp.Owner.Email, opp.Account.Owner.Email});
                 }
+                } Else {
+                    mail.setToAddresses(new List<String> {opp.Owner.Email});
+                }
+               // make the email template
                 mail.setSubject('Opportunity Closed won');
                 mail.setPlainTextBody('The following Opportunity with name: ' + opp.Name + 'and Id: ' 
                                      + opp.Id + 'Is now Closed Won');
+               // add the email(for each iteration over an opportunity record)
                 mails.add(mail);
             }
         }    Messaging.sendEmail(mails);
     }   
     }
-
+}
 
 
 
@@ -166,42 +180,6 @@ SELECT Owner.Email FROM Opportunity WHERE Opportunity.Id in:OppIds
 //To fetch the Email Address of Owner of Account in Opportunity records
 
 SELECT Account.Owner.Email FROM Opportunity WHERE Opportunity.Id in:OppIds
-
-
-public class MailToOpp_AccOwnerr {
-    
-   public static void  oppMailer(List<Opportunity> triggerNew , Map<Id,Opportunity> oppOldMap){
-          Map<Id,String> opportunityMap = new Map<Id,String>();
-
-
-
-
-               String[] toAddresses = new String[];
-                             for(Opportunity opp: triggerNew){
-               if(opp.StageName == 'Closed Won'){
-        List<Messaging.SingleEmailMessage> mailList = new List<Messaging.SingleEmailMessage>();
-        List<String> emailad =  [Select Id, OwnerId, Name, StageName, Account.OwnerId, Owner.Email, Account.Owner.Email 
-        From Opportunity];
-        emailad.get(Account.Owner.Email, Owner.Email);    
-        
-                      
-        
-        toAddresses.add(emailad.get(Account.Owner.Email, Owner.Email));}
-               }
-        for(Opportunity opp : trigger.new) {           
-        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-        mail.setSubject('Apex mail without template');
-        mail.setPlainTextBody('Enter email text content here');
-        mail.setToAddresses(toAddresses);
-        mailList.add(mail);
-        
-        if(!mailList.isEmpty())
-            Messaging.sendEmail(mailList);
-             }
-          }
-
-
-     }
 
 
 
@@ -256,4 +234,104 @@ mails.add(emailMessage);
 Messaging.sendEmail(mails); 
 } 
 } 
+}
+
+
+// Trigger 6
+
+trigger RelatedContactCount on Contact (after Insert, after Update, after Delete) {
+    
+    if(Trigger.isAfter) {
+        RelatedContactsCounter.Counter(trigger.oldMap, trigger.newMap);
+    }
+
+}
+
+
+
+public class RelatedContactsCounter {
+    
+    public static void Counter(Map<Id, AccountId>triggerOld, Map<Id, AccountId>triggerNew) {
+        // Make a set of unique parent accounts for triggered child contacts
+        set<Id> accIds = new Set<Id>();
+        // trigger new for update and insert
+        if (trigger.isInsert||trigger.isUpdate) {
+        
+        for(Contact con : [SELECT Id, AccountId FROM Contact WHERE Id IN :Trigger.new]) {
+            
+            accIds.add(con.AccountId);
+        }
+        // Trigger old for Delete   
+        } else if(trigger.isDelete){
+            
+        for(Contact con : [SELECT Id, AccountId FROM Contact WHERE Id IN :Trigger.old]) {
+            
+            accIds.add(con.AccountId);
+        }
+        }
+        system.debug('accIds' + accIds);
+        
+        // Make a list with accounts with updated Total contacts
+        List<Account> UpdateList = new List<Account>();
+        
+        // Iterate over each account which had a child contact fire a trigger
+        for(Account acc : [SELECT Id, Total_Contacts_Count__c, (SELECT Id FROM Contacts) FROM Account WHERE Id in :accIds]) {
+            //set total contacts to zero 
+            acc.Total_Contacts_Count__c = 0;
+            // If trigger is delete set count to -1 cause the deleted Contact will be counted as related contact
+            if(trigger.isDelete) {
+                acc.Total_Contacts_Count__c = -1;
+            }
+            //set Id of current record to a variable for later reference
+            Id thisAcc = acc.Id;
+            // increment Total Contacts by +1 for each related contact
+            for(Contact con : [SELECT Id, AccountId FROM Contact WHERE AccountId = :thisAcc]) {
+                acc.Total_Contacts_Count__c = acc.Total_Contacts_Count__c + 1;
+            }
+            updateList.add(acc);
+        }
+        update updateList;
+    }
+
+}
+
+
+// Trigger 6 Version 2
+
+public class RelatedContactsCounter {
+    
+    public static void Counter() {
+        // Make a set of unique parent accounts for triggered child contacts
+        set<Id> accIds = new Set<Id>();
+        // trigger new for update and insert
+        if (trigger.isInsert||trigger.isUpdate) {
+        
+        for(Contact con : [SELECT Id, AccountId FROM Contact WHERE Id IN :Trigger.new]) {
+            
+            accIds.add(con.AccountId);
+        }
+        // Trigger old for Delete   
+        } else if(trigger.isDelete){
+            
+        for(Contact con : [SELECT Id, AccountId FROM Contact WHERE Id IN :Trigger.old]) {
+            
+            accIds.add(con.AccountId);
+        }
+        }
+        system.debug('accIds' + accIds);
+        
+        // Make a list with accounts with updated Total contacts
+        List<Account> UpdateList = new List<Account>();
+        
+        // Iterate over each account which had a child contact fire a trigger
+        for(AggregateResult ar : [SELECT AccountId AcctId, COUNT(id) ContactCount FROM Contact WHERE
+                                 AccountId in :accIds GROUP BY AccountId]) {
+          Account acc = new Account();
+          acc.Id = (Id)ar.get('AcctId'); //---> handy trick for updates, set the id and update
+          acc.Total_Contacts_Count__c = (Total_Contacts_Count__c)ar.get('ContactCount');
+            updateList.add(acc);
+        }
+        update updateList;
+    }
+
 }
