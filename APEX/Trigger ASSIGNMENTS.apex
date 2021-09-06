@@ -335,3 +335,158 @@ public class RelatedContactsCounter {
     }
 
 }
+
+
+
+// Trigger 7
+
+trigger UpdateMailingCity on Account (After Update) {
+    
+    MailCtyIsBillCty.updateMailCty();
+
+}
+
+
+
+
+public class MailCtyIsBillCty {
+    
+    public static void updateMailCty() {
+        Set<Id> accs = new Set<Id>();
+        for(Account acc : [SELECT Id FROM Account WHERE Id IN :Trigger.New]) {
+            accs.add(acc.Id);
+        }
+        
+        if(!accs.isEmpty()) {
+            List<Contact> updateList = new List<Contact>();
+            for(Account acc: [SELECT Id, BillingCity FROM Account WHERE ID IN :accs]) {
+            Account oldAccount = (Account)Trigger.OldMap.get(acc.Id); 
+                System.debug(oldAccount);
+                if(acc.BillingCity != oldAccount.BillingCity) {
+                    system.debug('Hello world');
+                    for(Contact con : [SELECT Id, MailingCity FROM Contact WHERE AccountId = :acc.Id]) {
+                        con.MailingCity = acc.BillingCity ;
+                        updateList.add(con);
+                    }
+                }
+            } update updateList;
+            
+        }
+    }
+
+}
+
+
+// Trigger 8 
+
+trigger ActiveAdmin on User (after insert) {
+    
+    AdminToGroup.toGroupAdder();
+
+}
+
+
+
+public class AdminToGroup {
+    
+    Public static void toGroupAdder() {
+        
+    set<User> users = new set<User>();
+        for(User u : [SELECT Id, Profile.Name From User WHERE Profile.Name = 'System Administrator' AND Id IN :Trigger.New]) {
+            users.add(u);
+        }
+        system.debug(users);
+        
+        String name = 'Admins';
+        Group adminGroup = [SELECT Id, Name From Group WHERE Name = :name];
+        
+        system.debug(adminGroup);
+        
+        List<GroupMember> updateList = new List<GroupMember>();
+        
+        for(User u : users) {
+            GroupMember gm = new GroupMember();
+            gm.GroupId = adminGroup.Id;
+            gm.UserOrGroupId = u.Id;
+            updateList.add(gm);
+            
+        }
+			insert updateList;
+        }
+}
+
+
+
+
+// Trigger 9
+
+trigger ActiveAdmin on User (after insert, after Update) {
+        
+    AdminToGroup.toGroupAdder();
+    
+    if(Trigger.isUpdate) {
+        AdminToGroup.deleteFromGroup();
+    }
+
+}
+
+
+public class AdminToGroup {
+    
+    Public static void toGroupAdder() {
+        
+    set<User> usersToAdd = new set<User>();
+    set<User> usersToRemove = new Set<User>();    
+        for(User u : [SELECT Id, Profile.Name From User WHERE Profile.Name = 'System Administrator' AND Id IN :Trigger.New]) {
+            usersToAdd.add(u);
+            
+        }
+        system.debug(usersToAdd);
+        if(!usersToAdd.isEmpty()) {
+            
+        String name = 'Admins';
+        Group adminGroup = [SELECT Id, Name From Group WHERE Name = :name];
+        
+        system.debug(adminGroup);
+        
+        List<GroupMember> updateList = new List<GroupMember>();
+        
+        for(User u : usersToAdd) {
+            GroupMember gm = new GroupMember();
+            gm.GroupId = adminGroup.Id;
+            gm.UserOrGroupId = u.Id;
+            updateList.add(gm);
+            
+        }
+			insert updateList;
+        }
+}
+    public static void deleteFromGroup() {
+        
+        Group adminGroup = [SELECT Id, Name From Group WHERE Name = 'Admins'];
+        set<Id> GroupId = new Set<Id>();
+        set<Id> userOrGroupId = new Set<Id>();
+        set<User> usersToRemove = new Set<User>();
+        for(User u : [SELECT Id, ProfileId, Profile.Name FROM User WHERE Id IN :Trigger.New]) {
+            User oldUser = (User)Trigger.oldMap.get(u.Id);
+            if(u.ProfileId != oldUser.ProfileId) {
+				usersToRemove.add(u);                
+            }
+            for(User user : usersToRemove) {
+                if(user.Profile.Name != 'System Administrator') {
+                    GroupId.add(adminGroup.Id);
+                    userOrGroupId.add(user.Id);
+                }
+            }
+            if(GroupId.size() > 0 && userOrGroupId.size() > 0) {
+                List<GroupMember> gmList = [SELECT Id FROM GroupMember WHERE userOrGroupId IN :userOrGroupId 
+                                            AND GroupId IN :GroupId];
+                if(!gmList.isEmpty()){
+                    delete gmList;
+                }
+            }
+        }
+        
+    }
+    
+}
