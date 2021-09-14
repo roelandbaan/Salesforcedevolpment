@@ -251,7 +251,7 @@ trigger RelatedContactCount on Contact (after Insert, after Update, after Delete
 
 public class RelatedContactsCounter {
     
-    public static void Counter(Map<Id, AccountId>triggerOld, Map<Id, AccountId>triggerNew) {
+    public static void Counter() {
         // Make a set of unique parent accounts for triggered child contacts
         set<Id> accIds = new Set<Id>();
         // trigger new for update and insert
@@ -487,6 +487,46 @@ public class AdminToGroup {
             }
         }
         
+    }
+    
+}
+
+
+
+// apex for project
+trigger rental_date_conflict on Space_Reservation__c  (before insert, before update) {
+
+    for(Space_Reservation__c booking : trigger.new){  
+     
+        List<Space_Reservation__c> conflictsStartDate = 
+            [SELECT id FROM Space_Reservation__c WHERE 
+           // Space__c = :bookinUpdateLocationg.Space__c AND
+((Start_Reservation__c <= :booking.Start_Reservation__c AND Finish_Reservation__c >= :booking.Start_Reservation__c )) AND id != :booking.id];
+        
+        List<Space_Reservation__c> conflictsEndDate = 
+            [SELECT id FROM Space_Reservation__c WHERE 
+            Space__c = :booking.Space__c AND
+             (Start_Reservation__c <= :booking.Finish_Reservation__c AND Finish_Reservation__c >= :booking.Finish_Reservation__c ) AND id != :booking.id];
+        
+        List<Space_Reservation__c> conflicts = 
+            [SELECT id FROM Space_Reservation__c WHERE 
+            Space__c = :booking.Space__c AND
+             ((Start_Reservation__c >= :booking.Start_Reservation__c AND Finish_Reservation__c <= :booking.Finish_Reservation__c )) AND id != :booking.id];
+        
+        if(!conflictsStartDate.isEmpty()){
+            
+            booking.addError('The space is not available on that start date');
+        }
+        if(!conflictsEndDate.isEmpty()){
+            
+            booking.addError('The space is not available on that end date');
+        }
+        
+        System.debug('conflicts: ' + conflicts);
+        if(!conflicts.isEmpty()){
+            
+            booking.addError('The space is booked between the start and the end date');
+        }
     }
     
 }

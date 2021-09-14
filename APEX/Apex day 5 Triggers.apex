@@ -196,6 +196,10 @@ trigger AccTriggerHandler on Account (before insert, after insert, before update
 }
 
 
+
+
+
+
 trigger AccTriggerHandler on Account (before insert, after insert, before update, after update) {
 
     AccountTriggerHandler handler = new AccountTriggerHandler(Trigger.isExecuting, Trigger.size);
