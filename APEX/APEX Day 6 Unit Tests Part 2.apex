@@ -1,7 +1,7 @@
 @isTest
 public class seeAllDataTest {
 
-    //creating common test data to run all the test cases
+    //creating common test data to run all the test cases.
     //Dont use this it will create a mess for you when deploying code, work with 'dummy' data instead
     @isTest(seeAllData=true)
     static void accountTest() {
@@ -18,7 +18,6 @@ public class seeAllDataTest {
         Contact con = new Contact(FirstName = 'Amit', LastName = 'Singh', Email = 'abcdefg@gmail.com',
                                  Phone= '987-3432', AccountId = acc.Id);
         insert con;
-        List<Contact> contactList = [SELECT Id, Name, Email, Phone FROM Contact LIMIT 1];
         System.assertEquals(1, contactList.size(), 'There are no Contacts available in the Database!');
         }
     
