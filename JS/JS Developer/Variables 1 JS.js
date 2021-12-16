@@ -172,3 +172,88 @@ console.log(d.toDateString());
 console.log(d.toUTCString());
 
 console.log(d.toISOString());
+
+const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+};
+
+console.log(d.toLocaleDateString('nl-NL', options));
+
+const str5 = 'Time: ';
+const time3 = 25;
+console.log(str5 + time3);
+
+if(str5 && time3) 
+{
+    console.log('String and Number coerced to Boolean');
+}
+
+const bool = true;
+const str11 = '5';
+
+console.log(str11 == 5);
+
+console.log(+bool);
+console.log(+str11);
+console.log(str11 & bool);
+
+if(!null) console.log('null coercced to boolean');
+console.log('String: ' + null);
+console.log(null - 5);
+
+if(!undefined) console.log('undefined coerced to booleand');
+console.log('String: ' + undefined);
+
+let obj1 = {
+    product: 'consulting',
+    price: 50
+};
+
+if (obj1) 
+{
+    console.log(obj1.product);
+}
+
+console.log('Object: ' + obj1);
+
+
+const obj2 = {
+    price: 75,
+    valueOf() 
+    {
+        return this.price;
+    }
+};
+
+console.log(obj2 * 1);
+console.log(obj2 * 5);
+
+
+let ages = [30, 35, '41', '45', 22, '20', 39, 25];
+
+let strAges = ages.map(val => String(val));
+console.log(strAges);
+
+
+function convertBool(obj7, prop) 
+{
+    obj7[prop] = Boolean(obj7[prop]);
+};
+
+let boardRoom = {
+    capacity: 25,
+    reservable: 1
+};
+
+let lunchRoom = {
+    capacity: 150,
+    reservable: 0
+};
+
+convertBool(boardRoom, 'reservable');
+convertBool(lunchRoom, 'reservable');
+console.log(boardRoom);
+console.log(lunchRoom);
