@@ -222,6 +222,7 @@ console.log('Object: ' + obj1);
 
 const obj2 = {
     price: 75,
+    price2: 100,
     valueOf() 
     {
         return this.price;
@@ -257,3 +258,26 @@ convertBool(boardRoom, 'reservable');
 convertBool(lunchRoom, 'reservable');
 console.log(boardRoom);
 console.log(lunchRoom);
+
+let numString = [90, '44', 77 , '99'];
+let allString = numString.map(val => String(val));
+console.log(allString);
+
+function convertBoolean (obj, prop) 
+{
+    obj[prop] = Boolean(obj[prop]);
+}
+
+let boards = {
+    capacity: 25,
+    reservable: 0.5
+};
+let lunchy = {
+    capacity: 100,
+    reservable: 0
+};
+
+convertBoolean(boards, 'reservable');
+convertBoolean(lunchy, 'reservable');
+console.log(boards);
+console.log(lunchy);
