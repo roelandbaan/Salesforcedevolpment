@@ -82,3 +82,56 @@ function getPrinterStatus(printer)
 
 getPrinterStatus({name: 'inkjet TS7654', paperCount: 30, inkLevel: 2 });
 getPrinterStatus({name: 'inkjet OY7654', paperCount: 10, inkLevel: 0 });
+
+const product = ['array-887', 'entries-444', 'for999', 'testing77'];
+
+const product1 = new Array('gimme-33', 'some-098', 'entries-998');
+
+
+const priceList = [24, 65, 78, 94, 340];
+
+for(let i = 0; i < priceList.length; ++i) 
+{
+    console.log(priceList[i]);
+}
+
+const customers = new Array('Henk de Vries', 'Piet de Wild', 'Marie Klaassen', 'Trouwe Klant');
+
+for(const index in customers) 
+{
+    console.log(customers[index])
+}
+
+for(const index1 of customers) 
+{
+    console.log(index1);
+}
+
+const shipmentDates = [new Date('2021-07-01'), new Date('2021-04-15'), new Date('2021-12-10')];
+
+shipmentDates.forEach(date => 
+    {
+        const formattedDate = `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`;
+        console.log(formattedDate);
+    })
+
+let customerNames = new Array('Naam eerst', 'Tweede persoon', 'nummer drie', 'naam laatst');
+
+console.log(customerNames);
+
+customerNames.splice(2, 0, 'Extra na 2', 'ik ook');
+
+console.log(customerNames);
+
+customerNames.splice(2, 4);
+
+console.log(customerNames);
+
+
+let invoiceIds = ['A001', 'N239', 'B887', 'T650'];
+
+console.log(invoiceIds);
+
+let copyInvoiceIds = invoiceIds.slice(2, 3);
+
+console.log(copyInvoiceIds);
