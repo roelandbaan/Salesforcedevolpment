@@ -132,6 +132,46 @@ let invoiceIds = ['A001', 'N239', 'B887', 'T650'];
 
 console.log(invoiceIds);
 
-let copyInvoiceIds = invoiceIds.slice(2, 3);
+let copyInvoiceIds = invoiceIds.slice(1, 3);
 
 console.log(copyInvoiceIds);
+
+
+let licenses = ['I-492P', 'N-579K', 'V-2555', 'I-492P', 'P-551R'];
+
+console.log("License J-342A => " + licenses.includes('J-342A'));
+
+console.log("License I-492P => " + licenses.includes('I-492P'));
+
+console.log("Index of I-492P = " + licenses.indexOf('I-492P'));
+
+console.log("Last Index of I-492P = " + licenses.lastIndexOf('I-492P'));
+
+let fruits = [
+{ name: 'Apple', qty: 40 },
+{ name: 'Orange', qty: 20 },
+{ name: 'Banana', qty: 5 },
+{ name: 'Tomato', qty: 10 },
+{ name: 'Mango', qty: 30 }
+];
+
+let productToReorder = fruits.find((element, index, array) => element.qty < 10);
+let productToReorder2 = fruits.findIndex((element, index, array) => element.qty < 10);
+
+console.log(productToReorder);
+console.log(productToReorder2);
+
+let phones = ["Apple Iphone 7", "Samsung Galaxy S9", "Google Pixel 5", "OnePlus 8T"];
+
+console.log(phones.join(" | "));
+
+let studentMarks = [
+    { Studentname: "John", mark: 45 },
+    { Studentname: "Bill", mark: 20 },
+    { Studentname: "Kate", mark: 78 },
+    { Studentname: "Alice", mark: 94 }
+];
+
+let sortedStudents = studentMarks.sort((a, b) => b.mark - a.mark);
+
+console.log(sortedStudents);
