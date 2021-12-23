@@ -151,7 +151,7 @@ let fruits = [
 { name: 'Apple', qty: 40 },
 { name: 'Orange', qty: 20 },
 { name: 'Banana', qty: 5 },
-{ name: 'Tomato', qty: 10 },
+{ name: 'Tomato', qty: 9 },
 { name: 'Mango', qty: 30 }
 ];
 
@@ -175,3 +175,44 @@ let studentMarks = [
 let sortedStudents = studentMarks.sort((a, b) => b.mark - a.mark);
 
 console.log(sortedStudents);
+
+
+let students = ["Kate", "Lucy","Sheldon", "Barry","Zara"];
+
+let studentsArray = students.map((value, index, array) => {
+    return {
+        id: index,
+        name:value
+    };
+});
+
+console.log(studentsArray);
+
+
+
+let maleSprinters = [ 
+    { name: "Usain Bolt", time: 9.58 },
+    { name: "Tyson Gay", time: 9.69 },
+    { name: "Yohan Blake", time: 9.69 },
+    { name: "Asafa Powell", time: 9.72 },
+    { name: "Justin Gatlin", time: 9.76 }
+];
+
+let totalTime = maleSprinters.reduce((acc, value) => acc + value.time, 0);
+
+console.log(totalTime);
+
+const sales_users = new Array('John Smith', 'Linwood France', 'Dave Hines');
+
+const employees = ['Hariett Parks', ...sales_users, 'Aurelia Haney', 'Joanne Browing', 'Nicole Novak'];
+
+console.log(employees);
+
+
+function displaySalesUsers(...sales_users2) 
+{
+    console.log(sales_users2);
+}
+
+
+displaySalesUsers('Array elements', 'Names Usually', 'Next Entry?');
