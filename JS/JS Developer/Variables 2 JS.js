@@ -216,3 +216,25 @@ function displaySalesUsers(...sales_users2)
 
 
 displaySalesUsers('Array elements', 'Names Usually', 'Next Entry?');
+
+let customers2 = [    { id: 432, name: "Gwen", rating: 4.9, bonus: 20 },
+    { id: 112, name: "Jack", rating: 4.5, bonus: 40 },
+    { id: 226, name: "Sam", rating: 4.0, bonus: 0 },
+    { id: 102, name: "Sofia", rating: 3.9, bonus: 50 },
+    { id: 324, name: "Marven", rating: 3.2, bonus: 0 }
+];
+
+let customersWithScore = customers2.map((value, index) => {
+    let score = customers2.rating * 2.4 + customers2.bonus;
+    return { 
+        ...customers2, score: score.toFixed(2)
+    }
+});
+
+let sortedCustomersWithScore = customersWithScore.sort((a,b) => a.score - b.score );
+
+sortedCustomersWithScore.splice(3, 2);
+
+let sortedCustomerNames = sortedCustomersWithScore.map((customer) => customer.name);
+
+console.log(sortedCustomerNames.join(", "));
