@@ -1,0 +1,16 @@
+{
+    "profile": {
+        "firstName": "Melvin",
+        "lastName": "Lee",
+        "age": 33,
+        "smoker": false,
+        "children": null
+    },
+    "adress": {
+        "streetNumber": 37,
+        "streetName": "Monmouth Boulevard",
+        "city": "Marlboro",
+        "state": "New Jersey",
+        "country": "USA"
+    }
+}

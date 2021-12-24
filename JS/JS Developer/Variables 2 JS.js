@@ -224,10 +224,10 @@ let customers2 = [    { id: 432, name: "Gwen", rating: 4.9, bonus: 20 },
     { id: 324, name: "Marven", rating: 3.2, bonus: 0 }
 ];
 
-let customersWithScore = customers2.map((value, index) => {
-    let score = customers2.rating * 2.4 + customers2.bonus;
+let customersWithScore = customers2.map((customer) => {
+    let score = customer.rating * 2.4 + customer.bonus;
     return { 
-        ...customers2, score: score.toFixed(2)
+        ...customer, score: score.toFixed(2)
     }
 });
 
@@ -238,3 +238,71 @@ sortedCustomersWithScore.splice(3, 2);
 let sortedCustomerNames = sortedCustomersWithScore.map((customer) => customer.name);
 
 console.log(sortedCustomerNames.join(", "));
+
+
+
+
+const jsonString = '{"job": {"title": "manager", "salary": 1000000. "location": "NY", "telecomuting": true}}';
+
+const jsObject = {
+    song: {
+        title: 'Together We\'re Friends',
+        artist: 'Blue Jays Choir',
+        length: 3.55,
+        genre: 'Country'
+    }
+};
+
+const jsonString1 = JSON.stringify(jsObject);
+console.log(jsonString1);
+
+
+const jsonString2 = '{ "profile": { "name": "Caryn Brown", "children": null, "age": 24, "smoker": false, "hobbies": ["biking", "hiking", "sailing"] }}';
+
+const jsObject1 = JSON.parse(jsonString2);
+console.log(jsObject1);
+
+
+
+// Create a new XMLHttpRequest object and store it in a variab
+const xhr = new XMLHttpRequest();
+//store the path of the JSON resource in a variable
+const url = 'http://webaddress/data.json';
+// open the HTTP request by specifying the method and url
+xhr.open('GET', url);
+//send the HTTP request
+xhr.send()
+
+//handle the HTTP response
+xhr.onreadystatechange = () => {
+    //check if the HTTP request is done
+    if(xhr.readystate === XMLHttpRequest.DONE) 
+    {
+        //Convert JSON data to a Javascript Object
+        const jsObject = JSON.parse(xhr.responseText);
+    }
+};
+
+
+const productJson = '{ "name": "White T-shirt", "price": 5.99, "inventory": [ { "size": "S", "quantity": 100 }, { "size": "M", "quantity": 150 }, { "size": "L", "quantity": 75 } ], "returnable": true, "brand": { "name": "Luxury", "origin": "Taiwan" }, "customization": null }';
+
+const productJs = JSON.parse(productJson);
+
+console.log('Product name => ', productJs.name);
+
+console.log('Product Brand name => ', productJs.brand.name);
+
+console.log(productJs.inventory[1].size, productJs.inventory[1].quantity);
+
+
+
+console.log('for...in loop =>');
+
+for(let item in productJs) 
+{
+    console.log(item, ' => ', productJs[item]);
+}
+
+//log key-value pairs using Object.entries()
+console.log('Object.entries() ==> ');
+console.log(Object.entries(productJs));
