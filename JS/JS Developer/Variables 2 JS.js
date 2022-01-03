@@ -306,3 +306,90 @@ for(let item in productJs)
 //log key-value pairs using Object.entries()
 console.log('Object.entries() ==> ');
 console.log(Object.entries(productJs));
+
+
+
+const jsonString3 = '{ "profile": { "name": "Caryn Brown", "children": null, "age": 24, "smoker": false, "hobbies": ["biking", "hiking", "sailing"] }}';
+
+const jsobject5 = JSON.parse(jsonString3);
+console.log(jsobject5);
+
+// Create a new XMLHttpRequest object and store it in a variable
+const xhr1 = new XMLHttpRequest();
+
+// Store the path of the JSON resource in a variable
+const url1 = 'http://awebsite/data.json';
+
+// Use the responseType property to ensure that the response is in JSON format
+xhr1.responseType = 'json';
+
+// Open the HTTP Request by specifying the method and url
+xhr1.open('Get', url);
+
+xhr1.send();
+
+xhr1.onreadystatechange = () => {
+    if(xhr1.readystate === XMLHttpRequest.DONE) {
+        const jsobject7 = JSON.parse(xhr1.responseText);
+    }
+};
+
+
+const productJson99 = '{"name": "White T-shirt", "price": 55, "inventory": [{"size": "S", "quantity": 100}, {"size": "M", "quantity": 150}, {"size": "L", "quantity": 75}], "returnable": true, "brand": {"name": "Luxury", "origin": "Taiwan"}, "customization": null}';
+
+const productJs99 = JSON.parse(productJson99);
+
+// Log key-value pairs using for...in loop
+console.log('for... in loop => ');
+
+for(let item in productJs99) {
+    console.log(item, ' => ', productJs99[item]);
+}
+
+// Log key-value pairs using Object.entries()
+console.log('Object.entries() => ');
+console.log(Object.entries(productJs99));
+
+//scenario 1
+const xhr3 = new XMLHttpRequest();
+const url3 = 'http://cosmicsoftwaresolutions.com/employees';
+xhr3.open('GET', url3);
+xhr3.send();
+xhr3.onreadystatechange = () => {
+    if (xhr3.readyState === XMLHttpRequest.DONE) {
+      
+    }
+};
+
+var studentName = 'Picollo'
+
+fetch()
+//scenario 2
+const urlS2 = 'http://cosmicuniversity.com/students/' + studentName;
+
+fetch(urlS2, {method: 'GET'}).then((response) => {
+    return response.json()
+}).then((data) => {
+    console.log(Object.entries(data));
+    for(let item in data) {
+    console.log(item, ' => ', data[item]);
+    }
+}).catch((error) => {
+    console.log(error);
+})
+
+
+//scenario 3
+const records3 = { id: 'HR-1005-T', name: 'Jill Smith', title: 'HR Manager', salary: 75000 };
+
+const urls3 = 'http://portal.cosmicinnovation.com/employees';
+
+fetch(urls3, {method: 'POST', headers: {
+    'content-Type': 'application/json'},
+body: JSON.stringify(records3)
+}).then(response => response.json()
+).then(data => {
+    console.log('Succes:', data);
+}).catch((error) => {
+    console.log('Error => ', error);
+})
