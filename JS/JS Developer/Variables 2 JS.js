@@ -264,7 +264,7 @@ console.log(jsObject1);
 
 
 
-// Create a new XMLHttpRequest object and store it in a variab
+// Create a new XMLHttpRequest object and store it in a variable
 const xhr = new XMLHttpRequest();
 //store the path of the JSON resource in a variable
 const url = 'http://webaddress/data.json';
@@ -393,3 +393,161 @@ body: JSON.stringify(records3)
 }).catch((error) => {
     console.log('Error => ', error);
 })
+
+let licensenumbers1 = new Array('I-492P', 'N-579K', 'V-255S', 'P-551R', 'V-255S');
+
+console.log(licensenumbers1.includes('I-492P'));
+
+console.log(licensenumbers1.indexOf('V-255S'));
+
+console.log(licensenumbers1.lastIndexOf('V-255S'));
+
+console.log(licensenumbers1.lastIndexOf('V-255S', 3));
+
+//console.log(find())
+
+let studentMarks1 = [55, 64, 65, 87, 26, 100, 95, 39];
+
+let isFail1 = studentMarks1.findIndex(mark => mark < 40);
+
+if(isFail1 >= 0) {
+    console.log("Student has failed the semester");
+} else {
+    console.log("Student has passed the semester");
+}
+
+let fruits4 = [    
+    { name: ['Apple', 'Pear', 'Strawberry'], qty: 4 },
+    { name: 'Orange', qty: 20 },
+    { name: 'Banana', qty: 5 },
+    { name: 'Tomato', qty: 10 },
+    { name: 'Mango', qty: 30 }
+];
+
+let productsToReorder4 = fruits4.find((element, index, array) => element.qty < 10);
+
+console.log(productsToReorder4);
+
+// This example shows how to use the concat() method to merge three arrays.
+let internalCustomerIds = ['CY4081', 'DU6050'];
+let externalCustomerIds = ['GP9009', 'RG9337'];
+let internationalCustomerIds = ['QZ7459', 'OR2504'];
+
+let customerIds = internalCustomerIds.concat(externalCustomerIds, internationalCustomerIds);
+
+console.log(customerIds);
+
+
+let schools3 = ["Pacific Grove College", "Rutherford University", "Lakewood Academy", 'Elk Valley Technical School'];
+
+let schoolString = schools3.toString();
+
+console.log(schoolString);
+
+
+let studentMarks3 = [
+        { studentName: "John", mark: 45 },
+        { studentName: "Bill", mark: 20 },    
+        { studentName: "Kate", mark: 78 },    
+        { studentName: "Alice", mark: 94 }
+    ];
+
+let sortedStudentMarks3 = studentMarks3.sort((a, b) => b.mark - a.mark);
+
+console.log(sortedStudentMarks3);
+
+
+let sortedNumbers5 = [2, 5, 20, 54, 77, 89, 102, 323, 530];
+
+let reverseSortedNumbers5 = sortedNumbers5.reverse();
+
+console.log(reverseSortedNumbers5);
+
+
+let studentsC = ["Kate", "Lucy","Sheldon", "Barry","Zara"];
+
+let studentsArrayC = studentsC.map((value, index, array) => {
+    return {id: index,
+            name: value
+        };    
+});
+
+console.log(studentsArrayC);
+
+
+let playersC = [    
+    { name: "Adam", score: 7 },    
+    { name: "Alice", score: 8 },    
+    { name: "Brian", score: 12 },    
+    { name: "Cassey", score: 13 }
+];
+
+let selectedPlayersC =  playersC.filter((players) => players.score > 10);
+
+console.log(selectedPlayersC);
+
+
+
+let maleSprintersC = [    
+    { name: "Usain Bolt", time: 9.58 },    
+    { name: "Tyson Gay", time: 9.69 },    
+    { name: "Yohan Blake", time: 9.69 },    
+    { name: "Asafa Powell", time: 9.72 },    
+    { name: "Justin Gatlin", time: 9.76 }
+];
+
+let totalSprintTimeC = maleSprintersC.reduce((acc, value) => acc + value.time, 0);
+
+console.log(totalSprintTimeC);
+
+let numbersX = [2, 5, [8, 12, 32, 54, [89, 99]]];
+
+let flattenedNumbersX = numbersX.flat(2);
+
+console.log(flattenedNumbersX);
+
+
+
+let qualityTestsX = [    
+    { name: "Test A", score: 79 },    
+    { name: "Test B", score: 67 },    
+    { name: "Test C", score: 89 }
+];
+
+let isQualityControlPassedX = qualityTestsX.every((element, index,array) => element.score > 70);
+
+console.log(isQualityControlPassedX);
+
+
+let shirtsX = [    
+    { brand: "Ralph Lauren", size: 30 },    
+    { brand: "Tommy Hilfiger", size: 28 },    
+    { brand: "Lacoste", size: 32 },    
+    { brand: "Gucci", size: 29 }
+];
+
+let doesSizeFitUserX = shirtsX.some((element, index,array) => element.size >= 29);
+
+console.log(doesSizeFitUserX);
+
+
+
+const sales_usersX = ['Jon Smith', 'Linwood Franco', 'Dave Hines'];
+
+const employeesX = ['Hariett Parks', ...sales_usersX , 'Aurelia Haney', 'Joanne Browning', 'Nicole Novak'];
+
+console.log(employeesX);
+
+
+function displaySalesUsersX(firsty, secondy, thirdy) {
+   const strX = `The sales users are ${firsty}, ${secondy} and ${thirdy}`;
+console.log(strX);
+}
+
+displaySalesUsersX(...employeesX);
+
+function displaySalesUsersX2(...employeesX) {
+console.log(employeesX);
+}
+
+displaySalesUsersX2('Jon Smith', 'Linwood Franco', 'Dave Hines');
