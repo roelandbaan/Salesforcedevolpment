@@ -551,3 +551,27 @@ console.log(employeesX);
 }
 
 displaySalesUsersX2('Jon Smith', 'Linwood Franco', 'Dave Hines');
+
+
+//scenario1
+let customersX = [    
+    { id: 432, name: "Gwen", rating: 4.9, bonus: 20 },    
+    { id: 112, name: "Jack", rating: 4.5, bonus: 40 },    
+    { id: 226, name: "Sam", rating: 4.0, bonus: 0 },    
+    { id: 102, name: "Sofia", rating: 3.9, bonus: 50 },    
+    { id: 324, name: "Marven", rating: 3.2, bonus: 0 }
+];
+
+let customersWithScoreX = customersX.map((customer, index) => {
+   let score = customer.rating * 2.4 + customer.bonus;
+    return {...customer, score: score.toFixed(2)}
+})
+
+let sortedCustomersWithScoreX = customersWithScoreX.sort((a, b) => a.score - b.score);
+
+sortedCustomersWithScoreX.splice(3,2);
+
+let sortedCustomerNamesX = sortedCustomersWithScoreX.map((customer) => customer.name
+);
+
+console.log(sortedCustomerNamesX.join(', '));
