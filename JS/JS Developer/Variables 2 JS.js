@@ -575,3 +575,17 @@ let sortedCustomerNamesX = sortedCustomersWithScoreX.map((customer) => customer.
 );
 
 console.log(sortedCustomerNamesX.join(', '));
+
+let jobT = 'engi';
+
+function changeit() {
+    changetheThingy();
+    console.log('i am an : ', jobT);
+}
+
+function changetheThingy() {
+    let jobT = 'Archi'
+    console.log('i am an : ', jobT);
+}
+
+changeit();
