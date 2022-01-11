@@ -48,3 +48,41 @@ const random10 = function() {
     return Math.floor(Math.random() * 10) +1;
 }
 const arrowRandom10 = () => Math.floor(Math.random() * 10) +1;
+
+
+const nums = [1, 2, 3, 4, 5];
+const newNums = nums.map(num => num * 2 );
+console.log(newNums);
+
+
+const createMultiplyFunction = function(num) {
+    console.log(num);
+    return num1 => num1  * num;
+}
+
+const multiplyBy10 = createMultiplyFunction(10)
+console.log(multiplyBy10(5));
+
+
+let date;
+let intro;
+const start = document.getElementById('start');
+const showDate = function () {
+    console.log(`${intro} ${date}`);
+}
+
+start.addEventListener('click', showDate);
+
+date = new Date();
+intro = "Today's date is";
+console.log('Program is running!');
+
+function createScoreFunction() {
+    scores = [];
+    return function(score) {
+        scores.push(score);
+        console.log(`Total scores: ${scores.lenght}`);
+    }
+};
+
+const addScore = createScoreFunction();
