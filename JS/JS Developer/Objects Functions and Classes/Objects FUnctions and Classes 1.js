@@ -32,6 +32,16 @@ const greeting = function(name) {
 
 greeting('Roel');
 
+function fib1(sequence, len) {
+    let size = sequence.length;
+    if(size >= len) {
+        return sequence;
+    }
+    sequence.push(sequence[size - 2] + sequence[size - 1])
+    return fib1(sequence, len); //calls itself with the return keyword
+}
+const fibSeq = fib1([0, 1], 10);
+console.log('Recursive function fib1: ' + fibSeq);
 
 const sum1 = function(num1, num2) {
     return num1 + num2;
@@ -63,6 +73,7 @@ const createMultiplyFunction = function(num) {
 const multiplyBy10 = createMultiplyFunction(10)
 console.log(multiplyBy10(5));
 
+console.log(createMultiplyFunction(10)(5));
 
 let date;
 let intro;
