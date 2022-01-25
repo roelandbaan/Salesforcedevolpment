@@ -111,6 +111,9 @@ function createScoreFunction() {
 
 const addScore = createScoreFunction();
 
+addScore(70);
+addScore(90);
+addScore(100);
 
 function createScoreFunction1() {
     scores = [];
@@ -145,6 +148,22 @@ objGreet.eveningGreet.apply(user2, ['?']);
 // bind arguments returns a new function
 objGreet.eveningGreet.bind(user1, '.')();
 
+
+function* rhymeGenerator(){
+    yield 'One, two, three, four, five,';
+    yield 'Once I caught a fish alive,';
+    yield 'Six, seven, eight, nine, ten,';
+    yield 'Then I let it go again.';
+}
+
+const myGenerator = rhymeGenerator();
+
+console.log(myGenerator.next().value);
+console.log(myGenerator.next().value);
+console.log(myGenerator.next().value);
+console.log(myGenerator.next().value);
+console.log(myGenerator.next().value);
+
 //generatorfuncion *
 function* fibonacciSeq() {
     let start1 = 0, start2 = 1, cnt = 2;
@@ -160,6 +179,15 @@ function* fibonacciSeq() {
 };
 
 const fib100 = fibonacciSeq();
+console.log(fib100.next());
+console.log(fib100.next());
+console.log(fib100.next());
+console.log(fib100.next());
+console.log(fib100.next());
+console.log(fib100.next());
+console.log(fib100.next());
+console.log(fib100.next());
+console.log(fib100.next());
 
 
 //iterator function returns an iterator object
@@ -179,3 +207,17 @@ function progressiveFactoral(upperLimit) {
 }
 
 let factorial10 = progressiveFactoral(10);
+console.log(factorial10.next())
+
+
+const time = document.getElementById('elapsedTime');
+const btn = document.getElementById('btnTime');
+const startTime = new Date();
+
+const getSeconds = ()=>{
+    Math.floor((new Date() - startTime) / 1000);
+}
+
+btn.addEventListener('click', function() {
+    time.innerHTML = `A total of ${getSeconds()} seconds used.`;
+})
