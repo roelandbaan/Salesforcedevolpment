@@ -210,14 +210,48 @@ let factorial10 = progressiveFactoral(10);
 console.log(factorial10.next())
 
 
-const time = document.getElementById('elapsedTime');
-const btn = document.getElementById('btnTime');
-const startTime = new Date();
+// const time = document.getElementById('elapsedTime');
+// const btn = document.getElementById('btnTime');
+// const startTime = new Date();
 
-const getSeconds = ()=>{
-    Math.floor((new Date() - startTime) / 1000);
+// const getSeconds = ()=>{
+//     Math.floor((new Date() - startTime) / 1000);
+// }
+
+// btn.addEventListener('click', function() {
+//     time.innerHTML = `A total of ${getSeconds()} seconds used.`;
+// })
+
+
+
+// Object inititalizer or Object Literal
+let userr1 = {
+    name: 'ikke',
+    age: 25,
+    admin: true,
+    created: new Date()
+};
+
+// Object constructor
+let userr2 = new Object();
+userr2.name = 'Sam';
+userr2.age = 35;
+userr2.admin = false;
+userr2.created = new Date();
+
+// Object.create() method
+let userr3 = Object.create({});
+userr3.name = 'Isabel';
+userr3.age = 46;
+userr3.admin = false;
+userr3.created = new Date();
+
+console.log(userr2.name);
+console.log(userr2['name']);
+
+delete userr2.age;
+console.log(userr2);
+
+for(let prop in userr1) {
+    console.log(prop, userr1[prop])
 }
-
-btn.addEventListener('click', function() {
-    time.innerHTML = `A total of ${getSeconds()} seconds used.`;
-})
