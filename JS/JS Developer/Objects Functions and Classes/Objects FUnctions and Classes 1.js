@@ -229,7 +229,10 @@ let userr1 = {
     name: 'ikke',
     age: 25,
     admin: true,
-    created: new Date()
+    created: new Date(),
+    greeting(greet) {
+        console.log(`${greet} ${this.name} ${this.age}!`);
+    }
 };
 
 // Object constructor
@@ -255,3 +258,180 @@ console.log(userr2);
 for(let prop in userr1) {
     console.log(prop, userr1[prop])
 }
+
+console.log(Object.keys(userr2));
+
+console.log(Object.getOwnPropertyNames(userr2));
+
+userr1.greeting('Good Morning');
+
+// define a getter in an Object
+let scores1 = {quiz: 'quiz1', scores:[90, 70, 60, 50, 40, 100, 60],
+                get average(){
+                    if(this.scores.length === 0 ) return 0;
+                    return this.scores.reduce((sum, score) => sum + score, 0 ) / this.scores.length;
+                }
+            } ;
+
+console.log(scores1.average);            
+
+// define a setter in an Object
+
+let scores2 = {
+    quiz: 'quiz2',
+    scores: [],
+    set score(score) {
+        if (score >= 0) this.scores.push(score);
+    }
+};
+
+scores2.score = 90;
+scores2.score = 80;
+console.log(scores2.scores);
+
+// primitive variable passed by value
+function passPrimitive(name) {
+    name = 'Jerry';
+}
+let person = 'Tom';
+passPrimitive(person);
+console.log(`Hi my name is ${person}`);
+
+// Object variable passed by reference
+function passObject(settings){
+    settings.on = true;
+}
+let config = { device: 'microwave', on: false};
+passObject(config);
+console.log(config);
+
+
+// This example function sums parameters passed to it and uses
+// the arguments object to retrieve the parameters
+function add() {
+    let sum = 0;
+    for(let i in arguments) {
+        sum += arguments[i]; // the arguments object is array like
+        
+    }
+    console.log(`The sum of the ${arguments.length} numbers is ${sum}`);
+}
+
+add(62, 34, 45, 93);
+
+
+// In this example, 'Object.assign()' is used inside the 
+// 'cloneObject' function in order to clone any object passed in.
+function cloneObject(obj){
+    return Object.assign({}, obj);
+};
+
+// This example illustrates the 'scores' object was cloned 
+// and is an entirely different object.
+let scores3 = {
+    quiz: 'quiz3',
+    scores: [90, 70, 60, 50, 40, 100, 60]
+};
+
+let newScores = cloneObject(scores3);
+newScores.scores = [];
+console.log(scores3, newScores);
+
+/* In this example function, the 'hasOwnProperty' method is used so the function 
+only returns the property value if it is owned bythe object. */
+
+function reservable(obj){
+    if(obj.hasOwnProperty('canReserve')) {
+        return obj.canReserve;
+    } else {
+        return false;
+    }
+};
+
+let meetingRoom = {
+    canReserve: true,
+    capacity: 20
+};
+console.log(reservable(meetingRoom));
+
+// freeze method
+const user4 = {
+    role: 'guest'
+};
+Object.freeze(user4);
+user4.role = 'admin';
+console.log(user4);
+
+// example using the preventExtensions methods
+const user5 = { role: 'guest'};
+Object.preventExtensions(user5);
+try{
+    Object.defineProperty(user5, 'age', {value: 25});
+} catch(e) {
+    console.log(e);
+}
+
+// example using the seal method
+const user6 = { role: 'guest'};
+Object.seal(user6);
+user6.role = 'member';
+delete user6.role;  //unable to delete when sealed
+console.log(user6);
+
+
+/* This example shows how to define an object named 'boardRoom'
+that inherits the properties and methods of another object named'meetingRooms'. */
+let meetingrooms1 = {
+    reservable() {
+        if(this.hasOwnProperty('canReserve')) {
+            return this.canReserve;
+        } else {
+            return false;
+        }
+    },
+    loaction: 'mainBuilding'
+};
+
+let boardRoom1 = Object.create(meetingrooms1);
+boardRoom1.canReserve = true;
+boardRoom1.capacity = 20;
+boardRoom1.loaction = 'satellite' // Creates own 'location' property on 'boardRoom'
+console.log(boardRoom1.reservable());
+
+
+// In this example, a “hello” method is added to the Animal prototype 
+// and then modified to illustrate how it impacts instances ofthe object.
+function Animal1(name) {
+    this.name = name;
+}
+let cat = new Animal1('kitty');
+let dog = new Animal1('puppy');
+
+Animal1.prototype.hello = function () {
+    console.log(`Hi, my name is ${this.name}.`);
+}
+cat.hello();
+dog.hello();
+cat.sound = function() { console.log('Meooow');}
+dog.sound = function() {console.log('Woof');}
+
+Animal1.prototype.hello = function (){
+    console.log(`${this.name}'s the name. What's yours?`);
+}
+cat.hello(); dog.hello(); cat.sound(); dog.sound();
+// In this example, a Set is created from an array 
+// so that only unique values are included. A new value is also added.
+let decades = [1990, 1990, 2000, 2010, 1990, 2000, 2020];
+let uniqueDecades = new Set(decades);
+uniqueDecades.add(1980);
+
+console.log(uniqueDecades);
+
+// In this example, a map is used, instead of an object, for recording quiz scores
+// since the data can be easier to work with.
+let quizScores = new Map();
+quizScores.set('quiz1', [100, 90, 80, 95, 60]);
+quizScores.set('quiz2', [75, 85, 90, 80, 55]);
+quizScores.set('quiz3', [65, 60, 45, 75, 50]);
+
+console.log(quizScores.values());
