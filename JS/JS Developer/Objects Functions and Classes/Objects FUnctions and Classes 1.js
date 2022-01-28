@@ -363,13 +363,13 @@ user4.role = 'admin';
 console.log(user4);
 
 // example using the preventExtensions methods
-const user5 = { role: 'guest'};
-Object.preventExtensions(user5);
-try{
-    Object.defineProperty(user5, 'age', {value: 25});
-} catch(e) {
-    console.log(e);
-}
+// const user5 = { role: 'guest'};
+// Object.preventExtensions(user5);
+// try{
+//     Object.defineProperty(user5, 'age', {value: 25});
+// } catch(e) {
+//     console.log(e);
+// }
 
 // example using the seal method
 const user6 = { role: 'guest'};
@@ -435,3 +435,41 @@ quizScores.set('quiz2', [75, 85, 90, 80, 55]);
 quizScores.set('quiz3', [65, 60, 45, 75, 50]);
 
 console.log(quizScores.values());
+
+let meetingroomX = {
+    canReserve: true,
+    capacity: 30,
+    open: true,
+    reservable(prop) {
+      return this.prop;
+    },
+    get available() {
+        if(this.canReserve && this.open) {
+            return true;
+        }
+    },
+    set available(val){
+        this.open = val;
+    }
+}
+
+let boardRoomX = Object.assign({}, meetingroomX);
+boardRoomX.capacity = 20;
+
+console.log(boardRoomX);
+
+// The basic syntax of a class declaration is as follows:
+class ClassName {
+    constructor() {};
+    method1(){};
+    method2(){};
+}
+
+// The basic syntax of a class expression is as follows:
+// A class expression can be anonymous or named.
+// The name is only visible in the scope of the class expression.
+let ClassName1 = class OptionalName{
+    constructor() {};
+    method1(){};
+}
+
