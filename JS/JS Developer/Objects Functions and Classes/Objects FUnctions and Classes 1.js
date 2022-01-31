@@ -603,5 +603,27 @@ console.log(employee2);
 
 class Course
 {
-    
+    constructor(title, timeRequired)
+    {
+        this.topicList = [];
+        this.title = title;
+        this.timeRequired = timeRequired;
+    }
+
+    get topics() {
+        return this.topicList
+    }
+
+    addTopics(topic)
+    {
+        this.topicList.push(topic);
+    }
 }
+
+class OrientationCourse extends Course
+{
+    constructor(title, timeRequired,isRequired){
+    super(title, timeRequired)
+    this.isRequired = true;
+    }
+};
