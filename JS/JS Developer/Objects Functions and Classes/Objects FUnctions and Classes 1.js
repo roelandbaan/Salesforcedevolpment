@@ -460,7 +460,7 @@ console.log(boardRoomX);
 
 // The basic syntax of a class declaration is as follows:
 class ClassName {
-    constructor() {};
+    constructor() {}; // the constructor is optional
     method1(){};
     method2(){};
 }
@@ -470,6 +470,138 @@ class ClassName {
 // The name is only visible in the scope of the class expression.
 let ClassName1 = class OptionalName{
     constructor() {};
+    method2(){};
     method1(){};
 }
 
+class MeetingroomC
+{
+    constructor(available)
+    {
+        if(available) {
+            this.reservable = true;
+        }
+    } 
+};
+
+let boardRoomC = new MeetingroomC(true);
+console.log(boardRoomC);
+
+class User
+{
+    constructor(user, email)
+    {
+        this.user = user;
+        this.email = email;
+    }
+};
+
+let user7 = new User('team lead', 'blabla@here.com');
+console.log(user7);
+
+
+class User1
+{
+    constructor(fName, lName)
+    {
+        this.firstName = fName;
+        this.lastName = lName;
+    }
+
+    fullName() 
+    {
+        return this.firstName + ' ' + this.lastName;
+    }
+};
+
+let userT = new User1('Sarah', 'James');
+console.log(userT);
+
+class meetingRoomB
+{
+    constructor(capacity)
+    {
+        this.capacity = capacity;
+        this.canReserve = false;
+    }
+    
+    set reservable(val)
+    {
+        this.canReserve = val;
+    }
+
+    get reservable()
+    {
+        return this.canReserve;
+    }
+
+}
+
+let boardRoomB = new meetingRoomB(20);
+boardRoomB.reservable = true;
+console.log(boardRoomB.reservable);
+
+
+class User33
+{
+    constructor(fName, lName)
+    {
+        this.firstName = fName;
+        this.lastName = lName;
+    }
+
+    fullName() 
+    {
+        return this.firstName + ' ' + this.lastName;
+    }
+
+    static isUser(obj)
+    {
+        return obj instanceof User33;
+    }
+};
+
+let user9 = new User33('Michael', 'Chin');
+console.log(User33.isUser(user9));
+
+class Users
+{
+    constructor(user, email)
+    {
+        this.user = user;
+        this.email = email;
+    }
+
+    isUser()
+    {
+        return true;
+    }
+}
+
+class Employees extends Users
+{
+    constructor(user, email, id)
+    {
+        super(user, email);
+        this.employeesId = id;
+    }
+
+    isEmployee()
+    {
+        return true;
+    }
+}
+
+let employee1 = new Employees('roel', 'hello@gmail.com', '223B');
+console.log(employee1);
+console.log(employee1.isUser());
+console.log(employee1.isEmployee());
+
+let employee2 = new Employees('roel', 'hello@gmail.com', 354);
+console.log(employee2);
+
+
+class Course
+{
+    
+}
