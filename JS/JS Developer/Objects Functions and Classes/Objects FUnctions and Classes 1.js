@@ -627,3 +627,21 @@ class OrientationCourse extends Course
     this.isRequired = true;
     }
 };
+
+function changeStuff(a, b, c)
+{
+  a = a * 10;
+  b.item = "changed";
+  c = {item: "changed"};
+  console.log('this is b\'s value => ', b, ' and c =>', c);
+}
+
+var num = 10;
+var obj1 = {item: "unchanged"};
+var obj2 = {item: "unchanged"};
+
+changeStuff(num, obj1, obj2);
+
+console.log(num);
+console.log(obj1.item);
+console.log(obj2.item);
