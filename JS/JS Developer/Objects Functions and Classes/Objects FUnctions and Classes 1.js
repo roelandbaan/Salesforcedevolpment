@@ -645,3 +645,319 @@ changeStuff(num, obj1, obj2);
 console.log(num);
 console.log(obj1.item);
 console.log(obj2.item);
+
+
+function displayName(name)
+{
+    console.log(name);
+}
+
+function displayNameDecorator(fn)
+{
+    return function(name)
+    {
+        const str = 'Welcome to the hotel '+ name + '!';
+        fn(str);
+    };
+}
+
+const customerName = displayNameDecorator(displayName);
+customerName('John Wayne');
+
+
+
+function loggerDecorator(fn)
+{
+    return function(...args)
+    {
+        console.log("Started function " + fn.name);
+        console.log(args);
+        fn(...args);
+    };
+}
+
+function getUser(userId, AuthKey)
+{
+    
+}
+
+let getUserFn = loggerDecorator(getUser);
+getUserFn('AC102', 'iuygdfyg46');
+
+
+var data;
+
+function errorHandlerDecorator(fn)
+{
+    return function(...args)
+    {
+        try{
+            console.log('Trying funcition '+ fn.name);
+        } catch(err) {
+            console.log(err);
+        }
+    }
+}
+
+function parse(str)
+{
+    let obj = JSON.parse(str);
+    console.log(obj);
+    return obj;
+}
+
+function getUser1()
+{
+    //data.user = localStorage.getItem('user');
+}
+
+let parseFn = errorHandlerDecorator(parse);
+let getUser1Fn = errorHandlerDecorator(getUser1);
+getUser1Fn();
+parseFn("/{}");
+
+
+// decorator functions don't work for classes and class methods as shown below
+function log(fn)
+{
+    return function()
+    {
+        console.log('Execution of ' + fn.name);
+        console.time('fn');
+        let val = fn();
+        console.timeEnd('fn');
+        return val;
+    }
+}
+
+let test1 = log(getUser1);
+test1();
+
+
+class User10
+{
+    constructor(name, age)
+    {
+        this.name = name;
+        this.age = age;
+    }
+    getUser2()
+    {
+        return `[${this.name}][${this.age}]`;
+    }
+}
+
+
+let obj3 = new User10('Piet de Vries', 32);
+//let getUser3 = log(obj3.getUser2);
+
+
+// this console log causes an error 'fn is undefined'
+// console.log(getUser3());
+// When the ‘getUser’ method is called, it returns an anonymous function which is returned by the log decorator.
+// The value of ‘this’ inside an anonymous function refers to the global object, not the user object,
+// which is why the TypeError occurs, see the fix below
+
+function log1(obj, fn)
+{
+    return function()
+    {
+        console.log('Execution of ' + fn.name);
+        console.time('fn');
+        // invoke function with object's context
+        let val = fn.call(obj);
+        console.timeEnd('fn');
+        return val;
+    }
+}
+
+class User11
+{
+    constructor(name, age)
+    {
+        this.name = name;
+        this.age = age;
+    }
+    getUser2()
+    {
+        return `[${this.name}][${this.age}]`;
+    }
+}
+
+let obj4 = new User11('Piet de Vries', 32);
+let getUser2 = log1(obj4, obj4.getUser2);
+console.log(getUser2());
+
+
+// Using the decorater syntax @decoraterfunctionname
+function logPropertyDecorator(...args)
+{
+
+}
+
+class Student
+{
+    constructor(name, grade)
+    {
+        this.name = name;
+        this.grade = grade;
+    }
+
+// decorated class method    
+    // @logPropertyDecorator
+    // getStudent()
+    // {
+    //     return `[Name=${this.name}][grade=${this.grade}]`;
+    // }
+}
+
+
+function methodLogger(target, name, descriptor)
+{
+    console.log(`[Class=${target.constructor.name}] [Method=${name}]`);
+    descriptor.value = (nameVal) => {
+        console.log(`${name} function started`);
+        return fn(nameVal);
+    };
+    return descriptor;
+}
+
+class Human
+{
+    constructor(name)
+    {
+        this.name = name;
+    }
+
+    //@methodLogger
+    save(name)
+    {
+        localStorage.setItem('name', name);
+        return 'Successfull';
+    }
+}
+let human = new Human('Hendrik Groen');
+console.log(human.save());
+
+
+
+function generateDecorator(target)
+{
+    console.log(`${target.name} Class Constructor Modified`);
+    return function(date, type, value)
+    {
+            this.date = date;
+            this.type = type;
+            this.value = value;
+            this.id = getRandomId();
+    }
+}
+
+//@generateDecorator
+class Transaction
+{
+    constructor(date, type, value)
+    {
+        this.date = date;
+        this.type = type;
+        this.value = value;
+    }
+}
+
+let transaction1 = new Transaction(new Date(), 'Internal', 50000);
+console.log(`[Transaction1][ID=${transaction1.id}]`);
+
+let transaction2 = new Transaction(new Date(), "External", 200000);
+console.log(`[transaction2][ID=${transaction2.id}]`);
+
+class Delivery
+{
+    constructor(id, date, destination)
+    {
+        this.id = id;
+        this.date = date;
+        this.destination = destination;
+    }
+}
+
+let delivery = new Delivery("LX2361",new Date(),"DXB");
+
+let descriptors = Object.getOwnPropertyDescriptor(delivery, 'destination');
+
+console.log(descriptors);
+
+
+
+function readOnlyDecorator(target, name, descriptor)
+{
+    console.log(`[Class=${target.constructor.name}][Method=${name}]`);
+    descriptor.writable = false;
+    return descriptor;
+}
+
+class Product
+{
+    constructor(id, name)
+    {
+        this.id = id;
+        this.name = name;
+    }
+
+    //@readOnlyDecorator
+    getProduct()
+    {
+        return `[ID=${this.id}][Name=${this.name}]`;
+    }
+}
+
+let product = new Product("YK232", "Apples");
+console.log(product.getProduct());
+
+product.getProduct = () => {};
+console.log(product.getProduct());
+
+class Ticket
+{
+    constructor(id, date, customerName, origin, destination)
+    {
+
+    }
+
+    createPDF()
+    {
+
+    }
+
+}
+
+function printFileFn(file)
+{
+
+}
+
+
+function errorHandler(...args)
+{
+    let fn;
+    if(args[2]) {
+        var[, , descriptor] = args;
+        fn = descriptor.value;
+    } else {
+        [fn] = args;
+    }
+    let returnFunction = function()
+    {
+        try
+        {
+            fn();
+        }catch (error){
+            console.log(errror.message);
+        }
+    }
+    if(descriptor)
+    {
+        descriptor.value = returnFunction;
+        return descriptor;
+    }
+    return returnFunction;
+}
