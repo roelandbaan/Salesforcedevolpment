@@ -11,6 +11,64 @@
     <div>
         <button id="login-button">Login</button>
     </div>
+    <div>
+        <ol>
+            <li>Freeze ice cream container</li>
+            <li>Heat milk and sugar</li>
+            <li>Separate and whip egg yolks</li>
+        </ol>
+    </div>
+    <div>
+        <form>
+            <label for="user">User:</label><br>
+            <input type="text" id="user" name="user"><br>
+            <label for="pass">Password:</label><br>
+            <input type="password" id="pass" name="pass">
+        </form>
+    </div>
+    <div>
+        <h1>Bubble vs Capture</h1>
+        <h3>Bubble</h3>
+        <div id="outerF">
+            Outer Div
+            <div id="middleF">
+                Middle Div
+                <div id="innerF">
+                    Inner Div
+                </div>
+            </div>
+        </div>
+        <br>
+        <h3>Capture</h3>
+        <div id="outerT">
+            Outer Div
+            <div id="middleT">
+                Middle Div
+                <div id="innerT">
+                    Inner Div
+                </div>
+            </div>
+        </div>
+        <h3>Stop propagation in Inner Div(bubble)</h3>
+        <div id="outerS">
+            Outer Div
+            <div id="middleS">
+                Middle Div
+                <div id="innerS">
+                    Inner Div
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1>Override default</h1>
+            <div id="outerD">
+                <form>
+                    <label for="name1">Full Name</label>
+                    <input type="text" id="name1" name="name" placeholder="Enter Only Letters">
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="Event handlers and propagation.js"></script>
 </body>
 </html>
