@@ -961,3 +961,24 @@ function errorHandler(...args)
     }
     return returnFunction;
 }
+
+function initialize()
+{
+    let count = 0;
+    let counter = 1;
+
+    setCounter(5);
+    function setCounter(val)
+    {
+        if (val > 0){
+            counter = val;
+        }
+    }
+    return function(num)
+    {
+        setCounter(num);
+        count += counter;
+        console.log(count);
+    }
+}
+const increment = initialize();
