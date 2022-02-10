@@ -111,5 +111,59 @@ function checkName(e)
     }
 }
 
+
+
+// Scenario 1
 const nameField = document.getElementById('name1');
 nameField.addEventListener('keypress', checkName);
+
+const finishBtn = document.getElementById('finish-quiz');
+
+finishBtn.onclick = function(e){
+    const evt = new CustomEvent('finishedQuiz', {
+        quizComplete: true
+    });
+    window.dispatchEvent(evt);
+}
+
+window.addEventListener('finishedQuiz', function(e){
+    console.log('Quiz has finished.');
+});
+
+
+// Scenario 2
+document.addEventListener('DOMContentLoaded', function(e) {
+    console.log('hi')
+});
+
+
+// Scenario 3
+const benefitChoices = [];
+
+document.getElementById('choices1').onclick = function(event){
+    event.preventDefault();
+    if (benefitChoices.length >= 3) {
+    event.stopPropagation();
+    } else {
+    event.target.classList.add('red');
+    }
+};
+
+document.getElementById('choices-div').onclick = function(e){
+    benefitChoices.push(e.target.innerText);
+    console.log(benefitChoices);
+    }
+
+const submit = document.getElementById('submit-choices');
+submit.addEventListener('click', function(e){
+    this.innerHTML = 'Submitted';
+    this.disabled = true;
+});
+
+const timer  = function(){
+    let start = Date.now();
+    setTimeout(function(){
+      let end = Date.now();
+      console.log( "Duration: " + (end - start) )
+    },1000);
+  };
