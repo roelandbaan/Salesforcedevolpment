@@ -104,7 +104,8 @@ function checkName(e)
     let char = e.key;
     let charCode = e.charCode;
     let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-    // Prevent anything but letters from showing using preventDefault while allowing charCode 8 (backspace)
+    // Prevent anything but letters from showing using preventDefault 
+    // while allowing charCode 8 (backspace)
     // in case the user needs to delete a character.
     if(charCode !== 8 && !alphabet.includes(char.toLowerCase())) {
         e.preventDefault();
@@ -167,3 +168,14 @@ const timer  = function(){
       console.log( "Duration: " + (end - start) )
     },1000);
   };
+
+  function factorial1(num)
+  {
+      if(num === 1){
+          return 1;
+      }
+      return num * factorial1(num - 1);
+  }
+
+  const result = factorial1(4);
+  console.log(result)
