@@ -179,3 +179,5 @@ const timer  = function(){
 
   const result = factorial1(4);
   console.log(result)
+
+  
