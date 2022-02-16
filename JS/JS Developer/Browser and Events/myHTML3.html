@@ -19,14 +19,25 @@
     <p>Click page 1 to push it to the history stack. The browser back button will be enabled. You will see '?page=1' on the url textbox
     <button id="page1" onclick='push({page: 1}, "Page 1", "?page=1")'>Page 1</button></p>
     <p>Click page 2 to push it to the history stack. The browser back button will be enabled. You will see '?page=2' on the url textbox
-    <button id="page3" onclick='push({page: 2}, "Page 2", "?page=2")'>Page 2</button></p>
+    <button id="page2" onclick='push({page: 2}, "Page 2", "?page=2")'>Page 2</button></p>
     <p>Click this button to replace the top of the history stack with Page 3. You will see '?page=3' on the url textbox. Click the browser's back button and then the forward button and you will see this page as the new location.
     <button id="replace" onclick='replace()'>Page 3</button></p>
     <p>Click this button or the browser's back button to go back a page.
     <button id="backward" onclick="backward()" style="enabled: false;">Backward</button></p>
     <p>Click this button or the browser's forward button to go forward a page.
     <button id="forward" onclick="forward()">Forward</button></p>
+    <canvas id="myCanvas" width="300" height="300"></canvas>
     <div id="message"></div>
+    <div id="urldiv"></div>
+    <label id="firstLabel" for="firstName">First Name</label><br/>
+    <input type="text" id="firstName"><br/>
+    <label id="lastLabel" for="lastName">Last Name</label><br/>
+    <input type="text" id="lastName" style="margin-bottom: 10px;"><br/>
+    <button id="save" onclick="save(event)" class="button">save</button>
+    <button id="clearFirst" onclick="clearFirstName(event)" class="button">Clear First Name</button>
+    <button id="clear" onclick="clearAll(event)" class="button" style="margin-bottom: 10px;">Clear All</button>
+    <div id="thankyou"></div>
+    <div id="welcome"></div>
 
     <script src="Browser Api's.js"></script>
 </body>
