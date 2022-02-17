@@ -107,3 +107,41 @@ const urlString = 'http://example.com:3000/path/page?name=Adam&age=31#profile';
 const urlObject = new URL(urlString);                   // Create a URL object from the URL string
 const wholeURL = new URLSearchParams(urlString);        // Create a URLSearchParams object from the whole URL sring
 const searchURL = new URLSearchParams(urlObject.search);// Create a URLSearchParams object from the query string
+const searchStrings = ['somewebsite', 'name', 'age'];
+for(let item in searchStrings){
+    urldiv.innerHTML += `<br/>Get ${searchStrings[item]} in ${urlString} returns <strong>` + wholeURL.get(searchStrings[item]) + '</strong><br/>';
+    urldiv.innerHTML += `<br/>Get ${searchStrings[item]} in ${urlObject.search} returns <strong>` + searchURL.get(searchStrings[item]) + '</strong><br/>';
+}
+
+// Local storage API
+
+
+// when the page loads, this function uses getItem() to get the name from local storage and display it
+if(typeof(storage) !== 'undefined') {
+    const firstName = localStorage.getItem('firstName');
+    const lastName = localStorage.getItem('lastName');
+    if(firstName || lastName) document.getElementById('welcome').innerHTML = `Welcome back, ${firstName? firstName: ''} ${lastName? ' ' + lastName: ''}!`;
+}
+
+// this function uses setItem() to store both firstName and lastName in local storage
+const save = (event) => {
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    if(firstName && lastName){
+        // Call setItem() to store in local storage
+        localStorage.setItem('firstName', firstName);
+        localStorage.setItem('lastName', lastName);
+        document.getElementById('thankyou').innerHTML = `Thank you, ${firstName} ${lastName}!`;
+    }
+}
+
+// this function uses removeItem() to remove the firstName from localStorage
+const clearFirstName = (event) => {
+    localStorage.removeItem('firstName');
+    document.getElementById('firstName').value = '';
+}
+
+// this function uses clear() to clear the localStorage
+const clearAll = () => {
+    localStorage.clear();
+}
