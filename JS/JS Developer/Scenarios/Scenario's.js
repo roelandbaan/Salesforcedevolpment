@@ -86,17 +86,17 @@ xhr.onreadystatechange = () => {
 // });
 
 // 3
-const record = { id: 'HR-1005-T', name: 'Jill Smith', title: 'HR Manager', salary: 75000 };
-const url = 'http://portal.cosmicinnovation.com/employees';
-fetch(url, {method:'POST',
-            headres: {
-                'content-Type': 'application/json'
-            }, body: JSON.stringify(record)
-        }).then(response => response.json()).then(data => {
-            console.log('Succes', data);
-        }).catch((error) => {
-            console.log('Error', error);
-});
+// const record = { id: 'HR-1005-T', name: 'Jill Smith', title: 'HR Manager', salary: 75000 };
+// const url = 'http://portal.cosmicinnovation.com/employees';
+// fetch(url, {method:'POST',
+//             headres: {
+//                 'content-Type': 'application/json'
+//             }, body: JSON.stringify(record)
+//         }).then(response => response.json()).then(data => {
+//             console.log('Succes', data);
+//         }).catch((error) => {
+//             console.log('Error', error);
+// });
 
 
 // Objects functions and classes
@@ -206,3 +206,108 @@ function errorHandler(...args)
 }
 
 console.log(new Number(''));
+
+
+// Event Handling
+const finishBtn = document.getElementById('finish-quiz');
+
+// finishBtn.onclick = function(e){
+//     let event = new CustomEvent('event', {
+//        finishedQuiz:true
+//     });
+//     window.dispatchEvent(event);
+// }
+
+window.addEventListener('event', function(e){
+    console.log('quiz has finished');
+})
+
+// 2
+document.addEventListener('DOMContentLoaded', function(e){
+    // prepareData();
+    // initializeElements();
+    // setUpTracking();
+})
+
+//3
+// const benefitChoices = [];
+// document.getElementById('choices').onclick = function(event){
+// event.preventDefault
+// if(benefitChoices.size >= 3){
+//     event.stopPropagation();
+// } else {
+//     event.target.classList.add('red');
+// }
+// }
+
+
+// Manipulating the DOM
+function showFeedBack(id, correct)
+{
+    const correctFdbk = 'Congrats';
+    const wrongFdbk = 'Sorry';
+    const question = document.getElementById('question');
+    const div = document.createElement('div');
+    if(correct){
+      div.innerHTML = correctFdbk;
+      div.style.color = 'green';
+    } else {
+        div.innerHTML = wrongFdbk;
+        div.style.color = 'red';
+    }
+    question.appendChild(div);
+}
+
+const bttns = document.querySelectorAll('button');
+for(let node of bttns){
+    node.addEventListener('click', showFeedBack);
+}
+
+
+// Browser Specific API's
+// const url1 = 'https://myURL.com:3000/hello'
+// fetch(url, {method:'GET'}).then(response.json()).then((data) =>{
+//     console.log(data);
+//     const employee = data;
+//     document.getElementById('name').value = `${employee.firstName} ${employee.lastName}`;
+//     document.getElementById('email').value = employee.email;
+//     document.getElementById('image').src = employee.avatar;
+// }).catch((error) =>{
+//     document.getElementById('error').innerHTML = error;
+// });
+
+// 2 Location API
+const urlString = 'https://website.com:3000/programming/search?name=JavaScript&year=2005&condition=used#used'
+const urlObject = new URL(urlString);
+const display = () =>{
+    const message = 
+    `<p>`+ `Original url strin => ${urlString}<br/>` +
+    `origin => ${urlObject.origin}<br/>` +
+    `protocol => ${urlObject.protocol}<br/>` +
+    `host => ${urlObject.host}<br/>` +
+    `hostName => ${urlObject.hostname}<br/>` +
+    `port => ${urlObject.port}<br/>` +
+    `pathname => ${urlObject.pathname}<br/>` +
+    `search => ${urlObject.search}<br/>` +
+    `searchParams => ${urlObject.searchParams}<br/>` +
+    `haash => ${urlObject.hash}<br/>` +
+    `href => ${urlObject.href}<br/>` +`</p>`;
+    document.getElementById('url').innerHTML = message;
+}
+display();
+
+// 3
+const slides = [
+    { slug: 'home', title: 'Home', description: 'Welcome.' },   
+    { slug: 'about', title: 'About Us', description: 'Javascript Developer' },    
+    { slug: 'contact', title: 'Contact', description: 'contact@js.io'}  
+];
+
+function displayIndex(index)
+{
+    const h1 = document.createElement('h1');
+    const pTag = document.createElement('p');
+    h1.innerHTML = slides[index].title;
+    pTag.innerHTML = slides[index].description;
+}
+window.onpopstate = displayIndex();
