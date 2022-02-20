@@ -145,3 +145,4 @@ const clearFirstName = (event) => {
 const clearAll = () => {
     localStorage.clear();
 }
+"use strict"
