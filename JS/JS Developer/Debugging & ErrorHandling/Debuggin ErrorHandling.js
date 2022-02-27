@@ -134,3 +134,4 @@ async function abc(){
     return "hello"
 }
 abc().then(data => console.log(data));
+
