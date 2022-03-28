@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Index xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UserId_and_Timestamp</fullName>
+    <fields>
+        <name>User_Id__c</name>
+        <sortDirection>ASC</sortDirection>
+    </fields>
+    <fields>
+        <name>Timestamp__c</name>
+        <sortDirection>DESC</sortDirection>
+    </fields>
+    <label>UserId and  Timestamp</label>
+</Index>

@@ -1,0 +1,9 @@
+{ 
+      "salesforcedx-vscode-apex.java.home": "/tools/jdk", 
+      "terminal.integrated.shell.windows": "C:\\tools\\Git\\git-cmd.exe", 
+      "terminal.integrated.shellArgs.windows": [ 
+      "--command=usr/bin/bash.exe", 
+      "-l", 
+      "-i" 
+      ], 
+  } 
